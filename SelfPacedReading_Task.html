@@ -18,26 +18,112 @@
   </head>
   <body></body>
 
-  <!--Experiment Script-->
+  <!-- Experiment Script -->
   <script>
     const jsPsych = initJsPsych({
       on_finish: function () {
-        jsPsych.data.displaydata();
+        jsPsych.data.displayData();
       },
     });
 
     // Timeline
-    var timeline = [];
+    var main_timeline = [];
 
-    // Welcome Prompt
-    var welcome = {
+    // Introduction Prompt
+    var intro = {
       type: jsPsychSurveyHtmlForm,
       preamble: "This is a self-paced reading task",
       html: "<p></p>",
     };
+    main_timeline.push(intro);
 
-    timeline.push(welcome);
+    // First Trial - SR: "The cat that chases the mouse runs"
+    var segment1_sr = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: "<div> The cat | ___ | ___ | ___ | ___ </div>",
+      choices: [" "],
+    };
 
-    jsPsych.run(timeline);
+    var segment2_sr = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: "<div> ___ | that | ___ | ___ | ___ </div>",
+      choices: [" "],
+    };
+
+    var segment3_sr = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: "<div> ___ | ___ | chases | ___ | ___ </div>",
+      choices: [" "],
+    };
+
+    var segment4_sr = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: "<div> ___ | ___ | ___ | the mouse | ___ </div>",
+      choices: [" "],
+    };
+
+    var segment5_sr = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: "<div> ___ | ___ | ___ | ___ | runs </div>",
+      choices: [" "],
+    };
+
+    var trial1_timeline = {
+      timeline: [
+        segment1_sr,
+        segment2_sr,
+        segment3_sr,
+        segment4_sr,
+        segment5_sr,
+      ],
+      repetitions: 1,
+    };
+    main_timeline.push(trial1_timeline);
+
+    // // Second Trial - OR: "The cat that the mouse chases runs"
+    var segment1_or = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: "<div> The cat | ___ | ___ | ___ | ___ </div>",
+      choices: [" "],
+    };
+
+    var segment2_or = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: "<div> ___ | that | ___ | ___ | ___ </div>",
+      choices: [" "],
+    };
+
+    var segment3_or = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: "<div> ___ | ___ | the mouse | ___ | ___ </div>",
+      choices: [" "],
+    };
+
+    var segment4_or = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: "<div> ___ | ___ | ___ | chases | ___ </div>",
+      choices: [" "],
+    };
+
+    var segment5_or = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: "<div> ___ | ___ | ___ | ___ | runs </div>",
+      choices: [" "],
+    };
+
+    var trial2_timeline = {
+      timeline: [
+        segment1_or,
+        segment2_or,
+        segment3_or,
+        segment4_or,
+        segment5_or,
+      ],
+      repetitions: 1,
+    };
+    main_timeline.push(trial2_timeline);
+    // var trial2_timeline = {};
+
+    jsPsych.run(main_timeline);
   </script>
 </html>
