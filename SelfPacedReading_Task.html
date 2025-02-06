@@ -1,0 +1,43 @@
+<!-- This is a first attempt at a self paced reading task -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta data -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reading Task</title>
+
+    <!-- Plugins -->
+    <script src="common/jspsych/dist/jspsych.js"></script>
+    <script src="common/jspsych/dist/plugin-html-keyboard-response.js"></script>
+    <script src="common/jspsych/dist/plugin-survey-html-form.js"></script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="common/jspsych/dist/jspsych.css" />
+  </head>
+  <body></body>
+
+  <!--Experiment Script-->
+  <script>
+    const jsPsych = initJsPsych({
+      on_finish: function () {
+        jsPsych.data.displaydata();
+      },
+    });
+
+    // Timeline
+    var timeline = [];
+
+    // Welcome Prompt
+    var welcome = {
+      type: jsPsychSurveyHtmlForm,
+      preamble: "This is a self-paced reading task",
+      html: "<p></p>",
+    };
+
+    timeline.push(welcome);
+
+    jsPsych.run(timeline);
+  </script>
+</html>
