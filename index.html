@@ -1,6 +1,7 @@
-<!--  This is a first attempt at a self paced reading task using the package jsPsych. 
+<!--  This is a first prototype of a self paced reading task using the package jsPsych. 
       Link: https://www.jspsych.org/
       Date: 06/02/2025
+      Author: Víctor López 
 -->
 <!-- Metadata -->
 <!DOCTYPE html>
@@ -25,7 +26,10 @@
   <script>
     const jsPsych = initJsPsych({
       on_finish: function () {
+        var part_id = `${jsPsych.data.get().values()[0].part_id}.csv`;
+
         jsPsych.data.displayData();
+        jsPsych.data.get().localSave("csv", part_id);
       },
     });
 
