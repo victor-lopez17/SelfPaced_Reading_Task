@@ -1,7 +1,7 @@
-<!--  This is a first prototype of a self paced reading task using the package jsPsych. 
-      Link: https://www.jspsych.org/
+<!--  Title: Self-Paced Reading Task
       Date: 06/02/2025
-      Author: Víctor López 
+      Author: Víctor López Domínguez
+      Repository link: https://github.com/Vieju17/TFG_ExperimentDesign.git
 -->
 <!-- Metadata -->
 <!DOCTYPE html>
@@ -11,6 +11,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reading Task</title>
+
+    <!-- Page Icon -->
+    <link rel="icon" href="./common/img/uabLogo.png" />
 
     <!-- Plugins -->
     <script src="common/jspsych/dist/jspsych.js"></script>
@@ -42,11 +45,15 @@
     // Timeline
     var main_timeline = [];
 
-    // Introduction Prompt
+    // Introduction & Instructions Prompt
     var intro = {
       type: jsPsychSurveyHtmlForm,
-      preamble: "This is a self-paced reading task",
+      preamble:
+        "<p class = 'welcome'>Welcome!</p>" +
+        "<p>You are about to partake in a self-paced reading task.</p>" +
+        "<p>Thank you for your time!</p>",
       html: "<p></p>",
+      button_label: "Instructions",
       record_data: false,
     };
     main_timeline.push(intro);
