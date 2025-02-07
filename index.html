@@ -1,0 +1,155 @@
+<!--  This is a first attempt at a self paced reading task using the package jsPsych. 
+      Link: https://www.jspsych.org/
+      Date: 06/02/2025
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta data -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reading Task</title>
+
+    <!-- Plugins -->
+    <script src="common/jspsych/dist/jspsych.js"></script>
+    <script src="common/jspsych/dist/plugin-html-keyboard-response.js"></script>
+    <script src="common/jspsych/dist/plugin-survey-html-form.js"></script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="common/jspsych/dist/jspsych.css" />
+  </head>
+  <body></body>
+
+  <!-- Experiment Script -->
+  <script>
+    const jsPsych = initJsPsych({
+      on_finish: function () {
+        jsPsych.data.displayData();
+      },
+    });
+
+    // Timeline
+    var main_timeline = [];
+
+    // Introduction Prompt
+    var intro = {
+      type: jsPsychSurveyHtmlForm,
+      preamble: "This is a self-paced reading task",
+      html: "<p></p>",
+    };
+    main_timeline.push(intro);
+
+    //Stimulus
+    var stimulus = [
+      {
+        s0: "_______ | ____ | ____ | ______ | _______",
+        s1: "The cat | ____ | ____ | ______ | _______",
+        s2: "_______ | that | ____ | ______ | _______",
+        s3: "_______ | ____ | runs | ______ | _______",
+        s4: "_______ | ____ | ____ | chases | _______",
+        s5: "_______ | ____ | ____ | ______ | the dog",
+        clause_type: "sr",
+        number: "ss",
+      },
+      {
+        s0: "________ | ____ | ____ | ______ | _________",
+        s1: "The lion | ____ | ____ | ______ | _________",
+        s2: "________ | that | ____ | ______ | _________",
+        s3: "________ | ____ | runs | ______ | _________",
+        s4: "________ | ____ | ____ | chases | _________",
+        s5: "________ | ____ | ____ | ______ | the zebra",
+        clause_type: "sr",
+        number: "ss",
+      },
+    ];
+
+    // Trial
+    var trial = [
+      {
+        type: jsPsychHtmlKeyboardResponse,
+        choices: [" "],
+        stimulus: jsPsych.timelineVariable("s0"),
+        data: {
+          segment: "s0",
+          clause_type: jsPsych.timelineVariable("clause_type"),
+          number: jsPsych.timelineVariable("number"),
+        },
+      },
+      {
+        type: jsPsychHtmlKeyboardResponse,
+        choices: [" "],
+        stimulus: jsPsych.timelineVariable("s1"),
+        data: {
+          segment: "s1",
+          clause_type: jsPsych.timelineVariable("clause_type"),
+          number: jsPsych.timelineVariable("number"),
+        },
+      },
+      {
+        type: jsPsychHtmlKeyboardResponse,
+        choices: [" "],
+        stimulus: jsPsych.timelineVariable("s2"),
+        data: {
+          segment: "s2",
+          clause_type: jsPsych.timelineVariable("clause_type"),
+          number: jsPsych.timelineVariable("number"),
+        },
+      },
+      {
+        type: jsPsychHtmlKeyboardResponse,
+        choices: [" "],
+        stimulus: jsPsych.timelineVariable("s3"),
+        data: {
+          segment: "s3",
+          clause_type: jsPsych.timelineVariable("clause_type"),
+          number: jsPsych.timelineVariable("number"),
+        },
+      },
+      {
+        type: jsPsychHtmlKeyboardResponse,
+        choices: [" "],
+        stimulus: jsPsych.timelineVariable("s4"),
+        data: {
+          segment: "s4",
+          clause_type: jsPsych.timelineVariable("clause_type"),
+          number: jsPsych.timelineVariable("number"),
+        },
+      },
+      {
+        type: jsPsychHtmlKeyboardResponse,
+        choices: [" "],
+        stimulus: jsPsych.timelineVariable("s5"),
+        post_trial_gap: 1000,
+        data: {
+          segment: "s5",
+          clause_type: jsPsych.timelineVariable("clause_type"),
+          number: jsPsych.timelineVariable("number"),
+        },
+      },
+    ];
+
+    // Fillers
+    var fillers = {
+      type: jsPsychHtmlKeyboardResponse,
+      choices: [" "],
+      stimulus: "This is a filler sentence",
+      post_trial_gap: 1000,
+      data: {
+        segment: "PLACEHOLDER",
+        clause_type: "filler",
+        number: "PLACEHOLDER",
+      },
+    };
+
+    // Trial Procedure
+    var trial_procedure = {
+      timeline: [trial, fillers],
+      timeline_variables: stimulus,
+    };
+    main_timeline.push(trial_procedure);
+
+    // Experiment Initiation
+    jsPsych.run(main_timeline);
+  </script>
+</html>
