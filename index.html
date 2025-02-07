@@ -2,7 +2,7 @@
       Link: https://www.jspsych.org/
       Date: 06/02/2025
 -->
-
+<!-- Metadata -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,6 +29,12 @@
       },
     });
 
+    // Participant ID
+    var part_id = jsPsych.randomization.randomID(3);
+    jsPsych.data.addProperties({
+      part_id: part_id,
+    });
+
     // Timeline
     var main_timeline = [];
 
@@ -37,6 +43,7 @@
       type: jsPsychSurveyHtmlForm,
       preamble: "This is a self-paced reading task",
       html: "<p></p>",
+      record_data: false,
     };
     main_timeline.push(intro);
 
