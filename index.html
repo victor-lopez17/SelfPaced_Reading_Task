@@ -33,7 +33,7 @@
       on_finish: function () {
         var part_id = `${jsPsych.data.get().values()[0].part_id}.csv`;
 
-        jsPsych.data.displayData();
+        // jsPsych.data.displayData('csv');
         jsPsych.data.get().localSave("csv", part_id);
       },
     });
@@ -43,39 +43,39 @@
     jsPsych.data.addProperties({
       part_id: part_id,
     });
+
     // Timeline
-    var main_timeline = [];
+    var timeline = [];
 
     // Introduction
     var intro = {
       type: jsPsychSurveyHtmlForm,
-      preamble:
-        "<p class='title'>Welcome!</p>" +
-        "<p>You are about to partake in a self-paced reading task.</p>" +
-        "<p>First, please, answer a few questions.</p>",
+      preamble: `<p class='title'>Welcome!</p>
+        <p>You are about to partake in a self-paced reading task.</p>
+        <p>First, please, answer a few questions.</p>`,
       html: "<p></p>",
       button_label: "Survey",
       record_data: false,
     };
-    main_timeline.push(intro);
+    timeline.push(intro);
 
     // Survey
     var survey = {
       type: jsPsychSurveyHtmlForm,
-      preamble: "<p>Please answer the following questions:</p>",
+      preamble: `<p>Please answer the following questions:</p>`,
       html: `
         <p>How old are you?
-          <input name="age" type="number" min="18" max="99" required value="18">
+          <input name='age' type='number' min='18' max='99' required value='18'>
           </p>
         <p>What is your gender?
-          <input type="radio" name="gender" value="male" required> Male
-          <input type="radio" name="gender" value="female" required> Female
-          <input type="radio" name="gender" value="other" required> Other
+          <input type='radio' name='gender' value='male' required> Male
+          <input type='radio' name='gender' value='female' required> Female
+          <input type='radio' name='gender' value='other' required> Other
         </p>
         <p>How many of these languages do you speak?
-          <input type="checkbox" name="lang_ca" value="catalan"> Catalan
-          <input type="checkbox" name="lang_sp" value="spanish"> Spanish
-          <input type="checkbox" name="lang_en" value="english"> English
+          <input type='checkbox' name='lang_ca' value='catalan'> Catalan
+          <input type='checkbox' name='lang_sp' value='spanish'> Spanish
+          <input type='checkbox' name='lang_en' value='english'> English
         </p>
       `,
       button_label: "Submit",
@@ -89,43 +89,42 @@
         });
       },
     };
-    main_timeline.push(survey);
+    timeline.push(survey);
 
     // Instructions
     var inst = {
       type: jsPsychSurveyHtmlForm,
-      preamble:
-        "<p class='title'>Instructions</p>" +
-        "<p>For this task, you will be presented with a sentence divided in sections.<br>" +
-        "However, these parts will be initially hidden.</p>" +
-        "<p>In order to complete it, you are asked to press the space bar each time you are done reading each section. <br>" +
-        "This will reveal what follows and hide the previous one.</p>",
+      preamble: `<p class='title'>Instructions</p>
+        <p>For this task, you will be presented with a sentence divided in sections.<br>
+        However, these parts will be initially hidden.</p>
+        <p>In order to complete it, you are asked to press the space bar each time you are done reading each section.<br>
+        This will reveal what follows and hide the previous one.</p>`,
       html: "<p></p>",
       button_label: "Proceed",
       record_data: false,
       post_trial_gap: 1000,
     };
-    main_timeline.push(inst);
+    timeline.push(inst);
 
     //Stimulus
     var stimulus = [
       {
-        s0: "<p class='stimulus'>_______ | ____ | ____ | ______ | _______</p>",
-        s1: "<p class='stimulus'>The cat | ____ | ____ | ______ | _______</p>",
-        s2: "<p class='stimulus'>_______ | that | ____ | ______ | _______</p>",
-        s3: "<p class='stimulus'>_______ | ____ | runs | ______ | _______</p>",
-        s4: "<p class='stimulus'>_______ | ____ | ____ | chases | _______</p>",
-        s5: "<p class='stimulus'>_______ | ____ | ____ | ______ | the dog</p>",
+        s0: '<p class="stimulus">_______ | ____ | ____ | ______ | _______</p>',
+        s1: '<p class="stimulus">The cat | ____ | ____ | ______ | _______</p>',
+        s2: '<p class="stimulus">_______ | that | ____ | ______ | _______</p>',
+        s3: '<p class="stimulus">_______ | ____ | runs | ______ | _______</p>',
+        s4: '<p class="stimulus">_______ | ____ | ____ | chases | _______</p>',
+        s5: '<p class="stimulus">_______ | ____ | ____ | ______ | the dog</p>',
         clause_type: "sr",
         number: "ss",
       },
       {
-        s0: "<p class='stimulus'>________ | ____ | ____ | ______ | _________</p>",
-        s1: "<p class='stimulus'>The lion | ____ | ____ | ______ | _________</p>",
-        s2: "<p class='stimulus'>________ | that | ____ | ______ | _________</p>",
-        s3: "<p class='stimulus'>________ | ____ | runs | ______ | _________</p>",
-        s4: "<p class='stimulus'>________ | ____ | ____ | chases | _________</p>",
-        s5: "<p class='stimulus'>________ | ____ | ____ | ______ | the zebra</p>",
+        s0: '<p class="stimulus">________ | ____ | ____ | ______ | _________</p>',
+        s1: '<p class="stimulus">The lion | ____ | ____ | ______ | _________</p>',
+        s2: '<p class="stimulus">________ | that | ____ | ______ | _________</p>',
+        s3: '<p class="stimulus">________ | ____ | runs | ______ | _________</p>',
+        s4: '<p class="stimulus">________ | ____ | ____ | chases | _________</p>',
+        s5: '<p class="stimulus">________ | ____ | ____ | ______ | the zebra</p>',
         clause_type: "sr",
         number: "ss",
       },
@@ -135,7 +134,7 @@
     var fillers = {
       type: jsPsychHtmlKeyboardResponse,
       choices: [" "],
-      stimulus: "<p class='stimulus'>This is a filler sentence</p>",
+      stimulus: '<p class="stimulus">This is a filler sentence</p>',
       post_trial_gap: 1000,
       data: {
         segment: "PLACEHOLDER",
@@ -214,9 +213,42 @@
       timeline: [trial, fillers],
       timeline_variables: stimulus,
     };
-    main_timeline.push(trial_procedure);
+    timeline.push(trial_procedure);
 
     // Experiment Ending
-    jsPsych.run(main_timeline);
+    var debrief = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: function () {
+        var s1_mean = Math.round(
+          jsPsych.data.get().filter({ segment: "s1" }).select("rt").mean()
+        );
+        var s2_mean = Math.round(
+          jsPsych.data.get().filter({ segment: "s2" }).select("rt").mean()
+        );
+        var s3_mean = Math.round(
+          jsPsych.data.get().filter({ segment: "s3" }).select("rt").mean()
+        );
+        var s4_mean = Math.round(
+          jsPsych.data.get().filter({ segment: "s4" }).select("rt").mean()
+        );
+        var s5_mean = Math.round(
+          jsPsych.data.get().filter({ segment: "s5" }).select("rt").mean()
+        );
+        return `<p class='title'>Well Done!</p>
+        <p>The trial has come to an end.<br>
+        Here are the means of your reaction times (ms) in each segment:</p>
+        <div><span>Segment 1: </span><span>${s1_mean}ms</span></div>
+        <div><span>Segment 2: </span><span>${s2_mean}ms</span></div>
+        <div><span>Segment 3: </span><span>${s3_mean}ms</span></div>
+        <div><span>Segment 4: </span><span>${s4_mean}ms</span></div>
+        <div><span>Segment 5: </span><span>${s5_mean}ms</span></div>
+        <p>Thank you for your time!</p>
+        `;
+      },
+      record_data: false,
+    };
+    timeline.push(debrief);
+
+    jsPsych.run(timeline);
   </script>
 </html>
