@@ -64,7 +64,9 @@
       type: jsPsychSurveyHtmlForm,
       preamble: "<p>Please answer the following questions:</p>",
       html: `
-        <p>How old are you? <input name="age" type="number" min="18" max="99" required value="18"></p>
+        <p>How old are you?
+          <input name="age" type="number" min="18" max="99" required value="18">
+          </p>
         <p>What is your gender?
           <input type="radio" name="gender" value="male" required> Male
           <input type="radio" name="gender" value="female" required> Female
@@ -90,26 +92,40 @@
     main_timeline.push(survey);
 
     // Instructions
+    var inst = {
+      type: jsPsychSurveyHtmlForm,
+      preamble:
+        "<p class = 'title'>Instructions</p>" +
+        "<p>For this task, you will be presented with a sentence divided in sections.<br>" +
+        "However, these parts will be initially hidden.</p>" +
+        "<p>In order to complete it, you are asked to press the space bar each time you are done reading each section. <br>" +
+        "This will reveal what follows and hide the previous one</p>",
+      html: "<p></p>",
+      button_label: "Proceed",
+      record_data: false,
+      post_trial_gap: 1000,
+    };
+    main_timeline.push(inst);
 
     //Stimulus
     var stimulus = [
       {
-        s0: "_______ | ____ | ____ | ______ | _______",
-        s1: "The cat | ____ | ____ | ______ | _______",
-        s2: "_______ | that | ____ | ______ | _______",
-        s3: "_______ | ____ | runs | ______ | _______",
-        s4: "_______ | ____ | ____ | chases | _______",
-        s5: "_______ | ____ | ____ | ______ | the dog",
+        s0: "<p class='stimulus'>_______ | ____ | ____ | ______ | _______</p>",
+        s1: "<p class='stimulus'>The cat | ____ | ____ | ______ | _______</p>",
+        s2: "<p class='stimulus'>_______ | that | ____ | ______ | _______</p>",
+        s3: "<p class='stimulus'>_______ | ____ | runs | ______ | _______</p>",
+        s4: "<p class='stimulus'>_______ | ____ | ____ | chases | _______</p>",
+        s5: "<p class='stimulus'>_______ | ____ | ____ | ______ | the dog</p>",
         clause_type: "sr",
         number: "ss",
       },
       {
-        s0: "________ | ____ | ____ | ______ | _________",
-        s1: "The lion | ____ | ____ | ______ | _________",
-        s2: "________ | that | ____ | ______ | _________",
-        s3: "________ | ____ | runs | ______ | _________",
-        s4: "________ | ____ | ____ | chases | _________",
-        s5: "________ | ____ | ____ | ______ | the zebra",
+        s0: "<p class='stimulus'>________ | ____ | ____ | ______ | _________</p>",
+        s1: "<p class='stimulus'>The lion | ____ | ____ | ______ | _________</p>",
+        s2: "<p class='stimulus'>________ | that | ____ | ______ | _________</p>",
+        s3: "<p class='stimulus'>________ | ____ | runs | ______ | _________</p>",
+        s4: "<p class='stimulus'>________ | ____ | ____ | chases | _________</p>",
+        s5: "<p class='stimulus'>________ | ____ | ____ | ______ | the zebra</p>",
         clause_type: "sr",
         number: "ss",
       },
