@@ -50,7 +50,7 @@
     var intro = {
       type: jsPsychSurveyHtmlForm,
       preamble:
-        "<p class = 'title'>Welcome!</p>" +
+        "<p class='title'>Welcome!</p>" +
         "<p>You are about to partake in a self-paced reading task.</p>" +
         "<p>First, please, answer a few questions.</p>",
       html: "<p></p>",
@@ -95,11 +95,11 @@
     var inst = {
       type: jsPsychSurveyHtmlForm,
       preamble:
-        "<p class = 'title'>Instructions</p>" +
+        "<p class='title'>Instructions</p>" +
         "<p>For this task, you will be presented with a sentence divided in sections.<br>" +
         "However, these parts will be initially hidden.</p>" +
         "<p>In order to complete it, you are asked to press the space bar each time you are done reading each section. <br>" +
-        "This will reveal what follows and hide the previous one</p>",
+        "This will reveal what follows and hide the previous one.</p>",
       html: "<p></p>",
       button_label: "Proceed",
       record_data: false,
@@ -130,6 +130,19 @@
         number: "ss",
       },
     ];
+
+    // Fillers
+    var fillers = {
+      type: jsPsychHtmlKeyboardResponse,
+      choices: [" "],
+      stimulus: "<p class='stimulus'>This is a filler sentence</p>",
+      post_trial_gap: 1000,
+      data: {
+        segment: "PLACEHOLDER",
+        clause_type: "filler",
+        number: "PLACEHOLDER",
+      },
+    };
 
     // Trial
     var trial = [
@@ -196,19 +209,6 @@
       },
     ];
 
-    // Fillers
-    var fillers = {
-      type: jsPsychHtmlKeyboardResponse,
-      choices: [" "],
-      stimulus: "This is a filler sentence",
-      post_trial_gap: 1000,
-      data: {
-        segment: "PLACEHOLDER",
-        clause_type: "filler",
-        number: "PLACEHOLDER",
-      },
-    };
-
     // Trial Procedure
     var trial_procedure = {
       timeline: [trial, fillers],
@@ -216,7 +216,7 @@
     };
     main_timeline.push(trial_procedure);
 
-    // Experiment Initiation
+    // Experiment Ending
     jsPsych.run(main_timeline);
   </script>
 </html>
