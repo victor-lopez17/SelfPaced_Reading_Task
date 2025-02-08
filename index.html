@@ -3,6 +3,7 @@
       Author: Víctor López Domínguez
       Repository link: https://github.com/Vieju17/TFG_ExperimentDesign.git
 -->
+
 <!-- Metadata -->
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +26,6 @@
     <link rel="stylesheet" href="./common/jspsych/dist/jspsych.css" />
     <link rel="stylesheet" href="./common/style.css" />
   </head>
-  <body></body>
 
   <!-- Experiment Script -->
   <script>
@@ -64,16 +64,16 @@
       type: jsPsychSurveyHtmlForm,
       preamble: "<p>Please answer the following questions:</p>",
       html: `
-        <p>How old are you? <input name="age" type="number" min="18" max="99" required></p>
+        <p>How old are you? <input name="age" type="number" min="18" max="99" required value="18"></p>
         <p>What is your gender?
           <input type="radio" name="gender" value="male" required> Male
           <input type="radio" name="gender" value="female" required> Female
           <input type="radio" name="gender" value="other" required> Other
         </p>
         <p>How many of these languages do you speak?
-          <input type="checkbox" name="lang" value="catalan"> Catalan
-          <input type="checkbox" name="lang" value="spanish"> Spanish
-          <input type="checkbox" name="lang" value="english"> English
+          <input type="checkbox" name="lang_ca" value="catalan"> Catalan
+          <input type="checkbox" name="lang_sp" value="spanish"> Spanish
+          <input type="checkbox" name="lang_en" value="english"> English
         </p>
       `,
       button_label: "Submit",
@@ -81,7 +81,9 @@
         jsPsych.data.addProperties({
           age: data.response.age,
           gender: data.response.gender,
-          lang: data.response.lang,
+          lang_ca: data.response.lang_ca,
+          lang_sp: data.response.lang_sp,
+          lang_en: data.response.lang_en,
         });
       },
     };
