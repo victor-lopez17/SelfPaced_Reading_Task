@@ -16,12 +16,14 @@
     <link rel="icon" href="./common/img/uabLogo.png" />
 
     <!-- Plugins -->
-    <script src="common/jspsych/dist/jspsych.js"></script>
-    <script src="common/jspsych/dist/plugin-html-keyboard-response.js"></script>
-    <script src="common/jspsych/dist/plugin-survey-html-form.js"></script>
+    <script src="./common/jspsych/dist/jspsych.js"></script>
+    <script src="./common/jspsych/dist/plugin-html-keyboard-response.js"></script>
+    <script src="./common/jspsych/dist/plugin-survey-html-form.js"></script>
+    <script src="./common/jspsych/dist/plugin-survey.js"></script>
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="common/jspsych/dist/jspsych.css" />
+    <link rel="stylesheet" href="./common/jspsych/dist/jspsych.css" />
+    <link rel="stylesheet" href="./common/style.css" />
   </head>
   <body></body>
 
@@ -41,22 +43,51 @@
     jsPsych.data.addProperties({
       part_id: part_id,
     });
-
     // Timeline
     var main_timeline = [];
 
-    // Introduction & Instructions Prompt
+    // Introduction
     var intro = {
       type: jsPsychSurveyHtmlForm,
       preamble:
-        "<p class = 'welcome'>Welcome!</p>" +
+        "<p class = 'title'>Welcome!</p>" +
         "<p>You are about to partake in a self-paced reading task.</p>" +
-        "<p>Thank you for your time!</p>",
+        "<p>First, please, answer a few questions.</p>",
       html: "<p></p>",
-      button_label: "Instructions",
+      button_label: "Survey",
       record_data: false,
     };
     main_timeline.push(intro);
+
+    // Survey
+    var survey = {
+      type: jsPsychSurveyHtmlForm,
+      preamble: "<p>Please answer the following questions:</p>",
+      html: `
+        <p>How old are you? <input name="age" type="number" min="18" max="99" required></p>
+        <p>What is your gender?
+          <input type="radio" name="gender" value="male" required> Male
+          <input type="radio" name="gender" value="female" required> Female
+          <input type="radio" name="gender" value="other" required> Other
+        </p>
+        <p>How many of these languages do you speak?
+          <input type="checkbox" name="lang" value="catalan"> Catalan
+          <input type="checkbox" name="lang" value="spanish"> Spanish
+          <input type="checkbox" name="lang" value="english"> English
+        </p>
+      `,
+      button_label: "Submit",
+      on_finish: function (data) {
+        jsPsych.data.addProperties({
+          age: data.response.age,
+          gender: data.response.gender,
+          lang: data.response.lang,
+        });
+      },
+    };
+    main_timeline.push(survey);
+
+    // Instructions
 
     //Stimulus
     var stimulus = [
