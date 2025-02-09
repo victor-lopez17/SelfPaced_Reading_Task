@@ -50,7 +50,7 @@
     // Introduction
     var intro = {
       type: jsPsychSurveyHtmlForm,
-      preamble: `<p class='title'>Welcome!</p>
+      preamble: `<h1>Welcome!</h1>
         <p>You are about to partake in a self-paced reading task.</p>
         <p>First, please, answer a few questions.</p>`,
       html: "<p></p>",
@@ -94,7 +94,7 @@
     // Instructions
     var inst = {
       type: jsPsychSurveyHtmlForm,
-      preamble: `<p class='title'>Instructions</p>
+      preamble: `<h1>Instructions</h1>
         <p>For this task, you will be presented with a sentence divided in sections.<br>
         However, these parts will be initially hidden.</p>
         <p>In order to complete it, you are asked to press the space bar each time you are done reading each section.<br>
@@ -234,9 +234,9 @@
         var s5_mean = Math.round(
           jsPsych.data.get().filter({ segment: "s5" }).select("rt").mean()
         );
-        return `<p class='title'>Well Done!</p>
+        return `<h1>Well Done!</h1>
         <p>The trial has come to an end.<br>
-        Here are the means of your reaction times (ms) in each segment:</p>
+        Here are the means of your reaction times (ms) for each segment:</p>
         <div><span>Segment 1: </span><span>${s1_mean}ms</span></div>
         <div><span>Segment 2: </span><span>${s2_mean}ms</span></div>
         <div><span>Segment 3: </span><span>${s3_mean}ms</span></div>
