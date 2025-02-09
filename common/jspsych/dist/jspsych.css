@@ -1,6 +1,33 @@
 /*!*************************************************************************************************************!*\
   !*** css ../../node_modules/css-loader/dist/cjs.js!../../node_modules/@fontsource/open-sans/400-italic.css ***!
   \*************************************************************************************************************/
+
+/* Tags */
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: rgb(2, 112, 2);
+  margin: 5rem;
+}
+
+p {
+  font-size: 1.5rem;
+  width: 30rem;
+}
+
+div {
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+
+/* Classes */
+.stimulus {
+  font-size: 3rem;
+  width: fit-content;
+}
+
+/* Identifiers */
+
 /* open-sans-cyrillic-ext-400-italic*/
 @font-face {
   font-family: "Open Sans";
@@ -404,7 +431,9 @@
 /* Form elements like input fields and buttons */
 .jspsych-display-element input[type="text"] {
   font-family: "Open Sans", "Arial", sans-serif;
-  font-size: 14px;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 20%;
 }
 
 /* Buttons and Button Groups */
@@ -424,7 +453,7 @@
 .jspsych-btn {
   display: inline-block;
   padding: 8px 12px;
-  margin: 0.75em;
+  margin: 3rem;
   font-size: 1.5rem;
   font-weight: bold;
   font-family: "Open Sans", "Arial", sans-serif;
@@ -443,7 +472,6 @@
 }
 
 /* only apply the hover style on devices with a mouse/pointer that can hover - issue #977 */
-
 @media (hover: hover) {
   .jspsych-btn:hover {
     background-color: #ffffff;
@@ -452,10 +480,8 @@
     scale: 1.1;
   }
 }
+
 .jspsych-btn:active {
-  background-color: #a0a0a0;
-  border-color: #a0a0a0;
-  color: #ffffff;
   scale: 0.9;
 }
 

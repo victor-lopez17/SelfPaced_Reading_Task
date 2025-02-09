@@ -24,7 +24,6 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./common/jspsych/dist/jspsych.css" />
-    <link rel="stylesheet" href="./common/style.css" />
   </head>
 
   <!-- Experiment Script -->
@@ -62,20 +61,20 @@
     // Survey
     var survey = {
       type: jsPsychSurveyHtmlForm,
-      preamble: `<p>Please answer the following questions:</p>`,
+      preamble: `<h1>Survey</h1>`,
       html: `
         <p>How old are you?
-          <input name='age' type='number' min='18' max='99' required value='18'>
-          </p>
+          <div class="survey"><input name='age' type='text' required placeholder='E.g., 25'></div>
+        </p>
         <p>What is your gender?
-          <input type='radio' name='gender' value='male' required> Male
-          <input type='radio' name='gender' value='female' required> Female
-          <input type='radio' name='gender' value='other' required> Other
+          <div class="survey"><input type='radio' name='gender' value='male' required> Male</div>
+          <div class="survey"><input type='radio' name='gender' value='female' required> Female</div>
+          <div class="survey"><input type='radio' name='gender' value='other' required> Other</div>
         </p>
         <p>How many of these languages do you speak?
-          <input type='checkbox' name='lang_ca' value='catalan'> Catalan
-          <input type='checkbox' name='lang_sp' value='spanish'> Spanish
-          <input type='checkbox' name='lang_en' value='english'> English
+          <div class="survey"><input type='checkbox' name='lang_ca' value='catalan'> Catalan</div>
+          <div class="survey"><input type='checkbox' name='lang_sp' value='spanish'> Spanish</div>
+          <div class="survey"><input type='checkbox' name='lang_en' value='english'> English</div>
         </p>
       `,
       button_label: "Submit",
@@ -236,7 +235,7 @@
         );
         return `<h1>Well Done!</h1>
         <p>The trial has come to an end.<br>
-        Here are the means of your reaction times (ms) for each segment:</p>
+        Here are the means of your reaction times for each segment:</p>
         <div><span>Segment 1: </span><span>${s1_mean}ms</span></div>
         <div><span>Segment 2: </span><span>${s2_mean}ms</span></div>
         <div><span>Segment 3: </span><span>${s3_mean}ms</span></div>
