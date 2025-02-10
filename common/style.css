@@ -1,6 +1,16 @@
 /*!*************************************************************************************************************!*\
   !*** css ../../node_modules/css-loader/dist/cjs.js!../../node_modules/@fontsource/open-sans/400-italic.css ***!
   \*************************************************************************************************************/
+@keyframes bottomUp {
+  from {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
 
 /* Tags */
 h1 {
@@ -8,26 +18,20 @@ h1 {
   font-weight: bold;
   color: rgb(2, 112, 2);
   margin: 5rem;
+  animation: bottomUp 0.5s ease-out;
 }
 
-p {
+p:not(.stimulus) {
   font-size: 1.5rem;
   width: 30rem;
+  animation: bottomUp 0.5s ease-out;
 }
 
 div {
   font-size: 1.5rem;
   justify-items: center;
 }
-
-img {
-  margin-left: 10px;
-}
-
-input[type="radio"] {
-  display: none;
-}
-
+input[type="radio"],
 input[type="checkbox"] {
   display: none;
 }
@@ -45,6 +49,7 @@ label {
   margin: 15px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+  animation: bottomUp 0.5s ease-out;
 }
 
 label:hover {
@@ -52,32 +57,27 @@ label:hover {
   border-radius: 10px;
 }
 
-input[type="radio"]:checked + label {
-  color: white;
-  background-color: #6b68ff;
-}
-
-input[type="radio"]:checked + label::before {
-  background-color: white;
-  border-color: white;
-}
-
+input[type="radio"]:checked + label,
 input[type="checkbox"]:checked + label {
   color: white;
   background-color: #6b68ff;
 }
 
+input[type="radio"]:checked + label::before,
 input[type="checkbox"]:checked + label::before {
   background-color: white;
   border-color: white;
 }
+
 /* Classes */
 .stimulus {
   font-size: 3rem;
   width: fit-content;
+  animation: none;
 }
 
-.radio:before {
+.radio:before,
+.check:before {
   content: "";
   width: 15px;
   height: 15px;
@@ -89,14 +89,11 @@ input[type="checkbox"]:checked + label::before {
 }
 
 .check:before {
-  content: "";
-  width: 15px;
-  height: 15px;
-  border: 3px solid #6b68ff;
   border-radius: 25%;
-  border-color: #6b68ff;
-  margin-right: 10px;
-  transition: 0.3s ease-in-out;
+}
+
+.mean {
+  animation: bottomUp 0.5s ease-out;
 }
 
 /* open-sans-cyrillic-ext-400-italic*/
@@ -515,6 +512,7 @@ input[type="checkbox"]:checked + label::before {
   outline: none;
   padding: 8px 12px;
   transition: 0.3s ease-in-out;
+  animation: bottomUp 0.5s ease-out;
 }
 
 .jspsych-display-element input[type="text"]:valid {
@@ -562,6 +560,7 @@ input[type="checkbox"]:checked + label::before {
   background-color: white;
   border-color: #6b68ff;
   transition: 0.3s ease-in-out;
+  animation: bottomUp 0.5s ease-out;
 }
 
 /* only apply the hover style on devices with a mouse/pointer that can hover - issue #977 */

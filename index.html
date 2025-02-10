@@ -248,13 +248,13 @@
           jsPsych.data.get().filter({ segment: "s5" }).select("rt").mean()
         );
         return `<h1>Well Done!</h1>
-        <p>The trial has come to an end.<br>
+        <p>The test has come to an end.<br>
         Here are the means of your reaction times for each segment:</p>
-        <div><span>Segment 1: </span><span>${s1_mean}ms</span></div>
-        <div><span>Segment 2: </span><span>${s2_mean}ms</span></div>
-        <div><span>Segment 3: </span><span>${s3_mean}ms</span></div>
-        <div><span>Segment 4: </span><span>${s4_mean}ms</span></div>
-        <div><span>Segment 5: </span><span>${s5_mean}ms</span></div>
+        <div class='mean'><span>Segment 1: </span><span>${s1_mean}ms</span></div>
+        <div class='mean'><span>Segment 2: </span><span>${s2_mean}ms</span></div>
+        <div class='mean'><span>Segment 3: </span><span>${s3_mean}ms</span></div>
+        <div class='mean'><span>Segment 4: </span><span>${s4_mean}ms</span></div>
+        <div class='mean'><span>Segment 5: </span><span>${s5_mean}ms</span></div>
         <p>Thank you for your time!</p>
         `;
       },
