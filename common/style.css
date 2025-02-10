@@ -17,22 +17,86 @@ p {
 
 div {
   font-size: 1.5rem;
+  justify-items: center;
 }
 
 img {
   margin-left: 10px;
 }
 
-input[type="radio"]::before {
-  opacity: 1;
-  width: 15px;
-  height: 15px;
+input[type="radio"] {
+  display: none;
 }
 
+input[type="checkbox"] {
+  display: none;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 130px;
+  font-weight: bold;
+  color: #6b68ff;
+  border: 3px solid #6b68ff;
+  border-radius: 30px;
+  padding: 8px 12px;
+  margin: 15px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+label:hover {
+  scale: 1.1;
+  border-radius: 10px;
+}
+
+input[type="radio"]:checked + label {
+  color: white;
+  background-color: #6b68ff;
+}
+
+input[type="radio"]:checked + label::before {
+  background-color: white;
+  border-color: white;
+}
+
+input[type="checkbox"]:checked + label {
+  color: white;
+  background-color: #6b68ff;
+}
+
+input[type="checkbox"]:checked + label::before {
+  background-color: white;
+  border-color: white;
+}
 /* Classes */
 .stimulus {
   font-size: 3rem;
   width: fit-content;
+}
+
+.radio:before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border: 3px solid #6b68ff;
+  border-radius: 50%;
+  border-color: #6b68ff;
+  margin-right: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+.check:before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border: 3px solid #6b68ff;
+  border-radius: 25%;
+  border-color: #6b68ff;
+  margin-right: 10px;
+  transition: 0.3s ease-in-out;
 }
 
 /* open-sans-cyrillic-ext-400-italic*/
@@ -439,22 +503,30 @@ input[type="radio"]::before {
 .jspsych-display-element input[type="text"] {
   font-family: "Open Sans", "Arial", sans-serif;
   font-size: 1.5rem;
+  font-weight: bold;
+  color: #6b68ff;
   text-align: center;
   width: 20%;
   height: 30px;
-  border-radius: 25px;
+  border-radius: 30px;
   border-color: #6b68ff;
-  border: solid;
+  border-style: solid;
+  border-width: 3px;
   outline: none;
+  padding: 8px 12px;
   transition: 0.3s ease-in-out;
 }
 
+.jspsych-display-element input[type="text"]:valid {
+  width: 10%;
+}
 .jspsych-display-element input[type="text"]:focus,
 .jspsych-display-element input[type="text"]:active,
 .jspsych-display-element input[type="text"]:hover {
   width: 25%;
   border-radius: 10px;
   border-color: #6b68ff;
+  scale: 1.1;
 }
 
 /* Buttons and Button Groups */
@@ -486,8 +558,8 @@ input[type="radio"]::before {
   background-image: none;
   border: 3px solid transparent;
   border-radius: 25px;
-  color: #ffffff;
-  background-color: #6b68ff;
+  color: #6b68ff;
+  background-color: white;
   border-color: #6b68ff;
   transition: 0.3s ease-in-out;
 }
@@ -495,16 +567,12 @@ input[type="radio"]::before {
 /* only apply the hover style on devices with a mouse/pointer that can hover - issue #977 */
 @media (hover: hover) {
   .jspsych-btn:hover {
-    background-color: #ffffff;
+    background-color: #6b68ff;
     border-width: 3px;
-    color: #6b68ff;
+    color: white;
     scale: 1.1;
-    border-radius: 15px;
+    border-radius: 10px;
   }
-}
-
-.jspsych-btn:active {
-  scale: 0.9;
 }
 
 .jspsych-btn:disabled {

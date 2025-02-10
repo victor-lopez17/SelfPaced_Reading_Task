@@ -71,15 +71,21 @@
           <div><input name='age' type='text' required placeholder='E.g., 25'></div>
         </p>
         <p>What is your gender?
-          <div><input type='radio' name='gender' value='male' required> Male</div>
-          <div><input type='radio' name='gender' value='female' required> Female</div>
-          <div><input type='radio' name='gender' value='other' required> Other</div>
+          <div><input id='male' type='radio' name='gender' value='male' required>
+          <label class='radio' for='male'>Male</label></div>
+          <div><input id='female' type='radio' name='gender' value='female' required>
+          <label class='radio' for='female'>Female</label></div>
+          <div><input id='other' type='radio' name='gender' value='other' required>
+          <label class='radio' for='other'>Other</label></div>
 
         </p>
         <p>How many of these languages do you speak?
-          <div><input type='checkbox' name='lang_ca' value='catalan'> Catalan</div>
-          <div><input type='checkbox' name='lang_sp' value='spanish'> Spanish</div>
-          <div><input type='checkbox' name='lang_en' value='english'> English</div>
+          <div><input id='ca' type='checkbox' name='lang_ca' value='catalan'>
+          <label class='check' for='ca'>Catalan</label></div>
+          <div><input id='sp' type='checkbox' name='lang_sp' value='spanish'> 
+          <label class='check' for='sp'>Spanish</label></div></div>
+          <div><input id='en' type='checkbox' name='lang_en' value='english'>
+          <label class='check' for='en'>English</label></div></div>
         </p>
       `,
       button_label: "Submit",
