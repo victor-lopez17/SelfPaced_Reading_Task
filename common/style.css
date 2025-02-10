@@ -17,7 +17,11 @@ p {
 
 div {
   font-size: 1.5rem;
-  margin: 1rem;
+  /* margin: 1rem; */
+}
+
+img {
+  margin-left: 10px;
 }
 
 /* Classes */
@@ -25,8 +29,6 @@ div {
   font-size: 3rem;
   width: fit-content;
 }
-
-/* Identifiers */
 
 /* open-sans-cyrillic-ext-400-italic*/
 @font-face {
@@ -478,6 +480,7 @@ div {
     border-width: 3px;
     color: #6b68ff;
     scale: 1.1;
+    border-radius: 15px;
   }
 }
 

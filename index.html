@@ -21,9 +21,10 @@
     <script src="./common/jspsych/dist/plugin-html-keyboard-response.js"></script>
     <script src="./common/jspsych/dist/plugin-survey-html-form.js"></script>
     <script src="./common/jspsych/dist/plugin-survey.js"></script>
+    <script src="./common/jspsych/dist/plugin-html-button-response.js"></script>
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="./common/jspsych/dist/jspsych.css" />
+    <link rel="stylesheet" href="./common/style.css" />
   </head>
 
   <!-- Experiment Script -->
@@ -48,12 +49,15 @@
 
     // Introduction
     var intro = {
-      type: jsPsychSurveyHtmlForm,
-      preamble: `<h1>Welcome!</h1>
+      type: jsPsychHtmlButtonResponse,
+      stimulus: `<h1>Welcome!</h1>
         <p>You are about to partake in a self-paced reading task.</p>
         <p>First, please, answer a few questions.</p>`,
-      html: "<p></p>",
-      button_label: "Survey",
+      choices: [
+        `<div class='button'>
+          <span>Continue</span>
+        </div>`,
+      ],
       record_data: false,
     };
     timeline.push(intro);
@@ -92,14 +96,17 @@
 
     // Instructions
     var inst = {
-      type: jsPsychSurveyHtmlForm,
-      preamble: `<h1>Instructions</h1>
+      type: jsPsychHtmlButtonResponse,
+      stimulus: `<h1>Instructions</h1>
         <p>For this task, you will be presented with a sentence divided in sections.<br>
         However, these parts will be initially hidden.</p>
         <p>In order to complete it, you are asked to press the space bar each time you are done reading each section.<br>
         This will reveal what follows and hide the previous one.</p>`,
-      html: "<p></p>",
-      button_label: "Proceed",
+      choices: [
+        `<div class='button'>
+          <span>Continue</span>
+        </div>`,
+      ],
       record_data: false,
       post_trial_gap: 1000,
     };
