@@ -17,11 +17,16 @@ p {
 
 div {
   font-size: 1.5rem;
-  /* margin: 1rem; */
 }
 
 img {
   margin-left: 10px;
+}
+
+input[type="radio"]::before {
+  opacity: 1;
+  width: 15px;
+  height: 15px;
 }
 
 /* Classes */
@@ -436,6 +441,20 @@ img {
   font-size: 1.5rem;
   text-align: center;
   width: 20%;
+  height: 30px;
+  border-radius: 25px;
+  border-color: #6b68ff;
+  border: solid;
+  outline: none;
+  transition: 0.3s ease-in-out;
+}
+
+.jspsych-display-element input[type="text"]:focus,
+.jspsych-display-element input[type="text"]:active,
+.jspsych-display-element input[type="text"]:hover {
+  width: 25%;
+  border-radius: 10px;
+  border-color: #6b68ff;
 }
 
 /* Buttons and Button Groups */
