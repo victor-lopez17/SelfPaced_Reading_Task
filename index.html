@@ -53,11 +53,7 @@
       stimulus: `<h1>Welcome!</h1>
         <p>You are about to partake in a self-paced reading task.</p>
         <p>First, please, answer a few questions.</p>`,
-      choices: [
-        `<div class='button'>
-          <span>Continue</span>
-        </div>`,
-      ],
+      choices: ["Continue"],
       record_data: false,
     };
     timeline.push(intro);
@@ -65,29 +61,29 @@
     // Survey
     var survey = {
       type: jsPsychSurveyHtmlForm,
-      preamble: `<h1>Survey</h1>`,
-      html: `
-        <p>How old are you?
-          <div><input name='age' type='text' required placeholder='E.g., 25'></div>
-        </p>
-        <p>What is your gender?
-          <div><input id='male' type='radio' name='gender' value='male' required>
-          <label class='radio' for='male'>Male</label></div>
-          <div><input id='female' type='radio' name='gender' value='female' required>
-          <label class='radio' for='female'>Female</label></div>
-          <div><input id='other' type='radio' name='gender' value='other' required>
-          <label class='radio' for='other'>Other</label></div>
+      html: `<h1>Survey</h1>
+        <h2>How old are you?</h2>
+        <input name='age' type='text' required placeholder='E.g., 25'>
 
-        </p>
-        <p>How many of these languages do you speak?
-          <div><input id='ca' type='checkbox' name='lang_ca' value='catalan'>
-          <label class='check' for='ca'>Catalan</label></div>
-          <div><input id='sp' type='checkbox' name='lang_sp' value='spanish'> 
-          <label class='check' for='sp'>Spanish</label></div></div>
-          <div><input id='en' type='checkbox' name='lang_en' value='english'>
-          <label class='check' for='en'>English</label></div></div>
-        </p>
-      `,
+        <h2>What is your gender?</h2>
+        <div class='container'>
+          <input id='male' type='radio' name='gender' value='male' required>
+          <label class='radio' for='male'>Male</label>
+          <input id='female' type='radio' name='gender' value='female' required>
+          <label class='radio' for='female'>Female</label>
+          <input id='other' type='radio' name='gender' value='other' required>
+          <label class='radio' for='other'>Other</label>
+        </div>
+
+        <h2>How many of these languages do you speak?</h2>
+        <div class='container'>
+          <input id='ca' type='checkbox' name='lang_ca' value='catalan'>
+          <label class='check' for='ca'>Catalan</label>
+          <input id='sp' type='checkbox' name='lang_sp' value='spanish'>
+          <label class='check' for='sp'>Spanish</label>
+          <input id='en' type='checkbox' name='lang_en' value='english'>
+          <label class='check' for='en'>English</label>
+        </div>`,
       button_label: "Submit",
       on_finish: function (data) {
         jsPsych.data.addProperties({
@@ -109,11 +105,7 @@
         However, these parts will be initially hidden.</p>
         <p>In order to complete it, you are asked to press the space bar each time you are done reading each section.<br>
         This will reveal what follows and hide the previous one.</p>`,
-      choices: [
-        `<div class='button'>
-          <span>Continue</span>
-        </div>`,
-      ],
+      choices: ["Continue"],
       record_data: false,
       post_trial_gap: 1000,
     };
@@ -248,13 +240,13 @@
           jsPsych.data.get().filter({ segment: "s5" }).select("rt").mean()
         );
         return `<h1>Well Done!</h1>
-        <p>The test has come to an end.<br>
-        Here are the means of your reaction times for each segment:</p>
-        <div class='mean'><span>Segment 1: </span><span>${s1_mean}ms</span></div>
-        <div class='mean'><span>Segment 2: </span><span>${s2_mean}ms</span></div>
-        <div class='mean'><span>Segment 3: </span><span>${s3_mean}ms</span></div>
-        <div class='mean'><span>Segment 4: </span><span>${s4_mean}ms</span></div>
-        <div class='mean'><span>Segment 5: </span><span>${s5_mean}ms</span></div>
+        <h2>The test has come to an end.</h2>
+        <p>Here are the means of your reaction times for each segment:</p>
+        <p>Segment 1: ${s1_mean}ms</p>
+        <p>Segment 2: ${s2_mean}ms</p>
+        <p>Segment 3: ${s3_mean}ms</p>
+        <p>Segment 4: ${s4_mean}ms</p>
+        <p>Segment 5: ${s5_mean}ms</p>
         <p>Thank you for your time!</p>
         `;
       },
