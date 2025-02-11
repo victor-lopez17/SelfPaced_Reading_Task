@@ -77,6 +77,7 @@ input[type="checkbox"]:checked + label::before {
 .container {
   align-items: center;
   justify-items: center;
+  display: flex;
 }
 
 .stimulus {
@@ -525,6 +526,8 @@ input[type="checkbox"]:checked + label::before {
 
 .jspsych-display-element input[type="text"]:valid {
   width: 30px;
+  padding: 8px 8px;
+  border-width: 4px;
 }
 .jspsych-display-element input[type="text"]:focus,
 .jspsych-display-element input[type="text"]:active,
