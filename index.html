@@ -272,6 +272,13 @@
         <p>Thank you for your time!</p>
         `;
       },
+      on_start: function () {
+        var element1 = document.getElementById("back1");
+        var element2 = document.getElementById("back2");
+
+        element1.classList.add("animate_reverse");
+        element2.classList.add("animate_reverse");
+      },
       record_data: false,
     };
     timeline.push(debrief);

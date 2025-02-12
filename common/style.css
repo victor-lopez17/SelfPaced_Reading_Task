@@ -32,6 +32,13 @@
   }
 }
 
+@keyframes backIn {
+  from {
+    height: 0px;
+    transform: rotate(0deg);
+  }
+}
+
 /* Tags */
 body {
   overflow: hidden;
@@ -127,6 +134,10 @@ input[type="checkbox"]:checked + label::before {
 
 .animate {
   animation: backOut 1s forwards;
+}
+
+.animate_reverse {
+  animation: backIn 1s forwards;
 }
 
 .container {
