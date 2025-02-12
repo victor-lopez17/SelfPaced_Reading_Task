@@ -1,14 +1,23 @@
 /*!*************************************************************************************************************!*\
   !*** css ../../node_modules/css-loader/dist/cjs.js!../../node_modules/@fontsource/open-sans/400-italic.css ***!
   \*************************************************************************************************************/
+
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(150px);
+    transform: translateY(50px);
   }
   to {
     opacity: 1;
     transform: translateY(0px);
+  }
+}
+
+@keyframes barIn {
+  0%,
+  50% {
+    width: 0px;
   }
 }
 
@@ -19,13 +28,27 @@ h1 {
   color: rgb(2, 112, 2);
   margin: 5rem;
   animation: fadeIn 1s ease-in-out;
+  position: relative;
+  width: fit-content;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  width: 130%;
+  background-color: rgb(2, 112, 2);
+  border-radius: 30px;
+  left: 50%;
+  bottom: -100%;
+  translate: -50% -50%;
+  animation: barIn 1.5s ease-in-out;
 }
 
 h2 {
   font-size: 1.6rem;
   font-weight: bold;
   color: rgb(0, 0, 0);
-  margin-top: 5rem;
   animation: fadeIn 1s ease-in-out;
 }
 
@@ -46,6 +69,7 @@ label {
   justify-content: space-between;
   width: 130px;
   font-weight: bold;
+  font-size: 1.5rem;
   color: #6b68ff;
   border: 3px solid #6b68ff;
   border-radius: 30px;
@@ -75,6 +99,8 @@ input[type="checkbox"]:checked + label::before {
 
 /* Classes */
 .container {
+  align-content: center;
+  justify-content: center;
   align-items: center;
   justify-items: center;
   display: flex;
@@ -85,8 +111,8 @@ input[type="checkbox"]:checked + label::before {
   width: fit-content;
 }
 
-.radio:before,
-.check:before {
+.radio::before,
+.check::before {
   content: "";
   width: 15px;
   height: 15px;
@@ -97,12 +123,8 @@ input[type="checkbox"]:checked + label::before {
   transition: 0.3s ease-in-out;
 }
 
-.check:before {
+.check::before {
   border-radius: 25%;
-}
-
-.mean {
-  animation: fadeIn 0.8s ease-out;
 }
 
 /* open-sans-cyrillic-ext-400-italic*/
@@ -527,14 +549,14 @@ input[type="checkbox"]:checked + label::before {
 .jspsych-display-element input[type="text"]:valid {
   width: 30px;
   padding: 8px 8px;
-  border-width: 4px;
+  background-color: #6b68ff;
+  color: white;
 }
 .jspsych-display-element input[type="text"]:focus,
 .jspsych-display-element input[type="text"]:active,
 .jspsych-display-element input[type="text"]:hover {
   width: 100px;
   border-radius: 10px;
-  border-color: #6b68ff;
   scale: 1.1;
 }
 
@@ -566,7 +588,7 @@ input[type="checkbox"]:checked + label::before {
   vertical-align: middle;
   background-image: none;
   border: 3px solid transparent;
-  border-radius: 25px;
+  border-radius: 30px;
   color: #6b68ff;
   background-color: white;
   border-color: #6b68ff;

@@ -50,7 +50,7 @@
     // Introduction
     var intro = {
       type: jsPsychHtmlButtonResponse,
-      stimulus: `<h1>Welcome!</h1>
+      stimulus: `<div class='container'><h1>Welcome!</h1></div>
         <p>You are about to partake in a self-paced reading task.</p>
         <p>First, please, answer a few questions.</p>`,
       choices: ["Continue"],
@@ -61,7 +61,7 @@
     // Survey
     var survey = {
       type: jsPsychSurveyHtmlForm,
-      html: `<h1>Survey</h1>
+      html: `<div class='container'><h1>Survey</h1></div>
         <h2>How old are you?</h2>
         <input name='age' type='text' required placeholder='E.g., 25'>
 
@@ -100,8 +100,8 @@
     // Instructions
     var inst = {
       type: jsPsychHtmlButtonResponse,
-      stimulus: `<h1>Instructions</h1>
-        <p>For this task, you will be presented with a sentence divided in sections. However, these parts will be initially hidden.</p>
+      stimulus: `<div class='container'><h1>Instructions</h1></div>
+        <p>For this task, you will be presented with a sentence divided in sections. However, these sections will be initially hidden.</p>
         <p>In order to complete it, you are asked to press the space bar each time you are done reading each section.<br>
         This will reveal what follows and hide the previous one.</p>`,
       choices: ["Continue"],
@@ -238,7 +238,7 @@
         var s5_mean = Math.round(
           jsPsych.data.get().filter({ segment: "s5" }).select("rt").mean()
         );
-        return `<h1>Well Done!</h1>
+        return `<div class='container'><h1>Well Done!</h1></div>
         <h2>The test has come to an end.</h2>
         <p>Here are the means of your reaction times for each segment:</p>
         <p>Segment 1: ${s1_mean}ms</p>
