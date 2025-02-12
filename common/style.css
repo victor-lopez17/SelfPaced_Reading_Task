@@ -4,8 +4,10 @@
 
 /* Color Variables */
 :root {
-  --accent-color: #6b68ff;
-  --sec-color: rgb(2, 112, 2);
+  --accent-blue: #6b68ff;
+  --green: green;
+  --green-fade: rgba(0, 128, 0, 0.4);
+  --white: white;
 }
 
 /* Animations */
@@ -23,11 +25,22 @@
   }
 }
 
+@keyframes backOut {
+  to {
+    height: 0;
+    transform: rotate(0deg);
+  }
+}
+
 /* Tags */
+body {
+  overflow: hidden;
+}
+
 h1 {
   font-size: 3rem;
   font-weight: bold;
-  color: var(--sec-color);
+  color: var(--green);
   margin: 5rem;
   animation: fadeIn 1s ease-in-out;
   position: relative;
@@ -39,7 +52,7 @@ h1::after {
   position: absolute;
   height: 5px;
   width: 130%;
-  background-color: var(--sec-color);
+  background-color: var(--green);
   border-radius: 30px;
   left: 50%;
   bottom: -100%;
@@ -72,8 +85,8 @@ label {
   width: 130px;
   font-weight: bold;
   font-size: 1.5rem;
-  color: var(--accent-color);
-  border: 3px solid var(--accent-color);
+  color: var(--accent-blue);
+  border: 3px solid var(--accent-blue);
   border-radius: 30px;
   padding: 8px 12px;
   margin: 15px;
@@ -90,22 +103,44 @@ label:hover {
 input[type="radio"]:checked + label,
 input[type="checkbox"]:checked + label {
   color: white;
-  background-color: var(--accent-color);
+  background-color: var(--accent-blue);
+  scale: 1.1;
 }
 
 input[type="radio"]:checked + label::before,
 input[type="checkbox"]:checked + label::before {
   background-color: white;
   border-color: white;
+  scale: 1.1;
 }
 
 /* Classes */
+.back {
+  content: "";
+  width: 150%;
+  height: 500px;
+  background-color: var(--green);
+  position: absolute;
+  z-index: -1;
+  transition: 1s ease-in-out;
+}
+
+.animate {
+  animation: backOut 1s forwards;
+}
+
 .container {
   align-content: center;
   justify-content: center;
   align-items: center;
   justify-items: center;
   display: flex;
+}
+
+.survey-body {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
 .stimulus {
@@ -118,15 +153,30 @@ input[type="checkbox"]:checked + label::before {
   content: "";
   width: 15px;
   height: 15px;
-  border: 3px solid var(--accent-color);
+  border: 3px solid var(--accent-blue);
   border-radius: 50%;
-  border-color: var(--accent-color);
+  border-color: var(--accent-blue);
   margin-right: 10px;
   transition: 0.3s ease-in-out;
 }
 
 .check::before {
   border-radius: 25%;
+}
+
+/* Identifiers */
+#back1 {
+  transform: rotate(10deg) translateY(-35%);
+  background-color: var(--green);
+}
+
+#back2 {
+  transform: rotate(-10deg) translateY(-35%);
+  background-color: var(--green-fade);
+}
+
+#survey {
+  margin-top: 20%;
 }
 
 /* open-sans-cyrillic-ext-400-italic*/
@@ -534,15 +584,16 @@ input[type="checkbox"]:checked + label::before {
   font-family: "Open Sans", "Arial", sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--accent-color);
+  color: var(--accent-blue);
   text-align: center;
   width: 80px;
   height: 30px;
   border-radius: 30px;
-  border-color: var(--accent-color);
+  border-color: var(--accent-blue);
   border-style: solid;
   border-width: 3px;
   outline: none;
+  margin: 15px;
   padding: 8px 12px;
   transition: 0.3s ease-in-out;
   animation: fadeIn 1s ease-in-out;
@@ -551,13 +602,12 @@ input[type="checkbox"]:checked + label::before {
 .jspsych-display-element input[type="text"]:valid {
   width: 30px;
   padding: 8px 8px;
-  background-color: var(--accent-color);
+  background-color: var(--accent-blue);
   color: white;
   scale: 1.1;
 }
 
 .jspsych-display-element input[type="text"]:focus,
-.jspsych-display-element input[type="text"]:active,
 .jspsych-display-element input[type="text"]:hover {
   width: 100px;
   padding: 8px 8px;
@@ -594,9 +644,9 @@ input[type="checkbox"]:checked + label::before {
   background-image: none;
   border: 3px solid transparent;
   border-radius: 30px;
-  color: var(--accent-color);
+  color: var(--accent-blue);
   background-color: white;
-  border-color: var(--accent-color);
+  border-color: var(--accent-blue);
   transition: 0.3s ease-in-out;
   animation: fadeIn 1s ease-in-out;
 }
@@ -604,7 +654,7 @@ input[type="checkbox"]:checked + label::before {
 /* only apply the hover style on devices with a mouse/pointer that can hover - issue #977 */
 @media (hover: hover) {
   .jspsych-btn:hover {
-    background-color: var(--accent-color);
+    background-color: var(--accent-blue);
     border-width: 3px;
     color: white;
     scale: 1.1;

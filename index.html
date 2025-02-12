@@ -27,6 +27,13 @@
     <link rel="stylesheet" href="./common/style.css" />
   </head>
 
+  <body>
+    <div class="container">
+      <div class="back" id="back1"></div>
+      <div class="back" id="back2"></div>
+    </div>
+  </body>
+
   <!-- Experiment Script -->
   <script>
     const jsPsych = initJsPsych({
@@ -61,28 +68,36 @@
     // Survey
     var survey = {
       type: jsPsychSurveyHtmlForm,
-      html: `<div class='container'><h1>Survey</h1></div>
-        <h2>How old are you?</h2>
-        <input name='age' type='text' required placeholder='E.g., 25'>
+      html: `<div class='container'><h1 id='survey'>Survey</h1></div>
+        <div class='survey-body'>
+          <div>
+            <h2>How old are you?</h2>
+            <input name='age' type='text' required placeholder='E.g., 25'>
+          </div>
 
-        <h2>What is your gender?</h2>
-        <div class='container'>
-          <input id='male' type='radio' name='gender' value='male' required>
-          <label class='radio' for='male'>Male</label>
-          <input id='female' type='radio' name='gender' value='female' required>
-          <label class='radio' for='female'>Female</label>
-          <input id='other' type='radio' name='gender' value='other' required>
-          <label class='radio' for='other'>Other</label>
-        </div>
+          <div>
+            <h2>What is your gender?</h2>
+            <div class='container'>
+              <input id='male' type='radio' name='gender' value='male' required>
+              <label class='radio' for='male'>Male</label>
+              <input id='female' type='radio' name='gender' value='female' required>
+              <label class='radio' for='female'>Female</label>
+              <input id='other' type='radio' name='gender' value='other' required>
+              <label class='radio' for='other'>Other</label>
+            </div>
+          </div>
 
-        <h2>How many of these languages do you speak?</h2>
-        <div class='container'>
-          <input id='ca' type='checkbox' name='lang_ca' value='catalan'>
-          <label class='check' for='ca'>Catalan</label>
-          <input id='sp' type='checkbox' name='lang_sp' value='spanish'>
-          <label class='check' for='sp'>Spanish</label>
-          <input id='en' type='checkbox' name='lang_en' value='english'>
-          <label class='check' for='en'>English</label>
+          <div>
+            <h2>How many of these languages do you speak?</h2>
+            <div class='container'>
+              <input id='ca' type='checkbox' name='lang_ca' value='catalan'>
+              <label class='check' for='ca'>Catalan</label>
+              <input id='sp' type='checkbox' name='lang_sp' value='spanish'>
+              <label class='check' for='sp'>Spanish</label>
+              <input id='en' type='checkbox' name='lang_en' value='english'>
+              <label class='check' for='en'>English</label>
+            </div>
+          </div>
         </div>`,
 
       button_label: "Submit",
@@ -106,8 +121,15 @@
         <p>In order to complete it, you are asked to press the space bar each time you are done reading each section.<br>
         This will reveal what follows and hide the previous one.</p>`,
       choices: ["Continue"],
+      on_finish: function () {
+        var element1 = document.getElementById("back1");
+        var element2 = document.getElementById("back2");
+
+        element1.classList.add("animate");
+        element2.classList.add("animate");
+      },
       record_data: false,
-      post_trial_gap: 1000,
+      post_trial_gap: 1500,
     };
     timeline.push(inst);
 
