@@ -84,6 +84,7 @@
           <input id='en' type='checkbox' name='lang_en' value='english'>
           <label class='check' for='en'>English</label>
         </div>`,
+
       button_label: "Submit",
       on_finish: function (data) {
         jsPsych.data.addProperties({
@@ -101,7 +102,7 @@
     var inst = {
       type: jsPsychHtmlButtonResponse,
       stimulus: `<div class='container'><h1>Instructions</h1></div>
-        <p>For this task, you will be presented with a sentence divided in sections. However, these sections will be initially hidden.</p>
+        <p>For this task, you will be presented with a sentence divided in segments. However, these segments will be initially hidden.</p>
         <p>In order to complete it, you are asked to press the space bar each time you are done reading each section.<br>
         This will reveal what follows and hide the previous one.</p>`,
       choices: ["Continue"],
