@@ -227,6 +227,7 @@ input[type="checkbox"]:checked + label::before {
   margin: auto;
   flex: 1 1 100%;
   width: 100%;
+  transform: translateY(-65px);
 }
 
 .jspsych-content {
@@ -422,12 +423,12 @@ input[type="checkbox"]:checked + label::before {
 }
 
 #back1 {
-  transform: rotate(10deg) translateY(-35%);
+  transform: rotate(5deg) translateY(-40%);
   background-color: var(--green);
 }
 
 #back2 {
-  transform: rotate(-10deg) translateY(-35%);
+  transform: rotate(-4deg) translateY(-42%);
   background-color: var(--green-fade);
 }
 
