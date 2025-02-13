@@ -39,10 +39,32 @@
   }
 }
 
+@keyframes bannerOut {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes bannerIn {
+  from {
+    transform: translateX(-100%);
+  }
+}
+
 /* Tags */
 body {
   overflow: hidden;
 }
+
+/* body::before {
+  content: url("./img/uabLogo.png");
+  position: absolute;
+  scale: 0.2;
+  padding: 0%;
+  margin: 0%;
+  top: -10%;
+  left: -5%;
+} */
 
 h1 {
   font-size: 3rem;
@@ -122,6 +144,13 @@ input[type="checkbox"]:checked + label::before {
 }
 
 /* Classes */
+.logo {
+  height: 50px;
+  width: fit-content;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
 .back {
   content: "";
   width: 150%;
@@ -129,15 +158,22 @@ input[type="checkbox"]:checked + label::before {
   background-color: var(--green);
   position: absolute;
   z-index: -1;
-  transition: 1s ease-in-out;
 }
 
-.animate {
+.animate_back {
   animation: backOut 1s forwards;
 }
 
-.animate_reverse {
+.animate_back_reverse {
   animation: backIn 1s forwards;
+}
+
+.animate_banner {
+  animation: bannerOut 1s forwards;
+}
+
+.animate_banner_reverse {
+  animation: bannerIn 1s forwards;
 }
 
 .container {
@@ -175,7 +211,216 @@ input[type="checkbox"]:checked + label::before {
   border-radius: 25%;
 }
 
+/* Container holding jsPsych content */
+.jspsych-display-element {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.jspsych-display-element:focus {
+  outline: none;
+}
+
+.jspsych-content-wrapper {
+  display: flex;
+  margin: auto;
+  flex: 1 1 100%;
+  width: 100%;
+}
+
+.jspsych-content {
+  text-align: center;
+  margin: auto; /* this is for overflowing content */
+}
+
+.jspsych-top {
+  align-items: flex-start;
+}
+
+.jspsych-middle {
+  align-items: center;
+}
+
+/* fonts and type */
+.jspsych-display-element {
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-size: 18px;
+  line-height: 1.6em;
+}
+
+/* Form elements like input fields and buttons */
+.jspsych-display-element input[type="text"] {
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent-blue);
+  text-align: center;
+  width: 80px;
+  height: 30px;
+  border-radius: 30px;
+  border-color: var(--accent-blue);
+  border-style: solid;
+  border-width: 3px;
+  outline: none;
+  margin: 15px;
+  padding: 8px 12px;
+  transition: 0.3s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.jspsych-display-element input[type="text"]:valid {
+  width: 30px;
+  padding: 8px 8px;
+  background-color: var(--accent-blue);
+  color: white;
+  scale: 1.1;
+}
+
+.jspsych-display-element input[type="text"]:focus,
+.jspsych-display-element input[type="text"]:hover {
+  width: 100px;
+  padding: 8px 8px;
+  border-radius: 10px;
+  scale: 1.1;
+}
+
+/* Buttons and Button Groups */
+.jspsych-btn-group-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.jspsych-btn-group-grid {
+  display: grid;
+  grid-auto-columns: max-content;
+  max-width: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.jspsych-btn {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "Open Sans", "Arial", sans-serif;
+  cursor: pointer;
+  line-height: 1.4;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-image: none;
+  border: 3px solid transparent;
+  border-radius: 30px;
+  color: var(--accent-blue);
+  background-color: white;
+  border-color: var(--accent-blue);
+  transition: 0.3s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* only apply the hover style on devices with a mouse/pointer that can hover - issue #977 */
+@media (hover: hover) {
+  .jspsych-btn:hover {
+    background-color: var(--accent-blue);
+    border-width: 3px;
+    color: white;
+    scale: 1.1;
+    border-radius: 10px;
+  }
+}
+
+.jspsych-btn:disabled {
+  background-color: #eee;
+  color: #aaa;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* custom style for input[type="range] (slider) to improve alignment between positions and labels */
+.jspsych-slider {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+.jspsych-slider:focus {
+  outline: none;
+}
+
+.jspsych-slider::-webkit-slider-runnable-track {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: #eee;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border-radius: 2px;
+  border: 1px solid #aaa;
+}
+
+.jspsych-slider::-moz-range-track {
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: #eee;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border-radius: 2px;
+  border: 1px solid #aaa;
+}
+
+.jspsych-slider::-ms-track {
+  appearance: none;
+  width: 99%;
+  height: 14px;
+  cursor: pointer;
+  background: #eee;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border-radius: 2px;
+  border: 1px solid #aaa;
+}
+
+.jspsych-slider::-webkit-slider-thumb {
+  border: 1px solid #666;
+  height: 24px;
+  width: 15px;
+  border-radius: 5px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -9px;
+}
+
+.jspsych-slider::-moz-range-thumb {
+  border: 1px solid #666;
+  height: 24px;
+  width: 15px;
+  border-radius: 5px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.jspsych-slider::-ms-thumb {
+  border: 1px solid #666;
+  height: 20px;
+  width: 15px;
+  border-radius: 5px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -2px;
+}
+
 /* Identifiers */
+#banner {
+  justify-content: left;
+}
+
 #back1 {
   transform: rotate(10deg) translateY(-35%);
   background-color: var(--green);
@@ -186,10 +431,45 @@ input[type="checkbox"]:checked + label::before {
   background-color: var(--green-fade);
 }
 
-#survey {
-  margin-top: 20%;
+/* progress bar */
+#jspsych-progressbar-container {
+  color: #555;
+  border-bottom: 1px solid #dedede;
+  background-color: #f9f9f9;
+  margin-bottom: 1em;
+  text-align: center;
+  padding: 8px 0px;
+  width: 100%;
+  line-height: 1em;
 }
 
+#jspsych-progressbar-container span {
+  font-size: 14px;
+  padding-right: 14px;
+}
+
+#jspsych-progressbar-outer {
+  background-color: #eee;
+  width: 50%;
+  margin: auto;
+  height: 14px;
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#jspsych-progressbar-inner {
+  background-color: #aaa;
+  width: 0%;
+  height: 100%;
+}
+
+/* Appearance of jsPsych.data.displayData() */
+#jspsych-data-display {
+  text-align: left;
+}
+
+/* Fonts */
 /* open-sans-cyrillic-ext-400-italic*/
 @font-face {
   font-family: "Open Sans";
@@ -541,256 +821,4 @@ input[type="checkbox"]:checked + label::before {
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
     U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
     U+FEFF, U+FFFD;
-}
-
-/*!*****************************************************************************************************************!*\
-  !*** css ../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
-  \*****************************************************************************************************************/
-/*
- * CSS for jsPsych experiments.
- *
- * This stylesheet provides minimal styling to make jsPsych
- * experiments look polished without any additional styles.
- */
-/* Container holding jsPsych content */
-.jspsych-display-element {
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-}
-
-.jspsych-display-element:focus {
-  outline: none;
-}
-
-.jspsych-content-wrapper {
-  display: flex;
-  margin: auto;
-  flex: 1 1 100%;
-  width: 100%;
-}
-
-.jspsych-content {
-  text-align: center;
-  margin: auto; /* this is for overflowing content */
-}
-
-.jspsych-top {
-  align-items: flex-start;
-}
-
-.jspsych-middle {
-  align-items: center;
-}
-
-/* fonts and type */
-.jspsych-display-element {
-  font-family: "Open Sans", "Arial", sans-serif;
-  font-size: 18px;
-  line-height: 1.6em;
-}
-
-/* Form elements like input fields and buttons */
-.jspsych-display-element input[type="text"] {
-  font-family: "Open Sans", "Arial", sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--accent-blue);
-  text-align: center;
-  width: 80px;
-  height: 30px;
-  border-radius: 30px;
-  border-color: var(--accent-blue);
-  border-style: solid;
-  border-width: 3px;
-  outline: none;
-  margin: 15px;
-  padding: 8px 12px;
-  transition: 0.3s ease-in-out;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.jspsych-display-element input[type="text"]:valid {
-  width: 30px;
-  padding: 8px 8px;
-  background-color: var(--accent-blue);
-  color: white;
-  scale: 1.1;
-}
-
-.jspsych-display-element input[type="text"]:focus,
-.jspsych-display-element input[type="text"]:hover {
-  width: 100px;
-  padding: 8px 8px;
-  border-radius: 10px;
-  scale: 1.1;
-}
-
-/* Buttons and Button Groups */
-.jspsych-btn-group-flex {
-  display: flex;
-  justify-content: center;
-}
-
-.jspsych-btn-group-grid {
-  display: grid;
-  grid-auto-columns: max-content;
-  max-width: fit-content;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.jspsych-btn {
-  display: inline-block;
-  padding: 8px 12px;
-  margin: 3rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-  font-family: "Open Sans", "Arial", sans-serif;
-  cursor: pointer;
-  line-height: 1.4;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  background-image: none;
-  border: 3px solid transparent;
-  border-radius: 30px;
-  color: var(--accent-blue);
-  background-color: white;
-  border-color: var(--accent-blue);
-  transition: 0.3s ease-in-out;
-  animation: fadeIn 1s ease-in-out;
-}
-
-/* only apply the hover style on devices with a mouse/pointer that can hover - issue #977 */
-@media (hover: hover) {
-  .jspsych-btn:hover {
-    background-color: var(--accent-blue);
-    border-width: 3px;
-    color: white;
-    scale: 1.1;
-    border-radius: 10px;
-  }
-}
-
-.jspsych-btn:disabled {
-  background-color: #eee;
-  color: #aaa;
-  border-color: #ccc;
-  cursor: not-allowed;
-}
-
-/* custom style for input[type="range] (slider) to improve alignment between positions and labels */
-.jspsych-slider {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 100%;
-  background: transparent;
-}
-
-.jspsych-slider:focus {
-  outline: none;
-}
-
-.jspsych-slider::-webkit-slider-runnable-track {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 100%;
-  height: 8px;
-  cursor: pointer;
-  background: #eee;
-  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-  border-radius: 2px;
-  border: 1px solid #aaa;
-}
-
-.jspsych-slider::-moz-range-track {
-  appearance: none;
-  width: 100%;
-  height: 8px;
-  cursor: pointer;
-  background: #eee;
-  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-  border-radius: 2px;
-  border: 1px solid #aaa;
-}
-
-.jspsych-slider::-ms-track {
-  appearance: none;
-  width: 99%;
-  height: 14px;
-  cursor: pointer;
-  background: #eee;
-  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-  border-radius: 2px;
-  border: 1px solid #aaa;
-}
-
-.jspsych-slider::-webkit-slider-thumb {
-  border: 1px solid #666;
-  height: 24px;
-  width: 15px;
-  border-radius: 5px;
-  background: #ffffff;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -9px;
-}
-
-.jspsych-slider::-moz-range-thumb {
-  border: 1px solid #666;
-  height: 24px;
-  width: 15px;
-  border-radius: 5px;
-  background: #ffffff;
-  cursor: pointer;
-}
-
-.jspsych-slider::-ms-thumb {
-  border: 1px solid #666;
-  height: 20px;
-  width: 15px;
-  border-radius: 5px;
-  background: #ffffff;
-  cursor: pointer;
-  margin-top: -2px;
-}
-
-/* progress bar */
-#jspsych-progressbar-container {
-  color: #555;
-  border-bottom: 1px solid #dedede;
-  background-color: #f9f9f9;
-  margin-bottom: 1em;
-  text-align: center;
-  padding: 8px 0px;
-  width: 100%;
-  line-height: 1em;
-}
-
-#jspsych-progressbar-container span {
-  font-size: 14px;
-  padding-right: 14px;
-}
-
-#jspsych-progressbar-outer {
-  background-color: #eee;
-  width: 50%;
-  margin: auto;
-  height: 14px;
-  display: inline-block;
-  vertical-align: middle;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-#jspsych-progressbar-inner {
-  background-color: #aaa;
-  width: 0%;
-  height: 100%;
-}
-
-/* Appearance of jsPsych.data.displayData() */
-#jspsych-data-display {
-  text-align: left;
 }

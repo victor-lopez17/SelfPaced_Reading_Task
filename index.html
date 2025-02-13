@@ -8,7 +8,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Meta data -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reading Task</title>
@@ -31,6 +30,10 @@
     <div class="container">
       <div class="back" id="back1"></div>
       <div class="back" id="back2"></div>
+    </div>
+    <div class="container" id="banner">
+      <img src="./common/img/uabLogo.png" alt="uab logo" class="logo" />
+      <img src="./common/img/grelaLogo.png" alt="grela logo" class="logo" />
     </div>
   </body>
 
@@ -124,9 +127,11 @@
       on_finish: function () {
         var element1 = document.getElementById("back1");
         var element2 = document.getElementById("back2");
+        var element3 = document.getElementById("banner");
 
-        element1.classList.add("animate");
-        element2.classList.add("animate");
+        element1.classList.add("animate_back");
+        element2.classList.add("animate_back");
+        element3.classList.add("animate_banner");
       },
       record_data: false,
       post_trial_gap: 1500,
@@ -275,9 +280,11 @@
       on_start: function () {
         var element1 = document.getElementById("back1");
         var element2 = document.getElementById("back2");
+        var element3 = document.getElementById("banner");
 
-        element1.classList.add("animate_reverse");
-        element2.classList.add("animate_reverse");
+        element1.classList.add("animate_back_reverse");
+        element2.classList.add("animate_back_reverse");
+        element3.classList.add("animate_banner_reverse");
       },
       record_data: false,
     };
