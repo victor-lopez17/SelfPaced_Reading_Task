@@ -8,7 +8,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Meta data -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reading Task</title>
@@ -21,10 +20,22 @@
     <script src="./common/jspsych/dist/plugin-html-keyboard-response.js"></script>
     <script src="./common/jspsych/dist/plugin-survey-html-form.js"></script>
     <script src="./common/jspsych/dist/plugin-survey.js"></script>
+    <script src="./common/jspsych/dist/plugin-html-button-response.js"></script>
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="./common/jspsych/dist/jspsych.css" />
+    <link rel="stylesheet" href="./common/style.css" />
   </head>
+
+  <body>
+    <div class="container">
+      <div class="back" id="back1"></div>
+      <div class="back" id="back2"></div>
+    </div>
+    <div class="container" id="banner">
+      <img src="./common/img/uabLogo.png" alt="uab logo" class="logo" />
+      <img src="./common/img/grelaLogo.png" alt="grela logo" class="logo" />
+    </div>
+  </body>
 
   <!-- Experiment Script -->
   <script>
@@ -48,12 +59,11 @@
 
     // Introduction
     var intro = {
-      type: jsPsychSurveyHtmlForm,
-      preamble: `<h1>Welcome!</h1>
+      type: jsPsychHtmlButtonResponse,
+      stimulus: `<div class='container'><h1>Welcome!</h1></div>
         <p>You are about to partake in a self-paced reading task.</p>
         <p>First, please, answer a few questions.</p>`,
-      html: "<p></p>",
-      button_label: "Survey",
+      choices: ["Continue"],
       record_data: false,
     };
     timeline.push(intro);
@@ -61,22 +71,38 @@
     // Survey
     var survey = {
       type: jsPsychSurveyHtmlForm,
-      preamble: `<h1>Survey</h1>`,
-      html: `
-        <p>How old are you?
-          <div class="survey"><input name='age' type='text' required placeholder='E.g., 25'></div>
-        </p>
-        <p>What is your gender?
-          <div class="survey"><input type='radio' name='gender' value='male' required> Male</div>
-          <div class="survey"><input type='radio' name='gender' value='female' required> Female</div>
-          <div class="survey"><input type='radio' name='gender' value='other' required> Other</div>
-        </p>
-        <p>How many of these languages do you speak?
-          <div class="survey"><input type='checkbox' name='lang_ca' value='catalan'> Catalan</div>
-          <div class="survey"><input type='checkbox' name='lang_sp' value='spanish'> Spanish</div>
-          <div class="survey"><input type='checkbox' name='lang_en' value='english'> English</div>
-        </p>
-      `,
+      html: `<div class='container'><h1 id='survey'>Survey</h1></div>
+        <div class='survey-body'>
+          <div>
+            <h2>How old are you?</h2>
+            <input name='age' type='text' required placeholder='E.g., 25'>
+          </div>
+
+          <div>
+            <h2>What is your gender?</h2>
+            <div class='container'>
+              <input id='male' type='radio' name='gender' value='male' required>
+              <label class='radio' for='male'>Male</label>
+              <input id='female' type='radio' name='gender' value='female' required>
+              <label class='radio' for='female'>Female</label>
+              <input id='other' type='radio' name='gender' value='other' required>
+              <label class='radio' for='other'>Other</label>
+            </div>
+          </div>
+
+          <div>
+            <h2>How many of these languages do you speak?</h2>
+            <div class='container'>
+              <input id='ca' type='checkbox' name='lang_ca' value='catalan'>
+              <label class='check' for='ca'>Catalan</label>
+              <input id='sp' type='checkbox' name='lang_sp' value='spanish'>
+              <label class='check' for='sp'>Spanish</label>
+              <input id='en' type='checkbox' name='lang_en' value='english'>
+              <label class='check' for='en'>English</label>
+            </div>
+          </div>
+        </div>`,
+
       button_label: "Submit",
       on_finish: function (data) {
         jsPsych.data.addProperties({
@@ -92,16 +118,23 @@
 
     // Instructions
     var inst = {
-      type: jsPsychSurveyHtmlForm,
-      preamble: `<h1>Instructions</h1>
-        <p>For this task, you will be presented with a sentence divided in sections.<br>
-        However, these parts will be initially hidden.</p>
+      type: jsPsychHtmlButtonResponse,
+      stimulus: `<div class='container'><h1>Instructions</h1></div>
+        <p>For this task, you will be presented with a sentence divided in segments. However, these segments will be initially hidden.</p>
         <p>In order to complete it, you are asked to press the space bar each time you are done reading each section.<br>
         This will reveal what follows and hide the previous one.</p>`,
-      html: "<p></p>",
-      button_label: "Proceed",
+      choices: ["Proceed to Trial"],
+      on_finish: function () {
+        var element1 = document.getElementById("back1");
+        var element2 = document.getElementById("back2");
+        var element3 = document.getElementById("banner");
+
+        element1.classList.add("animate_back");
+        element2.classList.add("animate_back");
+        element3.classList.add("animate_banner");
+      },
       record_data: false,
-      post_trial_gap: 1000,
+      post_trial_gap: 2000,
     };
     timeline.push(inst);
 
@@ -233,16 +266,25 @@
         var s5_mean = Math.round(
           jsPsych.data.get().filter({ segment: "s5" }).select("rt").mean()
         );
-        return `<h1>Well Done!</h1>
-        <p>The trial has come to an end.<br>
-        Here are the means of your reaction times for each segment:</p>
-        <div><span>Segment 1: </span><span>${s1_mean}ms</span></div>
-        <div><span>Segment 2: </span><span>${s2_mean}ms</span></div>
-        <div><span>Segment 3: </span><span>${s3_mean}ms</span></div>
-        <div><span>Segment 4: </span><span>${s4_mean}ms</span></div>
-        <div><span>Segment 5: </span><span>${s5_mean}ms</span></div>
+        return `<div class='container'><h1>Well Done!</h1></div>
+        <h2>The test has come to an end.</h2>
+        <p>Here are the means of your reaction times for each segment:</p>
+        <p>Segment 1: ${s1_mean}ms</p>
+        <p>Segment 2: ${s2_mean}ms</p>
+        <p>Segment 3: ${s3_mean}ms</p>
+        <p>Segment 4: ${s4_mean}ms</p>
+        <p>Segment 5: ${s5_mean}ms</p>
         <p>Thank you for your time!</p>
         `;
+      },
+      on_start: function () {
+        var element1 = document.getElementById("back1");
+        var element2 = document.getElementById("back2");
+        var element3 = document.getElementById("banner");
+
+        element1.classList.add("animate_back_reverse");
+        element2.classList.add("animate_back_reverse");
+        element3.classList.add("animate_banner_reverse");
       },
       record_data: false,
     };
