@@ -27,13 +27,15 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="back" id="back1"></div>
-      <div class="back" id="back2"></div>
-    </div>
-    <div class="container" id="banner">
-      <img src="./common/img/uabLogo.png" alt="uab logo" class="logo" />
-      <img src="./common/img/grelaLogo.png" alt="grela logo" class="logo" />
+    <div class="banner">
+      <div class="container">
+        <div class="back" id="back1"></div>
+        <div class="back" id="back2"></div>
+      </div>
+      <div class="container" id="logos">
+        <img src="./common/img/uabLogo.png" alt="uab logo" class="logo" />
+        <img src="./common/img/grelaLogo.png" alt="grela logo" class="logo" />
+      </div>
     </div>
   </body>
 
@@ -123,11 +125,11 @@
         <p>For this task, you will be presented with a sentence divided in segments. However, these segments will be initially hidden.</p>
         <p>In order to complete it, you are asked to press the space bar each time you are done reading each section.<br>
         This will reveal what follows and hide the previous one.</p>`,
-      choices: ["Proceed to Trial"],
+      choices: ["Proceed to Task"],
       on_finish: function () {
         var element1 = document.getElementById("back1");
         var element2 = document.getElementById("back2");
-        var element3 = document.getElementById("banner");
+        var element3 = document.getElementById("logos");
 
         element1.classList.add("animate_back");
         element2.classList.add("animate_back");
@@ -274,13 +276,13 @@
         <p>Segment 3: ${s3_mean}ms</p>
         <p>Segment 4: ${s4_mean}ms</p>
         <p>Segment 5: ${s5_mean}ms</p>
-        <p>Thank you for your time!</p>
+        <h2>Thank you for your time!</h2>
         `;
       },
       on_start: function () {
         var element1 = document.getElementById("back1");
         var element2 = document.getElementById("back2");
-        var element3 = document.getElementById("banner");
+        var element3 = document.getElementById("logos");
 
         element1.classList.add("animate_back_reverse");
         element2.classList.add("animate_back_reverse");

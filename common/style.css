@@ -144,6 +144,26 @@ input[type="checkbox"]:checked + label::before {
 }
 
 /* Classes */
+.banner {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+
+.banner::before {
+  content: "";
+  height: 80px;
+  width: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    white 70%,
+    rgba(255, 255, 255, 0)
+  );
+  position: absolute;
+  top: 0%;
+  z-index: -1;
+}
+
 .logo {
   height: 50px;
   width: fit-content;
@@ -227,7 +247,6 @@ input[type="checkbox"]:checked + label::before {
   margin: auto;
   flex: 1 1 100%;
   width: 100%;
-  transform: translateY(-65px);
 }
 
 .jspsych-content {
@@ -418,7 +437,7 @@ input[type="checkbox"]:checked + label::before {
 }
 
 /* Identifiers */
-#banner {
+#logos {
   justify-content: left;
 }
 
