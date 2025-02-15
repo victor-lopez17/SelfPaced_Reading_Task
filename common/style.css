@@ -152,7 +152,7 @@ input[type="checkbox"]:checked + label::before {
 
 .banner::before {
   content: "";
-  height: 80px;
+  height: 100px;
   width: 100%;
   background-image: linear-gradient(
     to bottom,
@@ -202,6 +202,7 @@ input[type="checkbox"]:checked + label::before {
   align-items: center;
   justify-items: center;
   display: flex;
+  flex-direction: row;
 }
 
 .survey-body {
@@ -247,6 +248,7 @@ input[type="checkbox"]:checked + label::before {
   margin: auto;
   flex: 1 1 100%;
   width: 100%;
+  margin-top: 50px;
 }
 
 .jspsych-content {
@@ -437,6 +439,19 @@ input[type="checkbox"]:checked + label::before {
 }
 
 /* Identifiers */
+#gif {
+  height: 400px;
+  width: 800px;
+  background-image: url("./img/instructions_animation.gif");
+  background-size: 110%;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+#instructions {
+  flex-direction: column;
+}
+
 #logos {
   justify-content: left;
 }

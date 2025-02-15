@@ -121,10 +121,13 @@
     // Instructions
     var inst = {
       type: jsPsychHtmlButtonResponse,
-      stimulus: `<div class='container'><h1>Instructions</h1></div>
-        <p>For this task, you will be presented with a sentence divided in segments. However, these segments will be initially hidden.</p>
-        <p>In order to complete it, you are asked to press the space bar each time you are done reading each section.<br>
-        This will reveal what follows and hide the previous one.</p>`,
+      stimulus: `<div class='container' id='instructions'>
+          <div class='container'><h1>Instructions</h1></div>
+          <p>For this task, you will be presented with a sentence divided in segments. However, these segments will be initially hidden.</p>
+          <p>In order to complete it, you are asked to press the space bar each time you are done reading each section.<br>
+          This will reveal what follows and hide the previous one.</p>
+          <div class='container' id='gif'></div>
+        <div>`,
       choices: ["Proceed to Task"],
       on_finish: function () {
         var element1 = document.getElementById("back1");
