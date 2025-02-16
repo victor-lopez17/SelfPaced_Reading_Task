@@ -21,6 +21,7 @@
     <script src="./common/jspsych/dist/plugin-survey-html-form.js"></script>
     <script src="./common/jspsych/dist/plugin-survey.js"></script>
     <script src="./common/jspsych/dist/plugin-html-button-response.js"></script>
+    <script src="./items.js"></script>
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./common/style.css" />
@@ -73,7 +74,7 @@
     // Survey
     var survey = {
       type: jsPsychSurveyHtmlForm,
-      html: `<div class='container'><h1 id='survey'>Survey</h1></div>
+      html: `<div class='container'><h1>Survey</h1></div>
         <div class='survey-body'>
           <div>
             <h2>How old are you?</h2>
@@ -95,11 +96,11 @@
           <div>
             <h2>How many of these languages do you speak?</h2>
             <div class='container'>
-              <input id='ca' type='checkbox' name='lang_ca' value='catalan'>
+              <input id='ca' type='checkbox' name='lang_ca' value=1>
               <label class='check' for='ca'>Catalan</label>
-              <input id='sp' type='checkbox' name='lang_sp' value='spanish'>
+              <input id='sp' type='checkbox' name='lang_sp' value=1>
               <label class='check' for='sp'>Spanish</label>
-              <input id='en' type='checkbox' name='lang_en' value='english'>
+              <input id='en' type='checkbox' name='lang_en' value=1>
               <label class='check' for='en'>English</label>
             </div>
           </div>
@@ -124,9 +125,12 @@
       stimulus: `<div class='container' id='instructions'>
           <div class='container'><h1>Instructions</h1></div>
           <p>For this task, you will be presented with a sentence divided in segments. However, these segments will be initially hidden.</p>
-          <p>In order to complete it, you are asked to press the space bar each time you are done reading each section.<br>
+          <p>In order to complete it, you are asked to press the space bar each time you are done reading each segment.<br>
           This will reveal what follows and hide the previous one.</p>
           <div class='container' id='gif'></div>
+          <p>Once you have finished reading a sentence, the next one will appear. This will repeat until the test is done.</p>
+          <h2>There is no time limit!</h2>
+          <p>Take as much time as you need.</p>
         <div>`,
       choices: ["Proceed to Task"],
       on_finish: function () {
@@ -142,30 +146,6 @@
       post_trial_gap: 2000,
     };
     timeline.push(inst);
-
-    //Stimulus
-    var stimulus = [
-      {
-        s0: '<p class="stimulus">_______ | ____ | ____ | ______ | _______</p>',
-        s1: '<p class="stimulus">The cat | ____ | ____ | ______ | _______</p>',
-        s2: '<p class="stimulus">_______ | that | ____ | ______ | _______</p>',
-        s3: '<p class="stimulus">_______ | ____ | runs | ______ | _______</p>',
-        s4: '<p class="stimulus">_______ | ____ | ____ | chases | _______</p>',
-        s5: '<p class="stimulus">_______ | ____ | ____ | ______ | the dog</p>',
-        clause_type: "sr",
-        number: "ss",
-      },
-      {
-        s0: '<p class="stimulus">________ | ____ | ____ | ______ | _________</p>',
-        s1: '<p class="stimulus">The lion | ____ | ____ | ______ | _________</p>',
-        s2: '<p class="stimulus">________ | that | ____ | ______ | _________</p>',
-        s3: '<p class="stimulus">________ | ____ | runs | ______ | _________</p>',
-        s4: '<p class="stimulus">________ | ____ | ____ | chases | _________</p>',
-        s5: '<p class="stimulus">________ | ____ | ____ | ______ | the zebra</p>',
-        clause_type: "sr",
-        number: "ss",
-      },
-    ];
 
     // Fillers
     var fillers = {
