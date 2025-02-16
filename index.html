@@ -229,6 +229,11 @@
     var trial_procedure = {
       timeline: [trial, fillers],
       timeline_variables: stimulus,
+      randomize_order: true,
+      sample: {
+        type: "without-replacement",
+        size: 10, //x10 items + x10 fillers
+      },
     };
     timeline.push(trial_procedure);
 
