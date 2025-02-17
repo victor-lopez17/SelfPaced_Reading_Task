@@ -4,9 +4,9 @@
 
 /* Color Variables */
 :root {
-  --accent-blue: #6b68ff;
-  --green: green;
-  --green-fade: rgba(0, 128, 0, 0.4);
+  --accent: #027bc6;
+  --green: #3a8343;
+  --green-fade: #3a834372;
   --white: white;
 }
 
@@ -41,13 +41,15 @@
 
 @keyframes bannerOut {
   to {
-    transform: translateX(-100%);
+    transform: translateY(-70px);
+    opacity: 0;
   }
 }
 
 @keyframes bannerIn {
   from {
-    transform: translateX(-100%);
+    transform: translateY(-70px);
+    opacity: 0;
   }
 }
 
@@ -55,16 +57,6 @@
 body {
   overflow: hidden;
 }
-
-/* body::before {
-  content: url("./img/uabLogo.png");
-  position: absolute;
-  scale: 0.2;
-  padding: 0%;
-  margin: 0%;
-  top: -10%;
-  left: -5%;
-} */
 
 h1 {
   font-size: 3rem;
@@ -74,6 +66,7 @@ h1 {
   animation: fadeIn 1s ease-in-out;
   position: relative;
   width: fit-content;
+  margin-top: 120px;
 }
 
 h1::after {
@@ -92,13 +85,13 @@ h1::after {
 h2 {
   font-size: 1.6rem;
   font-weight: bold;
-  color: rgb(0, 0, 0);
   animation: fadeIn 1s ease-in-out;
 }
 
 p:not(.stimulus) {
   font-size: 1.5rem;
-  width: 30rem;
+  line-height: 2.5rem;
+  width: 40rem;
   animation: fadeIn 1s ease-in-out;
 }
 
@@ -114,8 +107,8 @@ label {
   width: 130px;
   font-weight: bold;
   font-size: 1.5rem;
-  color: var(--accent-blue);
-  border: 3px solid var(--accent-blue);
+  color: var(--accent);
+  border: 3px solid var(--accent);
   border-radius: 30px;
   padding: 8px 12px;
   margin: 15px;
@@ -132,18 +125,36 @@ label:hover {
 input[type="radio"]:checked + label,
 input[type="checkbox"]:checked + label {
   color: white;
-  background-color: var(--accent-blue);
-  scale: 1.1;
+  background-color: var(--accent);
 }
 
 input[type="radio"]:checked + label::before,
 input[type="checkbox"]:checked + label::before {
   background-color: white;
   border-color: white;
-  scale: 1.1;
 }
 
 /* Classes */
+.banner {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+
+.banner::before {
+  content: "";
+  height: 100px;
+  width: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    white 70%,
+    rgba(255, 255, 255, 0)
+  );
+  position: absolute;
+  top: 0%;
+  z-index: -1;
+}
+
 .logo {
   height: 50px;
   width: fit-content;
@@ -155,7 +166,6 @@ input[type="checkbox"]:checked + label::before {
   content: "";
   width: 150%;
   height: 500px;
-  background-color: var(--green);
   position: absolute;
   z-index: -1;
 }
@@ -182,6 +192,7 @@ input[type="checkbox"]:checked + label::before {
   align-items: center;
   justify-items: center;
   display: flex;
+  flex-direction: row;
 }
 
 .survey-body {
@@ -192,7 +203,20 @@ input[type="checkbox"]:checked + label::before {
 
 .stimulus {
   font-size: 3rem;
+  font-weight: bold;
   width: fit-content;
+}
+
+.stimulus::before {
+  content: "Press space bar to continue";
+  font-size: 1.2rem;
+  font-weight: lighter;
+  font-style: italic;
+  color: rgb(150, 150, 150);
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  top: 80%;
 }
 
 .radio::before,
@@ -200,9 +224,9 @@ input[type="checkbox"]:checked + label::before {
   content: "";
   width: 15px;
   height: 15px;
-  border: 3px solid var(--accent-blue);
+  border: 3px solid var(--accent);
   border-radius: 50%;
-  border-color: var(--accent-blue);
+  border-color: var(--accent);
   margin-right: 10px;
   transition: 0.3s ease-in-out;
 }
@@ -227,7 +251,6 @@ input[type="checkbox"]:checked + label::before {
   margin: auto;
   flex: 1 1 100%;
   width: 100%;
-  transform: translateY(-65px);
 }
 
 .jspsych-content {
@@ -255,12 +278,12 @@ input[type="checkbox"]:checked + label::before {
   font-family: "Open Sans", "Arial", sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--accent-blue);
+  color: var(--accent);
   text-align: center;
   width: 80px;
   height: 30px;
   border-radius: 30px;
-  border-color: var(--accent-blue);
+  border-color: var(--accent);
   border-style: solid;
   border-width: 3px;
   outline: none;
@@ -273,9 +296,9 @@ input[type="checkbox"]:checked + label::before {
 .jspsych-display-element input[type="text"]:valid {
   width: 30px;
   padding: 8px 8px;
-  background-color: var(--accent-blue);
+  background-color: var(--accent);
   color: white;
-  scale: 1.1;
+  scale: 1;
 }
 
 .jspsych-display-element input[type="text"]:focus,
@@ -315,9 +338,9 @@ input[type="checkbox"]:checked + label::before {
   background-image: none;
   border: 3px solid transparent;
   border-radius: 30px;
-  color: var(--accent-blue);
+  color: var(--accent);
   background-color: white;
-  border-color: var(--accent-blue);
+  border-color: var(--accent);
   transition: 0.3s ease-in-out;
   animation: fadeIn 1s ease-in-out;
 }
@@ -325,7 +348,7 @@ input[type="checkbox"]:checked + label::before {
 /* only apply the hover style on devices with a mouse/pointer that can hover - issue #977 */
 @media (hover: hover) {
   .jspsych-btn:hover {
-    background-color: var(--accent-blue);
+    background-color: var(--accent);
     border-width: 3px;
     color: white;
     scale: 1.1;
@@ -418,7 +441,21 @@ input[type="checkbox"]:checked + label::before {
 }
 
 /* Identifiers */
-#banner {
+#gif {
+  height: 400px;
+  width: 800px;
+  background-image: url("./img/instructions_animation.gif");
+  background-size: 110%;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  animation: fadeIn 1s ease-in-out;
+}
+
+#instructions {
+  flex-direction: column;
+}
+
+#logos {
   justify-content: left;
 }
 
