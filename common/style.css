@@ -308,6 +308,44 @@ input[type="checkbox"]:checked + label::before {
   border-radius: 10px;
   scale: 1.1;
 }
+.jspsych-display-element input[type="number"] {
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent);
+  text-align: center;
+  width: 80px;
+  height: 30px;
+  border-radius: 30px;
+  border-color: var(--accent);
+  border-style: solid;
+  border-width: 3px;
+  outline: none;
+  margin: 15px;
+  padding: 8px 12px;
+  transition: 0.3s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.jspsych-display-element input[type="number"]:valid {
+  width: 30px;
+  padding: 8px 8px;
+  background-color: var(--accent);
+  color: white;
+  scale: 1;
+}
+
+.jspsych-display-element input[type="number"]:focus,
+.jspsych-display-element input[type="number"]:hover {
+  width: 100px;
+  padding: 8px 8px;
+  border-radius: 10px;
+  scale: 1.1;
+}
+
+.jspsych-display-element input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 
 /* Buttons and Button Groups */
 .jspsych-btn-group-flex {
