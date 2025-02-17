@@ -232,7 +232,7 @@
       randomize_order: true,
       sample: {
         type: "without-replacement",
-        size: 10, //x10 items + x10 fillers
+        size: 1, //x10 items + x10 fillers
       },
     };
     timeline.push(trial_procedure);
@@ -267,6 +267,7 @@
         <h2>Thank you for your time!</h2>
         `;
       },
+      choices: ["j"],
       on_start: function () {
         var element1 = document.getElementById("back1");
         var element2 = document.getElementById("back2");
