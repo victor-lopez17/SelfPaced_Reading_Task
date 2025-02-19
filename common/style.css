@@ -142,41 +142,6 @@ svg {
 }
 
 /* Classes */
-.banner {
-  position: fixed;
-  z-index: 100;
-  width: 100%;
-}
-
-.banner::before {
-  content: "";
-  height: 100px;
-  width: 100%;
-  background-image: linear-gradient(
-    to bottom,
-    white 70%,
-    rgba(255, 255, 255, 0)
-  );
-  position: absolute;
-  top: 0%;
-  z-index: -1;
-}
-
-.logo {
-  height: 50px;
-  width: fit-content;
-  margin-top: 15px;
-  margin-left: 15px;
-}
-
-.back {
-  content: "";
-  width: 150%;
-  height: 500px;
-  position: absolute;
-  z-index: -1;
-}
-
 .animate_back {
   animation: backOut 1s forwards;
 }
@@ -199,13 +164,7 @@ svg {
   align-items: center;
   justify-items: center;
   display: flex;
-  flex-direction: row;
-}
-
-.survey-body {
-  display: flex;
   flex-direction: column;
-  gap: 50px;
 }
 
 .stimulus {
@@ -350,7 +309,7 @@ svg {
   scale: 1.1;
 }
 
-.jspsych-display-element input[type="number"]::-webkit-inner-spin-button {
+input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
@@ -512,8 +471,44 @@ svg {
   flex-direction: column;
 }
 
+#banner {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+
+#banner::before {
+  content: "";
+  height: 100px;
+  width: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    white 70%,
+    rgba(255, 255, 255, 0)
+  );
+  position: absolute;
+  top: 0%;
+  z-index: -1;
+}
+
+#banner div div {
+  content: "";
+  width: 150%;
+  height: 500px;
+  position: absolute;
+  z-index: -1;
+}
+
 #logos {
   justify-content: left;
+  flex-direction: row;
+}
+
+#logos img {
+  height: 50px;
+  width: fit-content;
+  margin-top: 15px;
+  margin-left: 15px;
 }
 
 #back1 {
@@ -524,6 +519,11 @@ svg {
 #back2 {
   transform: rotate(-4deg) translateY(-42%);
   background-color: var(--green-fade);
+}
+
+#question {
+  flex-direction: row;
+  margin-bottom: 50px;
 }
 
 /* progress bar */
