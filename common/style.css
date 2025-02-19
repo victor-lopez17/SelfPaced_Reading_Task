@@ -134,6 +134,13 @@ input[type="checkbox"]:checked + label::before {
   border-color: white;
 }
 
+svg {
+  align-self: center;
+  transition: 0.3s ease-in-out;
+  stroke-width: 3px;
+  stroke: var(--accent);
+}
+
 /* Classes */
 .banner {
   position: fixed;
@@ -361,7 +368,8 @@ input[type="checkbox"]:checked + label::before {
   margin-left: auto;
 }
 
-.jspsych-btn {
+.jspsych-btn,
+.button {
   display: inline-block;
   padding: 8px 12px;
   margin: 3rem;
@@ -383,15 +391,26 @@ input[type="checkbox"]:checked + label::before {
   animation: fadeIn 1s ease-in-out;
 }
 
+.button {
+  display: flex;
+  gap: 10px;
+}
+
 /* only apply the hover style on devices with a mouse/pointer that can hover - issue #977 */
 @media (hover: hover) {
-  .jspsych-btn:hover {
+  .jspsych-btn:hover,
+  .button:hover {
     background-color: var(--accent);
     border-width: 3px;
     color: white;
     scale: 1.1;
     border-radius: 10px;
   }
+}
+
+.button:hover svg {
+  scale: 1.2;
+  stroke: white;
 }
 
 .jspsych-btn:disabled {

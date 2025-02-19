@@ -67,6 +67,10 @@
         <p>You are about to partake in a self-paced reading task.</p>
         <p>First, please, answer a few questions.</p>`,
       choices: ["Continue"],
+      button_html: (choice) => `<div class='button'>
+          <div>Continue</div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><path d="m10 8 4 4-4 4"/></svg>
+        </div>`,
       record_data: false,
     };
     timeline.push(intro);
@@ -133,6 +137,10 @@
           <p>Take as much time as you need.</p>
         <div>`,
       choices: ["Proceed to Task"],
+      button_html: (choice) => `<div class='button'>
+          <div>Proceed</div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><path d="m10 8 4 4-4 4"/></svg>
+        </div>`,
       on_finish: function () {
         var element1 = document.getElementById("back1");
         var element2 = document.getElementById("back2");
