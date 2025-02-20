@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="./common/style.css" />
   </head>
 
+  <!-- Not Experiment-Related Code -->
   <body>
     <div id="banner">
       <div class="container">
@@ -127,12 +128,11 @@
       stimulus: `<div class='container'>
         <h1>Instructions</h1>
         <p>For this task, you will be presented with a sentence divided in segments. However, these segments will be initially hidden.</p>
-        <p>In order to complete it, you are asked to press the space bar each time you are done reading each segment.<br>
+        <p>In order to complete it, you are asked to <b>press the space bar</b> each time you are done reading each segment.<br>
         This will reveal what follows and hide the previous one.</p>
         <div class='container' id='gif'></div>
-        <p>Once you have finished reading a sentence, the next one will appear. This will repeat until the test is done.</p>
-        <h2>There is no time limit!</h2>
-        <p>Take as much time as you need.</p>
+        <p>By the end of each sentence, you will be asked to <b>answer a question</b> on the sentence you just read. So, make sure to <b>take the necessary time</b> to understand what you read!</p>
+        <p>Once you have finished reading a sentence and you have answered its question, the next one will appear. This will repeat until the test is done.</p>
       <div>`,
       choices: ["Proceed to Task"],
       button_html: (choice) => `<div class='button'>
@@ -264,13 +264,13 @@
         );
         return `<div class='container'>
           <h1>Well Done!</h1>
-          <h2>The test has come to an end.</h2>
-          <p>Here are the means of your reaction times for each segment:</p>
-          <p>Segment 1: ${s1_mean}ms<br>
-          Segment 2: ${s2_mean}ms<br>
-          Segment 3: ${s3_mean}ms<br>
-          Segment 4: ${s4_mean}ms<br>
-          Segment 5: ${s5_mean}ms</p>
+          <p>The test has come to an end.<br>
+          Here are the means of your reaction times for each segment:</p>
+          <p><b>Segment 1:</b> ${s1_mean}ms<br>
+          <b>Segment 2:</b> ${s2_mean}ms<br>
+          <b>Segment 3:</b> ${s3_mean}ms<br>
+          <b>Segment 4:</b> ${s4_mean}ms<br>
+          <b>Segment 5:</b> ${s5_mean}ms</p>
           <h2>Thank you for your time!</h2>
         </div>`;
       },
