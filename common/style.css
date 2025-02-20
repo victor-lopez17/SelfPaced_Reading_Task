@@ -93,7 +93,7 @@ h2 {
   animation: fadeIn 1s ease-in-out;
 }
 
-p:not(.stimulus) {
+p:not(.stimulus, .fixation) {
   font-size: 1.5rem;
   line-height: 2.5rem;
   width: 40rem;
@@ -172,10 +172,16 @@ svg {
   flex-direction: column;
 }
 
-.stimulus {
+.stimulus,
+.fixation {
   font-size: 3rem;
   font-weight: bold;
   width: fit-content;
+}
+
+.fixation {
+  font-weight: lighter;
+  scale: 4;
 }
 
 .stimulus::before {

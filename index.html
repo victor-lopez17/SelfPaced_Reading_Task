@@ -153,6 +153,14 @@
     };
     timeline.push(inst);
 
+    // Fixation Point
+    var fixation = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: '<p class="fixation">+</p>',
+      choices: "NO_KEYS",
+      trial_duration: 1000,
+    };
+
     // Fillers
     var fillers = {
       type: jsPsychHtmlKeyboardResponse,
@@ -233,7 +241,7 @@
 
     // Trial Procedure
     var trial_procedure = {
-      timeline: [trial, fillers],
+      timeline: [fixation, trial, fixation, fillers],
       timeline_variables: stimulus,
       randomize_order: true,
       sample: {
