@@ -161,19 +161,6 @@
       trial_duration: 1000,
     };
 
-    // Fillers
-    var fillers = {
-      type: jsPsychHtmlKeyboardResponse,
-      choices: [" "],
-      stimulus: '<p class="stimulus">This is a filler sentence</p>',
-      post_trial_gap: 1000,
-      data: {
-        segment: "PLACEHOLDER",
-        clause_type: "filler",
-        number: "PLACEHOLDER",
-      },
-    };
-
     // Trial
     var trial = [
       {
@@ -241,12 +228,13 @@
 
     // Trial Procedure
     var trial_procedure = {
-      timeline: [fixation, trial, fixation, fillers],
+      timeline: [fixation, trial],
       timeline_variables: stimulus,
       randomize_order: true,
       sample: {
         type: "without-replacement",
-        size: 1, //x10 items + x10 fillers
+        randomize_group_order: true,
+        size: 10, //x10 items + x10 fillers
       },
     };
     timeline.push(trial_procedure);
