@@ -67,7 +67,6 @@ h1 {
   font-weight: bold;
   color: var(--green);
   margin: 5rem;
-  animation: fadeIn 1s ease-in-out;
   position: relative;
   width: fit-content;
   margin-top: 120px;
@@ -90,14 +89,12 @@ h2 {
   color: var(--accent);
   font-size: 1.6rem;
   font-weight: bold;
-  animation: fadeIn 1s ease-in-out;
 }
 
-p:not(.stimulus, .fixation) {
+p {
   font-size: 1.5rem;
   line-height: 2.5rem;
   width: 40rem;
-  animation: fadeIn 1s ease-in-out;
 }
 
 input[type="radio"],
@@ -119,7 +116,6 @@ label {
   margin: 15px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
-  animation: fadeIn 1s ease-in-out;
 }
 
 label:hover {
@@ -172,6 +168,10 @@ svg {
   flex-direction: column;
 }
 
+.container:not(.stimulus, .fixation, #question, #banner_back, #logos, #gif) {
+  animation: fadeIn 1s ease-in-out;
+}
+
 .stimulus,
 .fixation {
   font-size: 3rem;
@@ -181,7 +181,7 @@ svg {
 
 .fixation {
   font-weight: lighter;
-  scale: 4;
+  scale: 3;
 }
 
 .stimulus::before {
@@ -267,7 +267,6 @@ svg {
   margin: 15px;
   padding: 8px 12px;
   transition: 0.3s ease-in-out;
-  animation: fadeIn 1s ease-in-out;
 }
 
 .jspsych-display-element input[type="text"]:valid {
@@ -301,7 +300,6 @@ svg {
   margin: 15px;
   padding: 8px 12px;
   transition: 0.3s ease-in-out;
-  animation: fadeIn 1s ease-in-out;
 }
 
 .jspsych-display-element input[type="number"]:valid {
@@ -468,6 +466,11 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /* Identifiers */
+#yes_no {
+  justify-content: center;
+  animation: none;
+}
+
 #gif {
   height: 400px;
   width: 800px;
@@ -475,7 +478,6 @@ input[type="number"]::-webkit-inner-spin-button {
   background-size: 110%;
   background-position: bottom;
   background-repeat: no-repeat;
-  animation: fadeIn 1s ease-in-out;
 }
 
 #instructions {

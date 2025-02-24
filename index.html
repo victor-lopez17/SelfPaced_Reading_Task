@@ -21,7 +21,7 @@
     <script src="./common/jspsych/dist/plugin-survey-html-form.js"></script>
     <script src="./common/jspsych/dist/plugin-survey.js"></script>
     <script src="./common/jspsych/dist/plugin-html-button-response.js"></script>
-    <script src="./items.js"></script>
+    <script src="./common/items.js"></script>
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./common/style.css" />
@@ -30,7 +30,7 @@
   <!-- Not Experiment-Related Code -->
   <body>
     <div id="banner">
-      <div class="container">
+      <div class="container" id="banner_back">
         <div id="back1"></div>
         <div id="back2"></div>
       </div>
@@ -131,10 +131,14 @@
       stimulus: `<div class='container'>
         <h1>Instructions</h1>
         <p>For this task, you will be presented with a sentence divided in segments. However, these segments will be initially hidden.</p>
+
         <p>In order to complete it, you are asked to <b>press the space bar</b> each time you are done reading each segment.<br>
         This will reveal what follows and hide the previous one.</p>
+
         <div class='container' id='gif'></div>
+
         <p>By the end of each sentence, you will be asked to <b>answer a question</b> on the sentence you just read. So, make sure to <b>take the necessary time</b> to understand what you read!</p>
+
         <p>Once you have finished reading a sentence and you have answered its question, the next one will appear. This will repeat until the test is done.</p>
       <div>`,
       choices: ["Proceed to Task"],
@@ -234,10 +238,13 @@
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
         },
+        post_trial_gap: 250,
       },
       {
         type: jsPsychHtmlButtonResponse,
         choices: ["Yes", "No"],
+        button_html: (choice) =>
+          `<div class='button' id='yes_no'>${choice}</div>`,
         stimulus: jsPsych.timelineVariable("question"),
         data: {
           task: "question",
@@ -270,7 +277,7 @@
       sample: {
         type: "without-replacement",
         randomize_group_order: true,
-        size: 5, //x20 items + x20 fillers
+        size: 20, //x20 items + x20 fillers
       },
     };
     timeline.push(trial_procedure);
@@ -294,6 +301,7 @@
         var s5_mean = Math.round(
           jsPsych.data.get().filter({ segment: "s5" }).select("rt").mean()
         );
+
         return `<div class='container'>
           <h1>Well Done!</h1>
           <p>The test has come to an end.<br>
@@ -320,7 +328,7 @@
     };
     timeline.push(debrief);
 
-    // jsPsych.run(timeline);
-    jsPsych.simulate(timeline);
+    jsPsych.run(timeline);
+    // jsPsych.simulate(timeline);
   </script>
 </html>
