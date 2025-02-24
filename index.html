@@ -119,6 +119,9 @@
           lang_en: data.response.lang_en,
         });
       },
+      data: {
+        task: "survey",
+      },
     };
     timeline.push(survey);
 
@@ -158,6 +161,9 @@
       type: jsPsychHtmlKeyboardResponse,
       stimulus: '<p class="fixation">+</p>',
       choices: "NO_KEYS",
+      data: {
+        task: "fixation",
+      },
       trial_duration: 1000,
     };
 
@@ -168,6 +174,7 @@
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s0"),
         data: {
+          task: "item",
           segment: "s0",
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
@@ -178,6 +185,7 @@
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s1"),
         data: {
+          task: "item",
           segment: "s1",
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
@@ -188,6 +196,7 @@
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s2"),
         data: {
+          task: "item",
           segment: "s2",
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
@@ -198,6 +207,7 @@
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s3"),
         data: {
+          task: "item",
           segment: "s3",
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
@@ -208,6 +218,7 @@
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s4"),
         data: {
+          task: "item",
           segment: "s4",
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
@@ -217,12 +228,23 @@
         type: jsPsychHtmlKeyboardResponse,
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s5"),
-        post_trial_gap: 1000,
         data: {
+          task: "item",
           segment: "s5",
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
         },
+      },
+      {
+        type: jsPsychHtmlButtonResponse,
+        choices: ["Yes", "No"],
+        stimulus: "<p>Is the sentence grammatically correct?</p>",
+        data: {
+          task: "question",
+          clause_type: jsPsych.timelineVariable("clause_type"),
+          number: jsPsych.timelineVariable("number"),
+        },
+        post_trial_gap: 1000,
       },
     ];
 
@@ -234,7 +256,7 @@
       sample: {
         type: "without-replacement",
         randomize_group_order: true,
-        size: 10, //x10 items + x10 fillers
+        size: 5, //x20 items + x20 fillers
       },
     };
     timeline.push(trial_procedure);
@@ -285,6 +307,6 @@
     timeline.push(debrief);
 
     // jsPsych.run(timeline);
-    jsPsych.simulate(timeline);
+    jsPsych.simulate(timeline, "visual");
   </script>
 </html>
