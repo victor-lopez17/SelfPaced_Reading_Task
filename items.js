@@ -10,6 +10,8 @@ var stimulus = [
     s5: '<p class="stimulus">_________ | ____ | ______ | _________ | falls</p>',
     clause_type: "sr",
     number: "ss",
+    question: "Does the horse chase the zebra fall?",
+    correct_answer: true,
   },
   {
     // #3
@@ -21,6 +23,8 @@ var stimulus = [
     s5: '<p class="stimulus">_________ | ____ | _____ | _________ | laughs</p>',
     clause_type: "sr",
     number: "ss",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #4
@@ -32,6 +36,8 @@ var stimulus = [
     s5: '<p class="stimulus">_________ | ____ | _______ | _________ | runs</p>',
     clause_type: "sr",
     number: "ss",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #7
@@ -43,6 +49,8 @@ var stimulus = [
     s5: '<p class="stimulus">_______ | ____ | ______ | _______ | cries</p>',
     clause_type: "sr",
     number: "ss",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #8
@@ -54,6 +62,8 @@ var stimulus = [
     s5: '<p class="stimulus">_______ | ____ | ____ | _______ | smiles</p>',
     clause_type: "sr",
     number: "ss",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #10
@@ -65,6 +75,8 @@ var stimulus = [
     s5: '<p class="stimulus">_______ | ____ | _______ | _______ | eats</p>',
     clause_type: "sr",
     number: "ss",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #1
@@ -76,6 +88,8 @@ var stimulus = [
     s5: '<p class="stimulus">__________ | ____ | _____ | __________ | fall </p>',
     clause_type: "sr",
     number: "pp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #3
@@ -87,6 +101,8 @@ var stimulus = [
     s5: '<p class="stimulus">__________ | ____ | ____ | __________ | laugh</p>',
     clause_type: "sr",
     number: "pp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #4
@@ -98,6 +114,8 @@ var stimulus = [
     s5: '<p class="stimulus">__________ | ____ | ______ | __________ | run</p>',
     clause_type: "sr",
     number: "pp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #7
@@ -109,6 +127,8 @@ var stimulus = [
     s5: '<p class="stimulus">________ | ____ | ____ | ________ | cry</p>',
     clause_type: "sr",
     number: "pp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #8
@@ -120,6 +140,8 @@ var stimulus = [
     s5: '<p class="stimulus">________ | ____ | ___ | ________ | smile</p>',
     clause_type: "sr",
     number: "pp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #10
@@ -131,6 +153,8 @@ var stimulus = [
     s5: '<p class="stimulus">________ | ____ | _____ | ________ | eat</p>',
     clause_type: "sr",
     number: "pp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #1
@@ -142,6 +166,8 @@ var stimulus = [
     s5: '<p class="stimulus">__________ | ____ | _____ | _________ | fall </p>',
     clause_type: "sr",
     number: "ps",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #3
@@ -153,6 +179,8 @@ var stimulus = [
     s5: '<p class="stimulus">__________ | ____ | ____ | _________ | laugh</p>',
     clause_type: "sr",
     number: "ps",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #4
@@ -164,6 +192,8 @@ var stimulus = [
     s5: '<p class="stimulus">__________ | ____ | ______ | _________ | run</p>',
     clause_type: "sr",
     number: "ps",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #7
@@ -175,6 +205,8 @@ var stimulus = [
     s5: '<p class="stimulus">________ | ____ | ____ | _______ | cry</p>',
     clause_type: "sr",
     number: "ps",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #8
@@ -186,6 +218,8 @@ var stimulus = [
     s5: '<p class="stimulus">________ | ____ | ___ | _______ | smile</p>',
     clause_type: "sr",
     number: "ps",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #10
@@ -197,6 +231,8 @@ var stimulus = [
     s5: '<p class="stimulus">________ | ____ | _____ | _______ | eat</p>',
     clause_type: "sr",
     number: "ps",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #1
@@ -208,6 +244,8 @@ var stimulus = [
     s5: '<p class="stimulus">_________ | ____ | ______ | __________ | falls </p>',
     clause_type: "sr",
     number: "sp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #3
@@ -219,6 +257,8 @@ var stimulus = [
     s5: '<p class="stimulus">_________ | ____ | _____ | __________ | laughs</p>',
     clause_type: "sr",
     number: "sp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #4
@@ -230,6 +270,8 @@ var stimulus = [
     s5: '<p class="stimulus">_________ | ____ | _______ | __________ | runs</p>',
     clause_type: "sr",
     number: "sp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #7
@@ -241,6 +283,8 @@ var stimulus = [
     s5: '<p class="stimulus">_______ | ____ | ______ | ________ | cries</p>',
     clause_type: "sr",
     number: "sp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #8
@@ -252,6 +296,8 @@ var stimulus = [
     s5: '<p class="stimulus">_______ | ____ | ____ | ________ | smiles</p>',
     clause_type: "sr",
     number: "sp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #10
@@ -263,6 +309,8 @@ var stimulus = [
     s5: '<p class="stimulus">_______ | ____ | _______ | ________ | eats</p>',
     clause_type: "sr",
     number: "sp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // Object Relatives
@@ -275,6 +323,8 @@ var stimulus = [
     s5: '<p class="stimulus">_________ | ____ | _________ | ______ | falls</p>',
     clause_type: "or",
     number: "ss",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #3
@@ -286,6 +336,8 @@ var stimulus = [
     s5: '<p class="stimulus">_________ | ____ | _________ | _____ | laughs</p>',
     clause_type: "or",
     number: "ss",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #4
@@ -297,6 +349,8 @@ var stimulus = [
     s5: '<p class="stimulus">_________ | ____ | ________ | _______ | runs</p>',
     clause_type: "or",
     number: "ss",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #7
@@ -308,6 +362,8 @@ var stimulus = [
     s5: '<p class="stimulus">_______ | ____ | _______ | ______ | cries</p>',
     clause_type: "or",
     number: "ss",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #8
@@ -319,6 +375,8 @@ var stimulus = [
     s5: '<p class="stimulus">_______ | ____ | _______ | ____ | smiles</p>',
     clause_type: "or",
     number: "ss",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #10
@@ -330,6 +388,8 @@ var stimulus = [
     s5: '<p class="stimulus">_______ | ____ | _______ | _______ | eats</p>',
     clause_type: "or",
     number: "ss",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #1
@@ -341,6 +401,8 @@ var stimulus = [
     s5: '<p class="stimulus">__________ | ____ | __________ | _____ | fall</p>',
     clause_type: "or",
     number: "pp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #3
@@ -352,6 +414,8 @@ var stimulus = [
     s5: '<p class="stimulus">__________ | ____ | __________ | ____ | laugh</p>',
     clause_type: "or",
     number: "pp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #4
@@ -363,6 +427,8 @@ var stimulus = [
     s5: '<p class="stimulus">__________ | ____ | __________ | ______ | run</p>',
     clause_type: "or",
     number: "pp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #7
@@ -374,6 +440,8 @@ var stimulus = [
     s5: '<p class="stimulus">________ | ____ | ________ | ____ | cry</p>',
     clause_type: "or",
     number: "pp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #8
@@ -385,6 +453,8 @@ var stimulus = [
     s5: '<p class="stimulus">________ | ____ | ________ | ___ | smile</p>',
     clause_type: "or",
     number: "pp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #10
@@ -396,6 +466,8 @@ var stimulus = [
     s5: '<p class="stimulus">________ | ____ | ________ | _____ | eat</p>',
     clause_type: "or",
     number: "pp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #1
@@ -407,6 +479,8 @@ var stimulus = [
     s5: '<p class="stimulus">__________ | ____ | _________ | ______ | fall </p>',
     clause_type: "or",
     number: "ps",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #3
@@ -418,6 +492,8 @@ var stimulus = [
     s5: '<p class="stimulus">__________ | ____ | _________ | _____ | laugh</p>',
     clause_type: "or",
     number: "ps",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #4
@@ -429,6 +505,8 @@ var stimulus = [
     s5: '<p class="stimulus">__________ | ____ | _________ | _______ | run</p>',
     clause_type: "or",
     number: "ps",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #7
@@ -440,6 +518,8 @@ var stimulus = [
     s5: '<p class="stimulus">________ | ____ | _______ | ______ | cry</p>',
     clause_type: "or",
     number: "ps",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #8
@@ -451,6 +531,8 @@ var stimulus = [
     s5: '<p class="stimulus">________ | ____ | _______ | ____ | smile</p>',
     clause_type: "or",
     number: "ps",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #10
@@ -462,6 +544,8 @@ var stimulus = [
     s5: '<p class="stimulus">________ | ____ | _______ | _______ | eat</p>',
     clause_type: "or",
     number: "ps",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #1
@@ -473,6 +557,8 @@ var stimulus = [
     s5: '<p class="stimulus">_________ | ____ | __________ | _____ | falls</p>',
     clause_type: "or",
     number: "sp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #3
@@ -484,6 +570,8 @@ var stimulus = [
     s5: '<p class="stimulus">_________ | ____ | __________ | ____ | laughs</p>',
     clause_type: "or",
     number: "sp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #4
@@ -495,6 +583,8 @@ var stimulus = [
     s5: '<p class="stimulus">_________ | ____ | __________ | ______ | runs</p>',
     clause_type: "or",
     number: "sp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #7
@@ -506,6 +596,8 @@ var stimulus = [
     s5: '<p class="stimulus">_______ | ____ | ________ | ____ | cries</p>',
     clause_type: "or",
     number: "sp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #8
@@ -517,6 +609,8 @@ var stimulus = [
     s5: '<p class="stimulus">_______ | ____ | ________ | ___ | smiles</p>',
     clause_type: "or",
     number: "sp",
+    question: "test",
+    correct_answer: true,
   },
   {
     // #10
@@ -528,5 +622,7 @@ var stimulus = [
     s5: '<p class="stimulus">_______ | ____ | ________ | _____ | eats</p>',
     clause_type: "or",
     number: "sp",
+    question: "test",
+    correct_answer: true,
   },
 ];

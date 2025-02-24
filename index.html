@@ -100,11 +100,11 @@
 
           <h2>How many of these languages do you speak?</h2>
           <div class='container' id='question'>
-            <input id='ca' type='checkbox' name='lang_ca' value=1>
+            <input id='ca' type='checkbox' name='lang_ca' value=true>
             <label class='check' for='ca'>Catalan</label>
-            <input id='sp' type='checkbox' name='lang_sp' value=1>
+            <input id='sp' type='checkbox' name='lang_sp' value=true>
             <label class='check' for='sp'>Spanish</label>
-            <input id='en' type='checkbox' name='lang_en' value=1>
+            <input id='en' type='checkbox' name='lang_en' value=true>
             <label class='check' for='en'>English</label>
           </div>
         </div>`,
@@ -238,11 +238,25 @@
       {
         type: jsPsychHtmlButtonResponse,
         choices: ["Yes", "No"],
-        stimulus: "<p>Is the sentence grammatically correct?</p>",
+        stimulus: jsPsych.timelineVariable("question"),
         data: {
           task: "question",
+          correct_answer: jsPsych.timelineVariable("correct_answer"),
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
+        },
+        on_finish: function (data) {
+          function answer_bool(data) {
+            if (data === 0) {
+              return true;
+            } else {
+              return false;
+            }
+          }
+
+          jsPsych.data.addDataToLastTrial({
+            answer: answer_bool(data.response),
+          });
         },
         post_trial_gap: 1000,
       },
@@ -307,6 +321,6 @@
     timeline.push(debrief);
 
     // jsPsych.run(timeline);
-    jsPsych.simulate(timeline, "visual");
+    jsPsych.simulate(timeline);
   </script>
 </html>
