@@ -623,6 +623,6 @@ var stimulus = [
     clause_type: "or",
     number: "sp",
     question: "Do the dogs that the cat watches eat?",
-    correct_answer: False,
+    correct_answer: false,
   },
 ];
