@@ -8,6 +8,7 @@
   --green: #3a8343;
   --green-fade: #3a834372;
   --white: white;
+  --background: white;
 }
 
 /* Animations */
@@ -56,6 +57,7 @@
 /* Tags */
 body {
   overflow: hidden;
+  background-color: var(--background);
 }
 
 b {

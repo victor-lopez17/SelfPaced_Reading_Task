@@ -304,13 +304,17 @@
 
         return `<div class='container'>
           <h1>Well Done!</h1>
-          <p>The test has come to an end.<br>
-          Here are the means of your reaction times for each segment:</p>
-          <p><b>Segment 1:</b> ${s1_mean}ms<br>
-          <b>Segment 2:</b> ${s2_mean}ms<br>
-          <b>Segment 3:</b> ${s3_mean}ms<br>
-          <b>Segment 4:</b> ${s4_mean}ms<br>
-          <b>Segment 5:</b> ${s5_mean}ms</p>
+          <p>
+            The test has come to an end.<br>
+           Here are the means of your reaction times for each segment:
+          </p>
+          <p>
+            <b>Segment 1:</b> ${s1_mean}ms<br>
+            <b>Segment 2:</b> ${s2_mean}ms<br>
+            <b>Segment 3:</b> ${s3_mean}ms<br>
+            <b>Segment 4:</b> ${s4_mean}ms<br>
+            <b>Segment 5:</b> ${s5_mean}ms
+          </p>
           <h2>Thank you for your time!</h2>
         </div>`;
       },
@@ -328,7 +332,7 @@
     };
     timeline.push(debrief);
 
-    jsPsych.run(timeline);
-    // jsPsych.simulate(timeline);
+    // jsPsych.run(timeline);
+    jsPsych.simulate(timeline);
   </script>
 </html>
