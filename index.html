@@ -21,21 +21,22 @@
     <script src="./common/jspsych/dist/plugin-survey-html-form.js"></script>
     <script src="./common/jspsych/dist/plugin-survey.js"></script>
     <script src="./common/jspsych/dist/plugin-html-button-response.js"></script>
-    <script src="./items.js"></script>
+    <script src="./common/items.js"></script>
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./common/style.css" />
   </head>
 
+  <!-- Not Experiment-Related Code -->
   <body>
-    <div class="banner">
-      <div class="container">
-        <div class="back" id="back1"></div>
-        <div class="back" id="back2"></div>
+    <div id="banner">
+      <div class="container" id="banner_back">
+        <div id="back1"></div>
+        <div id="back2"></div>
       </div>
       <div class="container" id="logos">
-        <img src="./common/img/uabLogo.png" alt="uab logo" class="logo" />
-        <img src="./common/img/grelaLogo.png" alt="grela logo" class="logo" />
+        <img src="./common/img/uabLogo.png" alt="uab logo" />
+        <img src="./common/img/grelaLogo.png" alt="grela logo" />
       </div>
     </div>
   </body>
@@ -63,10 +64,16 @@
     // Introduction
     var intro = {
       type: jsPsychHtmlButtonResponse,
-      stimulus: `<div class='container'><h1>Welcome!</h1></div>
+      stimulus: `<div class='container'>
+        <h1>Welcome!</h1>
         <p>You are about to partake in a self-paced reading task.</p>
-        <p>First, please, answer a few questions.</p>`,
+        <p>First, please, answer a few questions.</p>
+      </div>`,
       choices: ["Continue"],
+      button_html: (choice) => `<div class='button'>
+          <div>Continue</div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><path d="m10 8 4 4-4 4"/></svg>
+        </div>`,
       record_data: false,
     };
     timeline.push(intro);
@@ -74,35 +81,31 @@
     // Survey
     var survey = {
       type: jsPsychSurveyHtmlForm,
-      html: `<div class='container'><h1>Survey</h1></div>
-        <div class='survey-body'>
-          <div>
-            <h2>How old are you?</h2>
-            <input name='age' type='text' required placeholder='E.g., 25'>
-          </div>
+      html: `<div class='container'>
+        <h1>Survey</h1>
+        <h2>How old are you?</h2>
+        <div class='container' id='question'>
+          <input name='age' type='number' required placeholder='E.g., 25'>
+        </div>
 
-          <div>
-            <h2>What is your gender?</h2>
-            <div class='container'>
-              <input id='male' type='radio' name='gender' value='male' required>
-              <label class='radio' for='male'>Male</label>
-              <input id='female' type='radio' name='gender' value='female' required>
-              <label class='radio' for='female'>Female</label>
-              <input id='other' type='radio' name='gender' value='other' required>
-              <label class='radio' for='other'>Other</label>
-            </div>
-          </div>
+        <h2>What is your gender?</h2>
+        <div class='container' id='question'>
+          <input id='male' type='radio' name='gender' value='male' required>
+          <label class='radio' for='male'>Male</label>
+          <input id='female' type='radio' name='gender' value='female' required>
+          <label class='radio' for='female'>Female</label>
+          <input id='other' type='radio' name='gender' value='other' required>
+          <label class='radio' for='other'>Other</label>
+        </div>
 
-          <div>
-            <h2>How many of these languages do you speak?</h2>
-            <div class='container'>
-              <input id='ca' type='checkbox' name='lang_ca' value=1>
-              <label class='check' for='ca'>Catalan</label>
-              <input id='sp' type='checkbox' name='lang_sp' value=1>
-              <label class='check' for='sp'>Spanish</label>
-              <input id='en' type='checkbox' name='lang_en' value=1>
-              <label class='check' for='en'>English</label>
-            </div>
+          <h2>How many of these languages do you speak?</h2>
+          <div class='container' id='question'>
+            <input id='ca' type='checkbox' name='lang_ca' value=true>
+            <label class='check' for='ca'>Catalan</label>
+            <input id='sp' type='checkbox' name='lang_sp' value=true>
+            <label class='check' for='sp'>Spanish</label>
+            <input id='en' type='checkbox' name='lang_en' value=true>
+            <label class='check' for='en'>English</label>
           </div>
         </div>`,
 
@@ -116,23 +119,33 @@
           lang_en: data.response.lang_en,
         });
       },
+      data: {
+        task: "survey",
+      },
     };
     timeline.push(survey);
 
     // Instructions
     var inst = {
       type: jsPsychHtmlButtonResponse,
-      stimulus: `<div class='container' id='instructions'>
-          <div class='container'><h1>Instructions</h1></div>
-          <p>For this task, you will be presented with a sentence divided in segments. However, these segments will be initially hidden.</p>
-          <p>In order to complete it, you are asked to press the space bar each time you are done reading each segment.<br>
-          This will reveal what follows and hide the previous one.</p>
-          <div class='container' id='gif'></div>
-          <p>Once you have finished reading a sentence, the next one will appear. This will repeat until the test is done.</p>
-          <h2>There is no time limit!</h2>
-          <p>Take as much time as you need.</p>
-        <div>`,
+      stimulus: `<div class='container'>
+        <h1>Instructions</h1>
+        <p>For this task, you will be presented with a sentence divided in segments. However, these segments will be initially hidden.</p>
+
+        <p>In order to complete it, you are asked to <b>press the space bar</b> each time you are done reading each segment.<br>
+        This will reveal what follows and hide the previous one.</p>
+
+        <div class='container' id='gif'></div>
+
+        <p>By the end of each sentence, you will be asked to <b>answer a question</b> on the sentence you just read. So, make sure to <b>take the necessary time</b> to understand what you read!</p>
+
+        <p>Once you have finished reading a sentence and you have answered its question, the next one will appear. This will repeat until the test is done.</p>
+      <div>`,
       choices: ["Proceed to Task"],
+      button_html: (choice) => `<div class='button'>
+          <div>Proceed</div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><path d="m10 8 4 4-4 4"/></svg>
+        </div>`,
       on_finish: function () {
         var element1 = document.getElementById("back1");
         var element2 = document.getElementById("back2");
@@ -147,17 +160,15 @@
     };
     timeline.push(inst);
 
-    // Fillers
-    var fillers = {
+    // Fixation Point
+    var fixation = {
       type: jsPsychHtmlKeyboardResponse,
-      choices: [" "],
-      stimulus: '<p class="stimulus">This is a filler sentence</p>',
-      post_trial_gap: 1000,
+      stimulus: '<p class="fixation">+</p>',
+      choices: "NO_KEYS",
       data: {
-        segment: "PLACEHOLDER",
-        clause_type: "filler",
-        number: "PLACEHOLDER",
+        task: "fixation",
       },
+      trial_duration: 1000,
     };
 
     // Trial
@@ -167,6 +178,7 @@
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s0"),
         data: {
+          task: "item",
           segment: "s0",
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
@@ -177,6 +189,7 @@
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s1"),
         data: {
+          task: "item",
           segment: "s1",
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
@@ -187,6 +200,7 @@
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s2"),
         data: {
+          task: "item",
           segment: "s2",
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
@@ -197,6 +211,7 @@
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s3"),
         data: {
+          task: "item",
           segment: "s3",
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
@@ -207,6 +222,7 @@
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s4"),
         data: {
+          task: "item",
           segment: "s4",
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
@@ -216,23 +232,52 @@
         type: jsPsychHtmlKeyboardResponse,
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s5"),
-        post_trial_gap: 1000,
         data: {
+          task: "item",
           segment: "s5",
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
         },
+        post_trial_gap: 250,
+      },
+      {
+        type: jsPsychHtmlButtonResponse,
+        choices: ["Yes", "No"],
+        button_html: (choice) =>
+          `<div class='button' id='yes_no'>${choice}</div>`,
+        stimulus: jsPsych.timelineVariable("question"),
+        data: {
+          task: "question",
+          correct_answer: jsPsych.timelineVariable("correct_answer"),
+          clause_type: jsPsych.timelineVariable("clause_type"),
+          number: jsPsych.timelineVariable("number"),
+        },
+        on_finish: function (data) {
+          function answer_bool(data) {
+            if (data === 0) {
+              return true;
+            } else {
+              return false;
+            }
+          }
+
+          jsPsych.data.addDataToLastTrial({
+            answer: answer_bool(data.response),
+          });
+        },
+        post_trial_gap: 1000,
       },
     ];
 
     // Trial Procedure
     var trial_procedure = {
-      timeline: [trial, fillers],
+      timeline: [fixation, trial],
       timeline_variables: stimulus,
       randomize_order: true,
       sample: {
         type: "without-replacement",
-        size: 1, //x10 items + x10 fillers
+        randomize_group_order: true,
+        size: 47, // 32 items + 15 fillers
       },
     };
     timeline.push(trial_procedure);
@@ -256,16 +301,22 @@
         var s5_mean = Math.round(
           jsPsych.data.get().filter({ segment: "s5" }).select("rt").mean()
         );
-        return `<div class='container'><h1>Well Done!</h1></div>
-        <h2>The test has come to an end.</h2>
-        <p>Here are the means of your reaction times for each segment:</p>
-        <p>Segment 1: ${s1_mean}ms</p>
-        <p>Segment 2: ${s2_mean}ms</p>
-        <p>Segment 3: ${s3_mean}ms</p>
-        <p>Segment 4: ${s4_mean}ms</p>
-        <p>Segment 5: ${s5_mean}ms</p>
-        <h2>Thank you for your time!</h2>
-        `;
+
+        return `<div class='container'>
+          <h1>Well Done!</h1>
+          <p>
+            The test has come to an end.<br>
+           Here are the means of your reaction times for each segment:
+          </p>
+          <p>
+            <b>Segment 1:</b> ${s1_mean}ms<br>
+            <b>Segment 2:</b> ${s2_mean}ms<br>
+            <b>Segment 3:</b> ${s3_mean}ms<br>
+            <b>Segment 4:</b> ${s4_mean}ms<br>
+            <b>Segment 5:</b> ${s5_mean}ms
+          </p>
+          <h2>Thank you for your time!</h2>
+        </div>`;
       },
       choices: ["j"],
       on_start: function () {
@@ -281,6 +332,7 @@
     };
     timeline.push(debrief);
 
-    jsPsych.run(timeline);
+    // jsPsych.run(timeline);
+    jsPsych.simulate(timeline);
   </script>
 </html>

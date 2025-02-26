@@ -8,6 +8,7 @@
   --green: #3a8343;
   --green-fade: #3a834372;
   --white: white;
+  --background: white;
 }
 
 /* Animations */
@@ -56,6 +57,11 @@
 /* Tags */
 body {
   overflow: hidden;
+  background-color: var(--background);
+}
+
+b {
+  color: var(--accent);
 }
 
 h1 {
@@ -63,7 +69,6 @@ h1 {
   font-weight: bold;
   color: var(--green);
   margin: 5rem;
-  animation: fadeIn 1s ease-in-out;
   position: relative;
   width: fit-content;
   margin-top: 120px;
@@ -83,16 +88,15 @@ h1::after {
 }
 
 h2 {
+  color: var(--accent);
   font-size: 1.6rem;
   font-weight: bold;
-  animation: fadeIn 1s ease-in-out;
 }
 
-p:not(.stimulus) {
+p {
   font-size: 1.5rem;
   line-height: 2.5rem;
   width: 40rem;
-  animation: fadeIn 1s ease-in-out;
 }
 
 input[type="radio"],
@@ -114,7 +118,6 @@ label {
   margin: 15px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
-  animation: fadeIn 1s ease-in-out;
 }
 
 label:hover {
@@ -134,42 +137,14 @@ input[type="checkbox"]:checked + label::before {
   border-color: white;
 }
 
+svg {
+  align-self: center;
+  transition: 0.3s ease-in-out;
+  stroke-width: 3px;
+  stroke: var(--accent);
+}
+
 /* Classes */
-.banner {
-  position: fixed;
-  z-index: 100;
-  width: 100%;
-}
-
-.banner::before {
-  content: "";
-  height: 100px;
-  width: 100%;
-  background-image: linear-gradient(
-    to bottom,
-    white 70%,
-    rgba(255, 255, 255, 0)
-  );
-  position: absolute;
-  top: 0%;
-  z-index: -1;
-}
-
-.logo {
-  height: 50px;
-  width: fit-content;
-  margin-top: 15px;
-  margin-left: 15px;
-}
-
-.back {
-  content: "";
-  width: 150%;
-  height: 500px;
-  position: absolute;
-  z-index: -1;
-}
-
 .animate_back {
   animation: backOut 1s forwards;
 }
@@ -192,19 +167,23 @@ input[type="checkbox"]:checked + label::before {
   align-items: center;
   justify-items: center;
   display: flex;
-  flex-direction: row;
-}
-
-.survey-body {
-  display: flex;
   flex-direction: column;
-  gap: 50px;
 }
 
-.stimulus {
+.container:not(.stimulus, .fixation, #question, #banner_back, #logos, #gif) {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.stimulus,
+.fixation {
   font-size: 3rem;
   font-weight: bold;
   width: fit-content;
+}
+
+.fixation {
+  font-weight: lighter;
+  scale: 3;
 }
 
 .stimulus::before {
@@ -290,7 +269,6 @@ input[type="checkbox"]:checked + label::before {
   margin: 15px;
   padding: 8px 12px;
   transition: 0.3s ease-in-out;
-  animation: fadeIn 1s ease-in-out;
 }
 
 .jspsych-display-element input[type="text"]:valid {
@@ -308,6 +286,43 @@ input[type="checkbox"]:checked + label::before {
   border-radius: 10px;
   scale: 1.1;
 }
+.jspsych-display-element input[type="number"] {
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent);
+  text-align: center;
+  width: 80px;
+  height: 30px;
+  border-radius: 30px;
+  border-color: var(--accent);
+  border-style: solid;
+  border-width: 3px;
+  outline: none;
+  margin: 15px;
+  padding: 8px 12px;
+  transition: 0.3s ease-in-out;
+}
+
+.jspsych-display-element input[type="number"]:valid {
+  width: 30px;
+  padding: 8px 8px;
+  background-color: var(--accent);
+  color: white;
+  scale: 1;
+}
+
+.jspsych-display-element input[type="number"]:focus,
+.jspsych-display-element input[type="number"]:hover {
+  width: 100px;
+  padding: 8px 8px;
+  border-radius: 10px;
+  scale: 1.1;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 
 /* Buttons and Button Groups */
 .jspsych-btn-group-flex {
@@ -323,7 +338,8 @@ input[type="checkbox"]:checked + label::before {
   margin-left: auto;
 }
 
-.jspsych-btn {
+.jspsych-btn,
+.button {
   display: inline-block;
   padding: 8px 12px;
   margin: 3rem;
@@ -345,15 +361,26 @@ input[type="checkbox"]:checked + label::before {
   animation: fadeIn 1s ease-in-out;
 }
 
+.button {
+  display: flex;
+  gap: 10px;
+}
+
 /* only apply the hover style on devices with a mouse/pointer that can hover - issue #977 */
 @media (hover: hover) {
-  .jspsych-btn:hover {
+  .jspsych-btn:hover,
+  .button:hover {
     background-color: var(--accent);
     border-width: 3px;
     color: white;
     scale: 1.1;
     border-radius: 10px;
   }
+}
+
+.button:hover svg {
+  scale: 1.2;
+  stroke: white;
 }
 
 .jspsych-btn:disabled {
@@ -441,6 +468,11 @@ input[type="checkbox"]:checked + label::before {
 }
 
 /* Identifiers */
+#yes_no {
+  justify-content: center;
+  animation: none;
+}
+
 #gif {
   height: 400px;
   width: 800px;
@@ -448,15 +480,50 @@ input[type="checkbox"]:checked + label::before {
   background-size: 110%;
   background-position: bottom;
   background-repeat: no-repeat;
-  animation: fadeIn 1s ease-in-out;
 }
 
 #instructions {
   flex-direction: column;
 }
 
+#banner {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+
+#banner::before {
+  content: "";
+  height: 100px;
+  width: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    white 70%,
+    rgba(255, 255, 255, 0)
+  );
+  position: absolute;
+  top: 0%;
+  z-index: -1;
+}
+
+#banner div div {
+  content: "";
+  width: 150%;
+  height: 500px;
+  position: absolute;
+  z-index: -1;
+}
+
 #logos {
   justify-content: left;
+  flex-direction: row;
+}
+
+#logos img {
+  height: 50px;
+  width: fit-content;
+  margin-top: 15px;
+  margin-left: 15px;
 }
 
 #back1 {
@@ -467,6 +534,11 @@ input[type="checkbox"]:checked + label::before {
 #back2 {
   transform: rotate(-4deg) translateY(-42%);
   background-color: var(--green-fade);
+}
+
+#question {
+  flex-direction: row;
+  margin-bottom: 50px;
 }
 
 /* progress bar */
