@@ -284,7 +284,8 @@
       sample: {
         type: "without-replacement",
         randomize_group_order: true,
-        size: stimulus.length, // 32 items + 15 fillers
+        size: 10, // For testing purposes
+        // size: stimulus.length, // 32 items + 15 fillers
       },
     };
     timeline.push(trial_procedure);
@@ -339,7 +340,7 @@
     };
     timeline.push(debrief);
 
-    // jsPsych.run(timeline);
-    jsPsych.simulate(timeline);
+    jsPsych.run(timeline);
+    // jsPsych.simulate(timeline);
   </script>
 </html>
