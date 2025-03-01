@@ -176,7 +176,8 @@ svg {
 
 .stimulus,
 .fixation {
-  font-size: 3rem;
+  font-family: monospace;
+  font-size: 2.5rem;
   font-weight: bold;
   width: fit-content;
 }
