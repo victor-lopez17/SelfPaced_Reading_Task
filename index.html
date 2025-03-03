@@ -67,11 +67,11 @@
       stimulus: `<div class='container'>
         <h1>Welcome!</h1>
         <p>You are about to partake in a self-paced reading task.</p>
-        <p>First, please, answer a few questions.</p>
+        <p>Please, proceed to the instructions.</p>
       </div>`,
-      choices: ["Continue"],
+      choices: ["Instructions"],
       button_html: (choice) => `<div class='button'>
-          <div>Continue</div>
+          <div>${choice}</div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><path d="m10 8 4 4-4 4"/></svg>
         </div>`,
       record_data: false,
@@ -145,15 +145,6 @@
       button_html: (choice) => `<div class='button'>${choice}
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><path d="m10 8 4 4-4 4"/></svg>
         </div>`,
-      // on_finish: function () {
-      //   var element1 = document.getElementById("back1");
-      //   var element2 = document.getElementById("back2");
-      //   var element3 = document.getElementById("logos");
-
-      //   element1.classList.add("animate_back");
-      //   element2.classList.add("animate_back");
-      //   element3.classList.add("animate_banner");
-      // },
       record_data: false,
       post_trial_gap: 1000,
     };
@@ -376,6 +367,7 @@
             answer: answer_bool(data.response),
           });
         },
+        post_trial_gap: 1000,
       },
     ];
 
@@ -419,7 +411,7 @@
       type: jsPsychHtmlButtonResponse,
       stimulus: `<div class='container'>
         <h1>Practice is over!</h1>
-        <p>Now, you will start the test. Remember to take your time to read and understand each sentence.</p>
+        <p>Now, you will start the test. Remember to <b>take your time to read and understand</b> each sentence.</p>
         <p>Press the button below to start.</p>
       </div>`,
       choices: ["Begin"],
