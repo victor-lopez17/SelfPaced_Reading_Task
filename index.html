@@ -407,10 +407,10 @@
     timeline.push(pr_procedure);
 
     // Starting the Test
-    var start = {
+    var start_prompt = {
       type: jsPsychHtmlButtonResponse,
       stimulus: `<div class='container'>
-        <h1>Practice is over!</h1>
+        <h1>Practice is Over!</h1>
         <p>Now, you will start the test. Remember to <b>take your time to read and understand</b> each sentence.</p>
         <p>Press the button below to start.</p>
       </div>`,
@@ -430,7 +430,7 @@
       },
       post_trial_gap: 2000,
     };
-    timeline.push(start);
+    timeline.push(start_prompt);
 
     // Trial Procedure
     var trial_procedure = {
