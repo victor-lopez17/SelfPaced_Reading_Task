@@ -161,12 +161,32 @@
       trial_duration: 1000,
     };
 
+    const simulation_options = {
+      long_response: {
+        rt: () => {
+          return jsPsych.randomization.sampleWithReplacement(
+            [1000, 1500, 2000, 2500, 3000],
+            1
+          );
+        },
+      },
+      short_response: {
+        rt: () => {
+          return jsPsych.randomization.sampleWithReplacement(
+            [250, 375, 500, 1000, 750],
+            1
+          );
+        },
+      },
+    };
+
     // Trial
     var trial = [
       {
         type: jsPsychHtmlKeyboardResponse,
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s0"),
+        simulation_options: "short_response",
         data: {
           task: "item",
           item_type: jsPsych.timelineVariable("item_type"),
@@ -179,6 +199,7 @@
         type: jsPsychHtmlKeyboardResponse,
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s1"),
+        simulation_options: "short_response",
         data: {
           task: "item",
           item_type: jsPsych.timelineVariable("item_type"),
@@ -191,6 +212,7 @@
         type: jsPsychHtmlKeyboardResponse,
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s2"),
+        simulation_options: "short_response",
         data: {
           task: "item",
           item_type: jsPsych.timelineVariable("item_type"),
@@ -203,6 +225,7 @@
         type: jsPsychHtmlKeyboardResponse,
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s3"),
+        simulation_options: "short_response",
         data: {
           task: "item",
           item_type: jsPsych.timelineVariable("item_type"),
@@ -215,6 +238,7 @@
         type: jsPsychHtmlKeyboardResponse,
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s4"),
+        simulation_options: "long_response",
         data: {
           task: "item",
           item_type: jsPsych.timelineVariable("item_type"),
@@ -227,6 +251,7 @@
         type: jsPsychHtmlKeyboardResponse,
         choices: [" "],
         stimulus: jsPsych.timelineVariable("s5"),
+        simulation_options: "long_response",
         data: {
           task: "item",
           item_type: jsPsych.timelineVariable("item_type"),
