@@ -250,14 +250,6 @@
           number: jsPsych.timelineVariable("number"),
         },
         on_finish: function (data) {
-          function answer_bool(data) {
-            if (data === 0) {
-              return true;
-            } else {
-              return false;
-            }
-          }
-
           jsPsych.data.addDataToLastTrial({
             answer: answer_bool(data.response),
           });

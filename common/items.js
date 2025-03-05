@@ -12,7 +12,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the horse that chases the zebra fall?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   // {
   //   // #3
@@ -26,7 +26,7 @@ var stimulus = [
   // clause_type: "sr",
   //   number: "ss",
   //   question: "<h2>Does the zebra that kicks the horse laugh?</h2>",
-  //   correct_answer: true,
+  //   correct_answer: 1,
   // },
   {
     // #4
@@ -40,7 +40,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the zebra that follows the horse run?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   {
     // #7
@@ -54,7 +54,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the cat that pushes the dog cry?</h2>",
-    correct_answer: false,
+    correct_answer: 0,
   },
   {
     // #8
@@ -68,7 +68,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the cat that hugs the dog smile?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   // {
   //   // #10
@@ -82,7 +82,7 @@ var stimulus = [
   // clause_type: "sr",
   //   number: "ss",
   //   question: "<h2>Does the dog that watches the cat eat?</h2>",
-  //   correct_answer: false,
+  //   correct_answer: 0,
   // },
   {
     // #1
@@ -96,7 +96,7 @@ var stimulus = [
     clause_type: "sr",
     number: "pp",
     question: "<h2>Do the horses that chase the zebras fall?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   // {
   //   // #3
@@ -110,7 +110,7 @@ var stimulus = [
   // clause_type: "sr",
   //   number: "pp",
   //   question: "<h2>Do the zebras that kick the horses laugh?</h2>",
-  //   correct_answer: false,
+  //   correct_answer: 0,
   // },
   {
     // #4
@@ -124,7 +124,7 @@ var stimulus = [
     clause_type: "sr",
     number: "pp",
     question: "<h2>Do the zebras that follow the horses run?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   {
     // #7
@@ -138,7 +138,7 @@ var stimulus = [
     clause_type: "sr",
     number: "pp",
     question: "<h2>Do the cats that push the dogs cry?</h2>",
-    correct_answer: false,
+    correct_answer: 0,
   },
   {
     // #8
@@ -152,7 +152,7 @@ var stimulus = [
     clause_type: "sr",
     number: "pp",
     question: "<h2>Do the cats that hug the dogs smile?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   // {
   //   // #10
@@ -166,7 +166,7 @@ var stimulus = [
   // clause_type: "sr",
   //   number: "pp",
   //   question: "<h2>Do the dogs that watch the cats eat?</h2>",
-  //   correct_answer: false,
+  //   correct_answer: 0,
   // },
   {
     // #1
@@ -180,7 +180,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ps",
     question: "<h2>Do the horses that chase the zebra fall?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   // {
   //   // #3
@@ -194,7 +194,7 @@ var stimulus = [
   // clause_type: "sr",
   //   number: "ps",
   //   question: "<h2>Does the zebra that kicks the horses laugh?</h2>",
-  //   correct_answer: false,
+  //   correct_answer: 0,
   // },
   {
     // #4
@@ -208,7 +208,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ps",
     question: "<h2>Do the zebras that follow the horse run?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   {
     // #7
@@ -222,7 +222,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ps",
     question: "<h2>Does the cat that pushes the dogs cry?</h2>",
-    correct_answer: false,
+    correct_answer: 0,
   },
   {
     // #8
@@ -236,7 +236,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ps",
     question: "<h2>Do the cats that hug the dogs smile?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   // {
   //   // #10
@@ -250,7 +250,7 @@ var stimulus = [
   // clause_type: "sr",
   //   number: "ps",
   //   question: "<h2>Does the dog that watches the cats eat?</h2>",
-  //   correct_answer: false,
+  //   correct_answer: 0,
   // },
   {
     // #1
@@ -264,7 +264,7 @@ var stimulus = [
     clause_type: "sr",
     number: "sp",
     question: "<h2>Does the horse that chases the zebras fall?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   // {
   //   // #3
@@ -278,7 +278,7 @@ var stimulus = [
   // clause_type: "sr",
   //   number: "sp",
   //   question: "<h2>Do the zebras that kick the horse laugh?</h2>",
-  //   correct_answer: false,
+  //   correct_answer: 0,
   // },
   {
     // #4
@@ -292,7 +292,7 @@ var stimulus = [
     clause_type: "sr",
     number: "sp",
     question: "<h2>Does the zebra that follows the horses run?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   {
     // #7
@@ -306,7 +306,7 @@ var stimulus = [
     clause_type: "sr",
     number: "sp",
     question: "<h2>Do the cats that push the dog cry?</h2>",
-    correct_answer: false,
+    correct_answer: 0,
   },
   {
     // #8
@@ -320,7 +320,7 @@ var stimulus = [
     clause_type: "sr",
     number: "sp",
     question: "<h2>Does the cat that hugs the dogs smile?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   // {
   //   // #10
@@ -334,7 +334,7 @@ var stimulus = [
   // clause_type: "sr",
   //   number: "sp",
   //   question: "<h2>Do the dogs that watch the cat eat?</h2>",
-  //   correct_answer: false,
+  //   correct_answer: 0,
   // },
   {
     // Object Relatives
@@ -349,7 +349,7 @@ var stimulus = [
     clause_type: "or",
     number: "ss",
     question: "<h2>Does the horse that the zebra chases fall?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   // {
   //   // #3
@@ -363,7 +363,7 @@ var stimulus = [
   // clause_type: "or",
   //   number: "ss",
   //   question: "<h2>Does the zebra that the horse kicks laugh?</h2>",
-  //   correct_answer: false,
+  //   correct_answer: 0,
   // },
   {
     // #4
@@ -377,7 +377,7 @@ var stimulus = [
     clause_type: "or",
     number: "ss",
     question: "<h2>Does the zebra that the horse follows run?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   {
     // #7
@@ -391,7 +391,7 @@ var stimulus = [
     clause_type: "or",
     number: "ss",
     question: "<h2>Does the cat that the dog pushes cry?</h2>",
-    correct_answer: false,
+    correct_answer: 0,
   },
   {
     // #8
@@ -405,7 +405,7 @@ var stimulus = [
     clause_type: "or",
     number: "ss",
     question: "<h2>Does the cat that the dog hugs smile?",
-    correct_answer: true,
+    correct_answer: 1,
   },
   // {
   //   // #10
@@ -419,7 +419,7 @@ var stimulus = [
   // clause_type: "or",
   //   number: "ss",
   //   question: "<h2>Does the dog that the cat watches eat?</h2>",
-  //   correct_answer: false,
+  //   correct_answer: 0,
   // },
   {
     // #1
@@ -433,7 +433,7 @@ var stimulus = [
     clause_type: "or",
     number: "pp",
     question: "<h2>Do the horses that the zebras chase fall?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   // {
   //   // #3
@@ -447,7 +447,7 @@ var stimulus = [
   // clause_type: "or",
   //   number: "pp",
   //   question: "<h2>Do the zebras that the horses kick laugh?</h2>",
-  //   correct_answer: false,
+  //   correct_answer: 0,
   // },
   {
     // #4
@@ -461,7 +461,7 @@ var stimulus = [
     clause_type: "or",
     number: "pp",
     question: "<h2>Do the zebras that the horses follow run?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   {
     // #7
@@ -475,7 +475,7 @@ var stimulus = [
     clause_type: "or",
     number: "pp",
     question: "<h2>Do the cats that the dogs push cry?</h2>",
-    correct_answer: false,
+    correct_answer: 0,
   },
   {
     // #8
@@ -489,7 +489,7 @@ var stimulus = [
     clause_type: "or",
     number: "pp",
     question: "<h2>Do the cats that the dogs hug smile?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   // {
   //   // #10
@@ -503,7 +503,7 @@ var stimulus = [
   // clause_type: "or",
   //   number: "pp",
   //   question: "<h2>Do the dogs that the cats watch eat?</h2>",
-  //   correct_answer: false,
+  //   correct_answer: 0,
   // },
   {
     // #1
@@ -517,7 +517,7 @@ var stimulus = [
     clause_type: "or",
     number: "ps",
     question: "<h2>Do the horses tha the zebra chases fall?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   // {
   //   // #3
@@ -531,7 +531,7 @@ var stimulus = [
   // clause_type: "or",
   //   number: "ps",
   //   question: "<h2>Does the zebra that the horses chase laugh?</h2>",
-  //   correct_answer: false,
+  //   correct_answer: 0,
   // },
   {
     // #4
@@ -545,7 +545,7 @@ var stimulus = [
     clause_type: "or",
     number: "ps",
     question: "<h2>Do the zebras that the horse follows run?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   {
     // #7
@@ -559,7 +559,7 @@ var stimulus = [
     clause_type: "or",
     number: "ps",
     question: "<h2>Does the cat that the dogs push cry?</h2>",
-    correct_answer: false,
+    correct_answer: 0,
   },
   {
     // #8
@@ -573,7 +573,7 @@ var stimulus = [
     clause_type: "or",
     number: "ps",
     question: "<h2>Do the cats that the dog hugs smile?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   // {
   //   // #10
@@ -587,7 +587,7 @@ var stimulus = [
   // clause_type: "or",
   //   number: "ps",
   //   question: "<h2>Does the dog that the cats watch eat?</h2>",
-  //   correct_answer: false,
+  //   correct_answer: 0,
   // },
   {
     // #1
@@ -601,7 +601,7 @@ var stimulus = [
     clause_type: "or",
     number: "sp",
     question: "<h2>Does the horse that the zebras chase fall?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   // {
   //   // #3
@@ -615,7 +615,7 @@ var stimulus = [
   // clause_type: "or",
   //   number: "sp",
   //   question: "<h2>Do the zebras that the horse kicks laugh?</h2>",
-  //   correct_answer: false,
+  //   correct_answer: 0,
   // },
   {
     // #4
@@ -629,7 +629,7 @@ var stimulus = [
     clause_type: "or",
     number: "sp",
     question: "<h2>Does the zebra that the horses follow run?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   {
     // #7
@@ -643,7 +643,7 @@ var stimulus = [
     clause_type: "or",
     number: "sp",
     question: "<h2>Do the cats that the dog pushes cry?</h2>",
-    correct_answer: false,
+    correct_answer: 0,
   },
   {
     // #8
@@ -657,7 +657,7 @@ var stimulus = [
     clause_type: "or",
     number: "sp",
     question: "<h2>Does the cat that the dogs hug smile?",
-    correct_answer: true,
+    correct_answer: 1,
   },
   // {
   //   // #10
@@ -671,7 +671,7 @@ var stimulus = [
   // clause_type: "or",
   //   number: "sp",
   //   question: "<h2>Do the dogs that the cat watches eat?</h2>",
-  //   correct_answer: false,
+  //   correct_answer: 0,
   // },
   {
     // Fillers
@@ -686,7 +686,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the chef who carries the box fall?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   {
     // #2
@@ -700,7 +700,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the box that the chef grabs fall?</h2>",
-    correct_answer: false,
+    correct_answer: 0,
   },
   {
     // #3
@@ -714,7 +714,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the chef who opens the box smile?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   {
     // #4
@@ -728,7 +728,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the chef who opens the box cry?</h2>",
-    correct_answer: false,
+    correct_answer: 0,
   },
   {
     // #5
@@ -742,7 +742,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the chef who kicks the box cry?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   {
     // #6
@@ -756,7 +756,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the singer who plays the guitar cry?</h2>",
-    correct_answer: false,
+    correct_answer: 0,
   },
   {
     // #7
@@ -770,7 +770,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the singer who grabs the guitar cry?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   {
     // #8
@@ -784,7 +784,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the singer who smashes the guitar smile?</h2>",
-    correct_answer: false,
+    correct_answer: 0,
   },
   {
     // #9
@@ -798,7 +798,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the singer who throws the guitar scream?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   {
     // #10
@@ -812,7 +812,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the singer who stores the guitar cry?</h2>",
-    correct_answer: false,
+    correct_answer: 0,
   },
   {
     // #11
@@ -826,7 +826,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the woman who writes the letter smile?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   {
     // #12
@@ -840,7 +840,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the woman who reads the letter cry?</h2>",
-    correct_answer: false,
+    correct_answer: 0,
   },
   {
     // #13
@@ -854,7 +854,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the woman who burns the letter leave?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
   {
     // #14
@@ -868,7 +868,7 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the woman who throws the letter smile?</h2>",
-    correct_answer: false,
+    correct_answer: 0,
   },
   {
     // #15
@@ -882,6 +882,6 @@ var stimulus = [
     clause_type: "sr",
     number: "ss",
     question: "<h2>Does the woman who stores the letter murmur?</h2>",
-    correct_answer: true,
+    correct_answer: 1,
   },
 ];
