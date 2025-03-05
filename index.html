@@ -347,16 +347,8 @@
           number: jsPsych.timelineVariable("number"),
         },
         on_finish: function (data) {
-          function answer_bool(data) {
-            if (data === 0) {
-              return true;
-            } else {
-              return false;
-            }
-          }
-
           jsPsych.data.addDataToLastTrial({
-            answer: answer_bool(data.response),
+            answer: data.response,
           });
         },
         post_trial_gap: 1000,
@@ -378,7 +370,7 @@
           clause_type: "sr",
           number: "sp",
           question: "<h2>Do the dogs that watch the cat eat?</h2>",
-          correct_answer: false,
+          correct_answer: 0,
         },
         {
           s0: '<p class="stimulus">________ | ____ | ________ | _____ | ___</p>',
@@ -391,7 +383,7 @@
           clause_type: "or",
           number: "pp",
           question: "<h2>Do the dogs that the cats watch eat?</h2>",
-          correct_answer: false,
+          correct_answer: 0,
         },
       ],
       repetitions: 1,
