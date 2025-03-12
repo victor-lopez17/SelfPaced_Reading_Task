@@ -66,7 +66,7 @@
       type: jsPsychHtmlButtonResponse,
       stimulus: `<div class='container'>
         <h1>Welcome!</h1>
-        <p>You are about to partake in a self-paced reading task.</p>
+        <p>You are about to participate in a self-paced reading task.</p>
         <p>Please, proceed to the instructions.</p>
       </div>`,
       choices: ["Instructions"],
@@ -421,7 +421,7 @@
       stimulus: `<div class='container'>
         <h1>Practice is Over!</h1>
         <p>Now, you will start the test. Remember to <b>take your time to read and understand</b> each sentence.</p>
-        <p>Press the button below to start.</p>
+        <p>Press the button below to begin.</p>
       </div>`,
       choices: ["Begin"],
       button_html: (choice) => `<div class='button'>${choice}
@@ -505,7 +505,7 @@
     };
     timeline.push(debrief);
 
-    // jsPsych.run(timeline);
-    jsPsych.simulate(timeline);
+    jsPsych.run(timeline);
+    // jsPsych.simulate(timeline);
   </script>
 </html>
