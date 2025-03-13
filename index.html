@@ -371,11 +371,6 @@
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
         },
-        on_finish: function (data) {
-          jsPsych.data.addDataToLastTrial({
-            answer: data.response,
-          });
-        },
         post_trial_gap: 1000,
       },
     ];
@@ -404,7 +399,7 @@
           s3: '<p class="stimulus">________ | ____ | the dogs | _____ | ___</p>',
           s4: '<p class="stimulus">________ | ____ | ________ | watch | ___</p>',
           s5: '<p class="stimulus">________ | ____ | ________ | _____ | eat</p>',
-          item_type: "exp_item",
+          item_type: "pr_item",
           clause_type: "or",
           number: "pp",
           question: "<h2>Do the dogs that the cats watch eat?</h2>",
@@ -412,6 +407,7 @@
         },
       ],
       repetitions: 1,
+      record_data: false,
     };
     timeline.push(pr_procedure);
 
@@ -505,7 +501,7 @@
     };
     timeline.push(debrief);
 
-    jsPsych.run(timeline);
-    // jsPsych.simulate(timeline);
+    // jsPsych.run(timeline);
+    jsPsych.simulate(timeline);
   </script>
 </html>
