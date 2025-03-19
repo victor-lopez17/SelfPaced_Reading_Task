@@ -19,8 +19,8 @@
   }
 }
 
-@keyframes belowIn {
-  30%,
+@keyframes belowOut {
+  20%,
   100% {
     opacity: 0;
     transform: translateY(50px);
@@ -484,7 +484,7 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 100%;
   width: 50px;
   height: 50px;
-  animation: belowIn linear;
+  animation: belowOut linear;
   animation-timeline: scroll();
 }
 
