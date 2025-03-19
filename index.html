@@ -270,7 +270,7 @@
       },
       {
         type: jsPsychHtmlButtonResponse,
-        choices: ["Yes", "No"],
+        choices: ["No", "Yes"],
         button_html: (choice) =>
           `<div class='button' id='yes_no'>${choice}</div>`,
         stimulus: jsPsych.timelineVariable("question"),
@@ -283,8 +283,16 @@
         },
         on_finish: function (data) {
           jsPsych.data.addDataToLastTrial({
-            answer: data.response,
+            part_answer: data.response,
           });
+
+          if (data.part_answer == data.correct_answer) {
+            data.correct = 0;
+
+            return (data.correct = 1);
+          } else {
+            return (data.correct = 0);
+          }
         },
         post_trial_gap: 1000,
       },
@@ -367,7 +375,7 @@
       },
       {
         type: jsPsychHtmlButtonResponse,
-        choices: ["Yes", "No"],
+        choices: ["No", "Yes"],
         button_html: (choice) =>
           `<div class='button' id='yes_no'>${choice}</div>`,
         stimulus: jsPsych.timelineVariable("question"),
@@ -452,8 +460,8 @@
       sample: {
         type: "without-replacement",
         randomize_group_order: true,
-        // size: 10, // For testing purposes
-        size: stimulus.length, // 32 items + 15 fillers
+        size: 1, // For testing purposes
+        // size: stimulus.length, // 32 items + 15 fillers
       },
     };
     timeline.push(trial_procedure);
@@ -478,19 +486,36 @@
           jsPsych.data.get().filter({ segment: "s5" }).select("rt").mean()
         );
 
+        var trials = jsPsych.data.get().filter({ task: "question" });
+        var correct_trials = trials.filter({ correct: 1 });
+
+        var accuracy = Math.round(
+          (correct_trials.count() / trials.count()) * 100
+        );
+
         return `<div class='container'>
           <h1>Well Done!</h1>
           <p>
-            The test has come to an end.<br>
-           Here are the means of your reaction times for each segment:
+           The test has come to an end.<br>
+           Here are the means of your <b>reaction times</b> for each segment and your overall <b>accuracy score</b>:
           </p>
-          <p>
-            <b>Segment 1:</b> ${s1_mean}ms<br>
-            <b>Segment 2:</b> ${s2_mean}ms<br>
-            <b>Segment 3:</b> ${s3_mean}ms<br>
-            <b>Segment 4:</b> ${s4_mean}ms<br>
-            <b>Segment 5:</b> ${s5_mean}ms
-          </p>
+          <div id = "results">
+            <p>
+              <b>Segment 1:</b> ${s1_mean}ms<br>
+              <b>Segment 2:</b> ${s2_mean}ms<br>
+              <b>Segment 3:</b> ${s3_mean}ms<br>
+              <b>Segment 4:</b> ${s4_mean}ms<br>
+              <b>Segment 5:</b> ${s5_mean}ms
+            </p>
+            <div class = "container" id = "accuracy">
+              <p>
+                <b>Score:</b>
+              </p>
+              <p id = "percentage">
+                ${accuracy}%
+              </p>
+            </div>
+          </div>
           <h2>Thank you for your time!</h2>
         </div>`;
       },
