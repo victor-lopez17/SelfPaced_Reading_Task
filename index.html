@@ -140,6 +140,10 @@
         <p>By the end of each sentence, you will be asked to <b>answer a question</b> on the sentence you just read. So, make sure to <b>take the necessary time</b> to understand what you read!</p>
 
         <p>Once you have finished reading a sentence and you have answered its question, the next one will appear. This will repeat until the test is done.</p>
+
+        
+        <svg id = "below" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 6 5 5 5-5"/><path d="m7 13 5 5 5-5"/></svg>
+      
       <div>`,
       choices: ["Practice"],
       button_html: (choice) => `<div class='button'>${choice}
@@ -389,7 +393,7 @@
           item_type: "pr_item",
           clause_type: "sr",
           number: "sp",
-          question: "<h2>Do the dogs that watch the cat eat?</h2>",
+          question: "<h2>Does the dog that watches the cat eat?</h2>",
           correct_answer: 0,
         },
         {
@@ -402,8 +406,8 @@
           item_type: "pr_item",
           clause_type: "or",
           number: "pp",
-          question: "<h2>Do the dogs that the cats watch eat?</h2>",
-          correct_answer: 0,
+          question: "<h2>Does the horse that the zebra kicks laugh?</h2>",
+          correct_answer: 1,
         },
       ],
       repetitions: 1,
