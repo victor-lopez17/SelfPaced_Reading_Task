@@ -367,12 +367,12 @@ var stimulus = [
   // },
   {
     // #4
-    s0: '<p class="stimulus">_________ | ____ | ________ | _______ | ____</p>',
-    s1: '<p class="stimulus">The zebra | ____ | ________ | _______ | ____</p>',
-    s2: '<p class="stimulus">_________ | that | ________ | _______ | ____</p>',
-    s3: '<p class="stimulus">_________ | ____ | the horse| _______ | ____</p>',
-    s4: '<p class="stimulus">_________ | ____ | ________ | follows | ____</p>',
-    s5: '<p class="stimulus">_________ | ____ | ________ | _______ | runs</p>',
+    s0: '<p class="stimulus">_________ | ____ | _________ | _______ | ____</p>',
+    s1: '<p class="stimulus">The zebra | ____ | _________ | _______ | ____</p>',
+    s2: '<p class="stimulus">_________ | that | _________ | _______ | ____</p>',
+    s3: '<p class="stimulus">_________ | ____ | the horse | _______ | ____</p>',
+    s4: '<p class="stimulus">_________ | ____ | _________ | follows | ____</p>',
+    s5: '<p class="stimulus">_________ | ____ | _________ | _______ | runs</p>',
     item_type: "exp_item",
     clause_type: "or",
     number: "ss",
