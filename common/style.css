@@ -479,7 +479,7 @@ input[type="number"]::-webkit-inner-spin-button {
 /* Identifiers */
 #below {
   position: fixed;
-  right: 15rem;
+  right: 30rem;
   bottom: 5rem;
   border-radius: 100%;
   width: 50px;
@@ -493,13 +493,20 @@ input[type="number"]::-webkit-inner-spin-button {
   animation: none;
 }
 
-#gif {
+#video {
+  display: flex;
+  position: relative;
   height: 400px;
   width: 800px;
-  background-image: url("./img/instructions_animation.gif");
-  background-size: 110%;
-  background-position: bottom;
-  background-repeat: no-repeat;
+  justify-content: center;
+  align-content: center;
+  overflow: hidden;
+}
+
+#video video {
+  position: absolute;
+  bottom: -5%;
+  height: 500px;
 }
 
 #instructions {
