@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="./common/style.css" />
   </head>
 
-  <!-- Not Experiment-Related Code -->
+  <!-- Aesthetics -->
   <body>
     <div id="banner">
       <div class="container" id="banner_back">
@@ -111,181 +111,7 @@
     };
     timeline.push(inst);
 
-    // Simulation
-    const simulation_options = {
-      long_response: {
-        rt: () => {
-          return jsPsych.randomization.sampleWithReplacement(
-            [1000, 1500, 2000, 2500, 3000],
-            1
-          );
-        },
-      },
-      short_response: {
-        rt: () => {
-          return jsPsych.randomization.sampleWithReplacement(
-            [250, 375, 500, 1000, 750],
-            1
-          );
-        },
-      },
-    };
-
-    // Practice Trials
-    var pr_trial = [
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s0"),
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s0",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-      },
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s1"),
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s1",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-      },
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s2"),
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s2",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-      },
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s3"),
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s3",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-      },
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s4"),
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s4",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-      },
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s5"),
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s5",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-        post_trial_gap: 250,
-      },
-      {
-        type: jsPsychHtmlButtonResponse,
-        choices: ["No", "Yes"],
-        button_html: (choice) =>
-          `<div class='button' id='yes_no'>${choice}</div>`,
-        stimulus: jsPsych.timelineVariable("question"),
-        data: {
-          task: "question",
-          item_type: jsPsych.timelineVariable("item_type"),
-          correct_answer: jsPsych.timelineVariable("correct_answer"),
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-        post_trial_gap: 1000,
-      },
-    ];
-
-    // Practice Procedure
-    var pr_procedure = {
-      timeline: [pr_trial],
-      timeline_variables: [
-        {
-          s0: '<p class="stimulus">_______ | ____ | _______ | _______ | ____</p>',
-          s1: '<p class="stimulus">The cat | ____ | _______ | _______ | ____</p>',
-          s2: '<p class="stimulus">_______ | that | _______ | _______ | ____</p>',
-          s3: '<p class="stimulus">_______ | ____ | watches | _______ | ____</p>',
-          s4: '<p class="stimulus">_______ | ____ | _______ | the dog | ____</p>',
-          s5: '<p class="stimulus">_______ | ____ | _______ | _______ | eats</p>',
-          item_type: "pr_item",
-          clause_type: "sr",
-          number: "ss",
-          question: "<h2>Does the dog that watches the cat eat?</h2>",
-          correct_answer: 0,
-        },
-        {
-          s0: '<p class="stimulus">_________ | ____ | _________ | _____ | ______</p>',
-          s1: '<p class="stimulus">The horse | ____ | _________ | _____ | ______</p>',
-          s2: '<p class="stimulus">_________ | that | _________ | _____ | ______</p>',
-          s3: '<p class="stimulus">_________ | ____ | the zebra | _____ | ______</p>',
-          s4: '<p class="stimulus">_________ | ____ | _________ | kicks | ______</p>',
-          s5: '<p class="stimulus">_________ | ____ | _________ | _____ | laughs</p>',
-          item_type: "pr_item",
-          clause_type: "or",
-          number: "ss",
-          question: "<h2>Does the horse that the zebra kicks laugh?</h2>",
-          correct_answer: 1,
-        },
-      ],
-      repetitions: 1,
-      record_data: false,
-    };
-    timeline.push(pr_procedure);
-
-    // Test Beginning
-    var start_prompt = {
-      type: jsPsychHtmlButtonResponse,
-      stimulus: `<div class='container'>
-        <h1>Practice is Over!</h1>
-        <p>Now, you will start the test. Remember to <b>take your time to read and understand</b> each sentence.</p>
-        <p>Press the button below to begin.</p>
-      </div>`,
-      choices: ["Begin"],
-      button_html: (choice) => `<div class='button'>${choice}
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><path d="m10 8 4 4-4 4"/></svg>
-        </div>`,
-      record_data: false,
-      on_finish: function () {
-        var element1 = document.getElementById("back1");
-        var element2 = document.getElementById("back2");
-        var element3 = document.getElementById("logos");
-
-        element1.classList.add("animate_back");
-        element2.classList.add("animate_back");
-        element3.classList.add("animate_banner");
-      },
-      post_trial_gap: 2000,
-    };
-    timeline.push(start_prompt);
-
-    // Trial with Question
+    // Trial
     var trial = [
       {
         type: jsPsychHtmlKeyboardResponse,
@@ -399,18 +225,81 @@
     };
 
     // Trial Question Node
+    var condition = function () {
+      if (
+        jsPsych.randomization.sampleWithReplacement([0, 1], 1, [75, 25])[0] == 1
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
     var trial_question_node = {
       timeline: [trial_question],
-      conditional_function: function (data) {
-        condition = jsPsych.randomization.sampleBernoulli(0.8);
-
-        if ((condition = 1)) {
-          return true;
-        } else {
-          return false;
-        }
-      },
+      conditional_function: condition,
     };
+
+    // Practice Procedure
+    var pr_procedure = {
+      timeline: [trial, trial_question_node],
+      timeline_variables: [
+        {
+          s0: '<p class="stimulus">_______ | ____ | _______ | _______ | ____</p>',
+          s1: '<p class="stimulus">The cat | ____ | _______ | _______ | ____</p>',
+          s2: '<p class="stimulus">_______ | that | _______ | _______ | ____</p>',
+          s3: '<p class="stimulus">_______ | ____ | watches | _______ | ____</p>',
+          s4: '<p class="stimulus">_______ | ____ | _______ | the dog | ____</p>',
+          s5: '<p class="stimulus">_______ | ____ | _______ | _______ | eats</p>',
+          item_type: "pr_item",
+          clause_type: "sr",
+          number: "ss",
+          question: "<h2>Does the dog that watches the cat eat?</h2>",
+          correct_answer: 0,
+        },
+        {
+          s0: '<p class="stimulus">_________ | ____ | _________ | _____ | ______</p>',
+          s1: '<p class="stimulus">The horse | ____ | _________ | _____ | ______</p>',
+          s2: '<p class="stimulus">_________ | that | _________ | _____ | ______</p>',
+          s3: '<p class="stimulus">_________ | ____ | the zebra | _____ | ______</p>',
+          s4: '<p class="stimulus">_________ | ____ | _________ | kicks | ______</p>',
+          s5: '<p class="stimulus">_________ | ____ | _________ | _____ | laughs</p>',
+          item_type: "pr_item",
+          clause_type: "or",
+          number: "ss",
+          question: "<h2>Does the horse that the zebra kicks laugh?</h2>",
+          correct_answer: 1,
+        },
+      ],
+      repetitions: 1,
+    };
+    timeline.push(pr_procedure);
+
+    // Test Beginning
+    var start_prompt = {
+      type: jsPsychHtmlButtonResponse,
+      stimulus: `<div class='container'>
+        <h1>Practice is Over!</h1>
+        <p>Now, you will start the test. Remember to <b>take your time to read and understand</b> each sentence.</p>
+        <p>Press the button below to begin.</p>
+      </div>`,
+      choices: ["Begin"],
+      button_html: (choice) => `<div class='button'>${choice}
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><path d="m10 8 4 4-4 4"/></svg>
+        </div>`,
+      record_data: false,
+      on_finish: function () {
+        var element1 = document.getElementById("back1");
+        var element2 = document.getElementById("back2");
+        var element3 = document.getElementById("logos");
+
+        element1.classList.add("animate_back");
+        element2.classList.add("animate_back");
+        element3.classList.add("animate_banner");
+      },
+      post_trial_gap: 2000,
+    };
+    timeline.push(start_prompt);
 
     // Trial Procedure
     var trial_procedure = {
@@ -419,8 +308,8 @@
       randomize_order: true,
       sample: {
         type: "without-replacement",
-        size: 5, // For testing purposes
-        // size: stimulus.length, // 32 items + 15 fillers
+        // size: 5, // For testing purposes
+        size: stimulus.length, // 32 items + 15 fillers
       },
     };
     timeline.push(trial_procedure);
@@ -491,6 +380,26 @@
       record_data: false,
     };
     timeline.push(debrief);
+
+    // Simulation
+    const simulation_options = {
+      long_response: {
+        rt: () => {
+          return jsPsych.randomization.sampleWithReplacement(
+            [1000, 1500, 2000, 2500, 3000],
+            1
+          );
+        },
+      },
+      short_response: {
+        rt: () => {
+          return jsPsych.randomization.sampleWithReplacement(
+            [250, 375, 500, 1000, 750],
+            1
+          );
+        },
+      },
+    };
 
     jsPsych.run(timeline);
     // jsPsych.simulate(timeline);
