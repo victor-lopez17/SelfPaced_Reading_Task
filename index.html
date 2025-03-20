@@ -43,6 +43,7 @@
 
   <!-- Experiment Script -->
   <script>
+    // Initializing jsPsych
     const jsPsych = initJsPsych({
       on_finish: function () {
         var part_id = `${jsPsych.data.get().values()[0].part_id}.csv`;
@@ -79,53 +80,6 @@
     };
     timeline.push(intro);
 
-    // Survey
-    // var survey = {
-    //   type: jsPsychSurveyHtmlForm,
-    //   html: `<div class='container'>
-    //     <h1>Survey</h1>
-    //     <h2>How old are you?</h2>
-    //     <div class='container' id='question'>
-    //       <input name='age' type='number' required placeholder='E.g., 25'>
-    //     </div>
-
-    //     <h2>What is your gender?</h2>
-    //     <div class='container' id='question'>
-    //       <input id='male' type='radio' name='gender' value='male' required>
-    //       <label class='radio' for='male'>Male</label>
-    //       <input id='female' type='radio' name='gender' value='female' required>
-    //       <label class='radio' for='female'>Female</label>
-    //       <input id='other' type='radio' name='gender' value='other' required>
-    //       <label class='radio' for='other'>Other</label>
-    //     </div>
-
-    //       <h2>How many of these languages do you speak?</h2>
-    //       <div class='container' id='question'>
-    //         <input id='ca' type='checkbox' name='lang_ca' value=true>
-    //         <label class='check' for='ca'>Catalan</label>
-    //         <input id='sp' type='checkbox' name='lang_sp' value=true>
-    //         <label class='check' for='sp'>Spanish</label>
-    //         <input id='en' type='checkbox' name='lang_en' value=true>
-    //         <label class='check' for='en'>English</label>
-    //       </div>
-    //     </div>`,
-
-    //   button_label: "Submit",
-    //   on_finish: function (data) {
-    //     jsPsych.data.addProperties({
-    //       age: data.response.age,
-    //       gender: data.response.gender,
-    //       lang_ca: data.response.lang_ca,
-    //       lang_sp: data.response.lang_sp,
-    //       lang_en: data.response.lang_en,
-    //     });
-    //   },
-    //   data: {
-    //     task: "survey",
-    //   },
-    // };
-    // timeline.push(survey);
-
     // Instructions
     var inst = {
       type: jsPsychHtmlButtonResponse,
@@ -140,13 +94,13 @@
           <video src = "./common/img/keyboard_animation.mp4" type = "video/mp4" autoplay loop  preload = "auto"></video>
         </div>
 
-        <p>By the end of each sentence, you will be asked to <b>answer a question</b> on the sentence you just read. So, make sure to <b>take the necessary time</b> to understand what you read!</p>
+        <p>By the end of some of the sentences, you will be asked to <b>answer a question</b> on the sentence you just read. So, make sure to <b>take the time</b> to understand what you read!</p>
 
         <p>Once you have finished reading a sentence and you have answered its question, the next one will appear. This will repeat until the test is done.</p>
 
-        
+
         <svg id = "below" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 6 5 5 5-5"/><path d="m7 13 5 5 5-5"/></svg>
-      
+
       <div>`,
       choices: ["Practice"],
       button_html: (choice) => `<div class='button'>${choice}
@@ -157,17 +111,7 @@
     };
     timeline.push(inst);
 
-    // Fixation Point
-    // var fixation = {
-    //   type: jsPsychHtmlKeyboardResponse,
-    //   stimulus: '<p class="fixation">+</p>',
-    //   choices: "NO_KEYS",
-    //   data: {
-    //     task: "fixation",
-    //   },
-    //   trial_duration: 1000,
-    // };
-
+    // Simulation
     const simulation_options = {
       long_response: {
         rt: () => {
@@ -186,117 +130,6 @@
         },
       },
     };
-
-    // Trial
-    var trial = [
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s0"),
-        simulation_options: "short_response",
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s0",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-      },
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s1"),
-        simulation_options: "short_response",
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s1",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-      },
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s2"),
-        simulation_options: "short_response",
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s2",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-      },
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s3"),
-        simulation_options: "short_response",
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s3",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-      },
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s4"),
-        simulation_options: "long_response",
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s4",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-      },
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s5"),
-        simulation_options: "long_response",
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s5",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-        post_trial_gap: 250,
-      },
-      {
-        type: jsPsychHtmlButtonResponse,
-        choices: ["No", "Yes"],
-        button_html: (choice) =>
-          `<div class='button' id='yes_no'>${choice}</div>`,
-        stimulus: jsPsych.timelineVariable("question"),
-        data: {
-          task: "question",
-          item_type: jsPsych.timelineVariable("item_type"),
-          correct_answer: jsPsych.timelineVariable("correct_answer"),
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-        on_finish: function (data) {
-          jsPsych.data.addDataToLastTrial({
-            part_answer: data.response,
-          });
-
-          if (data.part_answer == data.correct_answer) {
-            data.correct = 0;
-
-            return (data.correct = 1);
-          } else {
-            return (data.correct = 0);
-          }
-        },
-        post_trial_gap: 1000,
-      },
-    ];
 
     // Practice Trials
     var pr_trial = [
@@ -426,7 +259,7 @@
     };
     timeline.push(pr_procedure);
 
-    // Starting the Test
+    // Test Beginning
     var start_prompt = {
       type: jsPsychHtmlButtonResponse,
       stimulus: `<div class='container'>
@@ -452,15 +285,141 @@
     };
     timeline.push(start_prompt);
 
+    // Trial with Question
+    var trial = [
+      {
+        type: jsPsychHtmlKeyboardResponse,
+        choices: [" "],
+        stimulus: jsPsych.timelineVariable("s0"),
+        simulation_options: "short_response",
+        data: {
+          task: "item",
+          item_type: jsPsych.timelineVariable("item_type"),
+          segment: "s0",
+          clause_type: jsPsych.timelineVariable("clause_type"),
+          number: jsPsych.timelineVariable("number"),
+        },
+      },
+      {
+        type: jsPsychHtmlKeyboardResponse,
+        choices: [" "],
+        stimulus: jsPsych.timelineVariable("s1"),
+        simulation_options: "short_response",
+        data: {
+          task: "item",
+          item_type: jsPsych.timelineVariable("item_type"),
+          segment: "s1",
+          clause_type: jsPsych.timelineVariable("clause_type"),
+          number: jsPsych.timelineVariable("number"),
+        },
+      },
+      {
+        type: jsPsychHtmlKeyboardResponse,
+        choices: [" "],
+        stimulus: jsPsych.timelineVariable("s2"),
+        simulation_options: "short_response",
+        data: {
+          task: "item",
+          item_type: jsPsych.timelineVariable("item_type"),
+          segment: "s2",
+          clause_type: jsPsych.timelineVariable("clause_type"),
+          number: jsPsych.timelineVariable("number"),
+        },
+      },
+      {
+        type: jsPsychHtmlKeyboardResponse,
+        choices: [" "],
+        stimulus: jsPsych.timelineVariable("s3"),
+        simulation_options: "short_response",
+        data: {
+          task: "item",
+          item_type: jsPsych.timelineVariable("item_type"),
+          segment: "s3",
+          clause_type: jsPsych.timelineVariable("clause_type"),
+          number: jsPsych.timelineVariable("number"),
+        },
+      },
+      {
+        type: jsPsychHtmlKeyboardResponse,
+        choices: [" "],
+        stimulus: jsPsych.timelineVariable("s4"),
+        simulation_options: "long_response",
+        data: {
+          task: "item",
+          item_type: jsPsych.timelineVariable("item_type"),
+          segment: "s4",
+          clause_type: jsPsych.timelineVariable("clause_type"),
+          number: jsPsych.timelineVariable("number"),
+        },
+      },
+      {
+        type: jsPsychHtmlKeyboardResponse,
+        choices: [" "],
+        stimulus: jsPsych.timelineVariable("s5"),
+        simulation_options: "long_response",
+        data: {
+          task: "item",
+          item_type: jsPsych.timelineVariable("item_type"),
+          segment: "s5",
+          clause_type: jsPsych.timelineVariable("clause_type"),
+          number: jsPsych.timelineVariable("number"),
+        },
+        post_trial_gap: 500,
+      },
+    ];
+
+    // Trial Question
+    var trial_question = {
+      type: jsPsychHtmlButtonResponse,
+      choices: ["No", "Yes"],
+      button_html: (choice) =>
+        `<div class='button' id='yes_no'>${choice}</div>`,
+      stimulus: jsPsych.timelineVariable("question"),
+      data: {
+        task: "question",
+        item_type: jsPsych.timelineVariable("item_type"),
+        correct_answer: jsPsych.timelineVariable("correct_answer"),
+        clause_type: jsPsych.timelineVariable("clause_type"),
+        number: jsPsych.timelineVariable("number"),
+      },
+      on_finish: function (data) {
+        jsPsych.data.addDataToLastTrial({
+          part_answer: data.response,
+        });
+
+        if (data.part_answer == data.correct_answer) {
+          data.correct = 0;
+
+          return (data.correct = 1);
+        } else {
+          return (data.correct = 0);
+        }
+      },
+      post_trial_gap: 500,
+    };
+
+    // Trial Question Node
+    var trial_question_node = {
+      timeline: [trial_question],
+      conditional_function: function (data) {
+        condition = jsPsych.randomization.sampleBernoulli(0.8);
+
+        if ((condition = 1)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+    };
+
     // Trial Procedure
     var trial_procedure = {
-      timeline: [trial],
+      timeline: [trial, trial_question_node],
       timeline_variables: stimulus,
       randomize_order: true,
       sample: {
         type: "without-replacement",
-        randomize_group_order: true,
-        size: 1, // For testing purposes
+        size: 5, // For testing purposes
         // size: stimulus.length, // 32 items + 15 fillers
       },
     };
