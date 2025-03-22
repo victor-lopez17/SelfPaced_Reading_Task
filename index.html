@@ -48,7 +48,6 @@
       on_finish: function () {
         var part_id = `${jsPsych.data.get().values()[0].part_id}.csv`;
 
-        // jsPsych.data.displayData('csv');
         jsPsych.data.get().localSave("csv", part_id);
       },
     });
@@ -94,7 +93,7 @@
         <p>Once you have finished reading a sentence and you have answered its question, the next one will appear. This will repeat until the test is done.</p>
 
 
-        <svg id = "below" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 6 5 5 5-5"/><path d="m7 13 5 5 5-5"/></svg>
+        <svg id = "below" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path id = "first" d="m7 6 5 5 5-5"/><path id = "second" d="m7 13 5 5 5-5"/></svg>
 
       <div>`,
       choices: ["Practice"],
@@ -397,7 +396,7 @@
       },
     };
 
-    // jsPsych.run(timeline);
-    jsPsych.simulate(timeline);
+    jsPsych.run(timeline);
+    // jsPsych.simulate(timeline);
   </script>
 </html>

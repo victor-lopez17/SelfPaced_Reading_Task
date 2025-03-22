@@ -19,6 +19,26 @@
   }
 }
 
+@keyframes belowLoop {
+  0%,
+  10% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-2px);
+  }
+  30% {
+    transform: translateY(10px);
+  }
+  40% {
+    transform: translateY(-2px);
+  }
+  50%,
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 @keyframes belowOut {
   50% {
     opacity: 1;
@@ -518,6 +538,15 @@ input[type="number"]::-webkit-inner-spin-button {
   height: 50px;
   animation: belowOut linear;
   animation-timeline: scroll();
+  overflow: visible;
+}
+
+#below #first {
+  animation: belowLoop 5s ease-in-out infinite;
+}
+
+#below #second {
+  animation: belowLoop 5s ease-in-out 0.05s infinite;
 }
 
 #yes_no {
