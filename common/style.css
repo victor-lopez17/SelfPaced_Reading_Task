@@ -280,7 +280,7 @@ svg {
   font-weight: bold;
   color: var(--accent);
   text-align: center;
-  width: 80px;
+  width: 120px;
   height: 30px;
   border-radius: 30px;
   border-color: var(--accent);
@@ -293,7 +293,7 @@ svg {
 }
 
 .jspsych-display-element input[type="text"]:valid {
-  width: 30px;
+  width: 60px;
   padding: 8px 8px;
   background-color: var(--accent);
   color: white;
@@ -313,7 +313,7 @@ svg {
   font-weight: bold;
   color: var(--accent);
   text-align: center;
-  width: 80px;
+  width: 120px;
   height: 30px;
   border-radius: 30px;
   border-color: var(--accent);
@@ -326,7 +326,7 @@ svg {
 }
 
 .jspsych-display-element input[type="number"]:valid {
-  width: 30px;
+  width: 60px;
   padding: 8px 8px;
   background-color: var(--accent);
   color: white;
@@ -335,7 +335,7 @@ svg {
 
 .jspsych-display-element input[type="number"]:focus,
 .jspsych-display-element input[type="number"]:hover {
-  width: 100px;
+  width: 150px;
   padding: 8px 8px;
   border-radius: 10px;
   scale: 1.1;

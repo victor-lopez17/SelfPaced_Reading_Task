@@ -53,30 +53,25 @@
       },
     });
 
-    // Participant ID
-    var part_id = jsPsych.randomization.randomID(3);
-    jsPsych.data.addProperties({
-      part_id: part_id,
-    });
-
     // Timeline
     var timeline = [];
 
     // Introduction
     var intro = {
-      type: jsPsychHtmlButtonResponse,
-      stimulus: `<div class='container'>
+      type: jsPsychSurveyHtmlForm,
+      html: `<div class='container'>
         <h1>Welcome!</h1>
         <p>You are about to participate in a <br>
         <b>self-paced reading task</b>.</p>
-        <p>Please, proceed to the instructions.</p>
+        <p>Please, type your participant ID below.</p>
+        <input name = "part_id" type = "number" required placeholder = "Part. ID"></input>
       </div>`,
-      choices: ["Instructions"],
-      button_html: (choice) => `<div class='button'>
-          <div>${choice}</div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><path d="m10 8 4 4-4 4"/></svg>
-        </div>`,
-      record_data: false,
+      button_label: "Instructions",
+      on_finish: function (data) {
+        jsPsych.data.addProperties({
+          part_id: data.response.part_id,
+        });
+      },
     };
     timeline.push(intro);
 
@@ -298,6 +293,7 @@
         element3.classList.add("animate_banner");
       },
       post_trial_gap: 2000,
+      record_data: false,
     };
     timeline.push(start_prompt);
 
@@ -401,7 +397,7 @@
       },
     };
 
-    jsPsych.run(timeline);
-    // jsPsych.simulate(timeline);
+    // jsPsych.run(timeline);
+    jsPsych.simulate(timeline);
   </script>
 </html>
