@@ -25,7 +25,7 @@ var stimulus = [
   // item_type: "exp_item",
   // clause_type: "sr",
   //   number: "ss",
-//    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
+  //    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
   // correct_answer: 1,
   // },
   {
@@ -81,7 +81,7 @@ var stimulus = [
   // item_type: "exp_item",
   // clause_type: "sr",
   //   number: "ss",
-//    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
+  //    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
   // correct_answer: 0,
   // },
   {
@@ -197,7 +197,7 @@ var stimulus = [
   // item_type: "exp_item",
   // clause_type: "sr",
   //   number: "ps",
-//    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
+  //    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
   // correct_answer: 0,
   // },
   {
@@ -253,7 +253,7 @@ var stimulus = [
   // item_type: "exp_item",
   // clause_type: "sr",
   //   number: "ps",
-//    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
+  //    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
   // correct_answer: 0,
   // },
   {
@@ -370,7 +370,7 @@ var stimulus = [
   // item_type: "exp_item",
   // clause_type: "or",
   //   number: "ss",
-//    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
+  //    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
   // correct_answer: 0,
   // },
   {
@@ -412,9 +412,9 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Who smiles?<br><br>The dog   /   The cat</h2>`,  
-    correct_answer: 1, 
-   },
+    question: `<h2 style = "white-space: pre">Who smiles?<br><br>The dog   /   The cat</h2>`,
+    correct_answer: 1,
+  },
   // {
   //   // #10
   //   s0: '<p class="stimulus">_______ | ____ | _______ | _______ | ____</p>',
@@ -426,7 +426,7 @@ var stimulus = [
   // item_type: "exp_item",
   // clause_type: "or",
   //   number: "ss",
-//    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
+  //    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
   // correct_answer: 0,
   // },
   {
@@ -542,7 +542,7 @@ var stimulus = [
   // item_type: "exp_item",
   // clause_type: "or",
   //   number: "ps",
-//    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
+  //    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
   // correct_answer: 0,
   // },
   {
@@ -598,7 +598,7 @@ var stimulus = [
   // item_type: "exp_item",
   // clause_type: "or",
   //   number: "ps",
-//    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
+  //    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
   // correct_answer: 0,
   // },
   {
@@ -670,9 +670,9 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "sp",
-    question: `<h2 style = "white-space: pre">Who smiles?<br><br>The dogs   /   The cat</h2>`, 
+    question: `<h2 style = "white-space: pre">Who smiles?<br><br>The dogs   /   The cat</h2>`,
     correct_answer: 1,
-   },
+  },
   // {
   //   // #10
   //   s0: '<p class="stimulus">_______ | ____ | ________ | _____ | ____</p>',
