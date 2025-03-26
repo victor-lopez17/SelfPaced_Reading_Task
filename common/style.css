@@ -19,6 +19,40 @@
   }
 }
 
+@keyframes belowLoop {
+  0% {
+    transform: translateY(0);
+  }
+  7% {
+    transform: translateY(-2px);
+  }
+  12.8% {
+    transform: translateY(10px);
+  }
+  19.8% {
+    transform: translateY(-2px);
+  }
+  26.4% {
+    transform: translateY(1px);
+  }
+  33%,
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes belowOut {
+  60% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80%,
+  100% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}
+
 @keyframes barIn {
   0%,
   50% {
@@ -170,7 +204,15 @@ svg {
   flex-direction: column;
 }
 
-.container:not(.stimulus, .fixation, #question, #banner_back, #logos, #gif) {
+.container:not(
+    .stimulus,
+    .fixation,
+    #question,
+    #banner_back,
+    #logos,
+    #gif,
+    #accuracy
+  ) {
   animation: fadeIn 1s ease-in-out;
 }
 
@@ -260,7 +302,7 @@ svg {
   font-weight: bold;
   color: var(--accent);
   text-align: center;
-  width: 80px;
+  width: 120px;
   height: 30px;
   border-radius: 30px;
   border-color: var(--accent);
@@ -273,7 +315,7 @@ svg {
 }
 
 .jspsych-display-element input[type="text"]:valid {
-  width: 30px;
+  width: 60px;
   padding: 8px 8px;
   background-color: var(--accent);
   color: white;
@@ -293,7 +335,7 @@ svg {
   font-weight: bold;
   color: var(--accent);
   text-align: center;
-  width: 80px;
+  width: 120px;
   height: 30px;
   border-radius: 30px;
   border-color: var(--accent);
@@ -306,7 +348,7 @@ svg {
 }
 
 .jspsych-display-element input[type="number"]:valid {
-  width: 30px;
+  width: 60px;
   padding: 8px 8px;
   background-color: var(--accent);
   color: white;
@@ -315,7 +357,7 @@ svg {
 
 .jspsych-display-element input[type="number"]:focus,
 .jspsych-display-element input[type="number"]:hover {
-  width: 100px;
+  width: 150px;
   padding: 8px 8px;
   border-radius: 10px;
   scale: 1.1;
@@ -469,18 +511,77 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /* Identifiers */
-#yes_no {
-  justify-content: center;
-  animation: none;
+#percentage {
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--accent);
+  margin: 30px;
 }
 
-#gif {
+#results {
+  display: flex;
+  justify-content: center;
+  align-items: first baseline;
+  gap: 100px;
+  width: 600px;
+}
+
+#results p {
+  width: fit-content;
+  text-align: left;
+}
+
+#below {
+  position: fixed;
+  right: 20vw;
+  bottom: 5rem;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  animation: belowOut linear;
+  animation-timeline: scroll();
+  overflow: visible;
+}
+
+#below #first {
+  animation: belowLoop 6s ease-in-out infinite;
+}
+
+#below #second {
+  animation: belowLoop 6s ease-in-out 0.03s infinite;
+}
+
+#answer {
+  justify-content: center;
+  animation: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 20px;
+}
+
+#answer-arrow {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  overflow: visible;
+  transform: rotate(180deg);
+}
+
+#video {
+  display: flex;
+  position: relative;
   height: 400px;
   width: 800px;
-  background-image: url("./img/instructions_animation.gif");
-  background-size: 110%;
-  background-position: bottom;
-  background-repeat: no-repeat;
+  justify-content: center;
+  align-content: center;
+  overflow: hidden;
+}
+
+#video video {
+  position: absolute;
+  bottom: -5%;
+  height: 500px;
 }
 
 #instructions {

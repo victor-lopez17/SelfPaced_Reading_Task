@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="./common/style.css" />
   </head>
 
-  <!-- Not Experiment-Related Code -->
+  <!-- Aesthetics -->
   <body>
     <div id="banner">
       <div class="container" id="banner_back">
@@ -43,19 +43,13 @@
 
   <!-- Experiment Script -->
   <script>
+    // Initializing jsPsych
     const jsPsych = initJsPsych({
       on_finish: function () {
         var part_id = `${jsPsych.data.get().values()[0].part_id}.csv`;
 
-        // jsPsych.data.displayData('csv');
         jsPsych.data.get().localSave("csv", part_id);
       },
-    });
-
-    // Participant ID
-    var part_id = jsPsych.randomization.randomID(3);
-    jsPsych.data.addProperties({
-      part_id: part_id,
     });
 
     // Timeline
@@ -63,67 +57,22 @@
 
     // Introduction
     var intro = {
-      type: jsPsychHtmlButtonResponse,
-      stimulus: `<div class='container'>
+      type: jsPsychSurveyHtmlForm,
+      html: `<div class='container'>
         <h1>Welcome!</h1>
-        <p>You are about to participate in a self-paced reading task.</p>
-        <p>Please, proceed to the instructions.</p>
+        <p>You are about to participate in a <br>
+        <b>self-paced reading task</b>.</p>
+        <p>Please, enter your participant ID below:</p>
+        <input name = "part_id" type = "number" required placeholder = "Part. ID"></input>
       </div>`,
-      choices: ["Instructions"],
-      button_html: (choice) => `<div class='button'>
-          <div>${choice}</div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><path d="m10 8 4 4-4 4"/></svg>
-        </div>`,
-      record_data: false,
+      button_label: "Instructions",
+      on_finish: function (data) {
+        jsPsych.data.addProperties({
+          part_id: data.response.part_id,
+        });
+      },
     };
     timeline.push(intro);
-
-    // Survey
-    // var survey = {
-    //   type: jsPsychSurveyHtmlForm,
-    //   html: `<div class='container'>
-    //     <h1>Survey</h1>
-    //     <h2>How old are you?</h2>
-    //     <div class='container' id='question'>
-    //       <input name='age' type='number' required placeholder='E.g., 25'>
-    //     </div>
-
-    //     <h2>What is your gender?</h2>
-    //     <div class='container' id='question'>
-    //       <input id='male' type='radio' name='gender' value='male' required>
-    //       <label class='radio' for='male'>Male</label>
-    //       <input id='female' type='radio' name='gender' value='female' required>
-    //       <label class='radio' for='female'>Female</label>
-    //       <input id='other' type='radio' name='gender' value='other' required>
-    //       <label class='radio' for='other'>Other</label>
-    //     </div>
-
-    //       <h2>How many of these languages do you speak?</h2>
-    //       <div class='container' id='question'>
-    //         <input id='ca' type='checkbox' name='lang_ca' value=true>
-    //         <label class='check' for='ca'>Catalan</label>
-    //         <input id='sp' type='checkbox' name='lang_sp' value=true>
-    //         <label class='check' for='sp'>Spanish</label>
-    //         <input id='en' type='checkbox' name='lang_en' value=true>
-    //         <label class='check' for='en'>English</label>
-    //       </div>
-    //     </div>`,
-
-    //   button_label: "Submit",
-    //   on_finish: function (data) {
-    //     jsPsych.data.addProperties({
-    //       age: data.response.age,
-    //       gender: data.response.gender,
-    //       lang_ca: data.response.lang_ca,
-    //       lang_sp: data.response.lang_sp,
-    //       lang_en: data.response.lang_en,
-    //     });
-    //   },
-    //   data: {
-    //     task: "survey",
-    //   },
-    // };
-    // timeline.push(survey);
 
     // Instructions
     var inst = {
@@ -135,11 +84,17 @@
         <p>In order to complete it, you are asked to <b>press the space bar</b> each time you are done reading each segment.<br>
         This will reveal what follows and hide the previous one.</p>
 
-        <div class='container' id='gif'></div>
+        <div id = "video">
+          <video src = "./common/img/keyboard_animation.mp4" type = "video/mp4" autoplay loop  preload = "auto"></video>
+        </div>
 
-        <p>By the end of each sentence, you will be asked to <b>answer a question</b> on the sentence you just read. So, make sure to <b>take the necessary time</b> to understand what you read!</p>
+        <p>By the end of some of the sentences, you will be asked to <b>answer a question</b> on the sentence you just read. So, make sure to <b>take the time</b> to understand what you read!</p>
 
-        <p>Once you have finished reading a sentence and you have answered its question, the next one will appear. This will repeat until the test is done.</p>
+        <p>Once you have finished reading a sentence and you have answered its question, if any, the next one will appear. This will repeat until the test is done.</p>
+
+
+        <svg id = "below" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path id = "first" d="m7 6 5 5 5-5"/><path id = "second" d="m7 13 5 5 5-5"/></svg>
+
       <div>`,
       choices: ["Practice"],
       button_html: (choice) => `<div class='button'>${choice}
@@ -149,36 +104,6 @@
       post_trial_gap: 1000,
     };
     timeline.push(inst);
-
-    // Fixation Point
-    // var fixation = {
-      type: jsPsychHtmlKeyboardResponse,
-      stimulus: '<p class="fixation">+</p>',
-      choices: "NO_KEYS",
-      data: {
-        task: "fixation",
-      },
-      trial_duration: 1000,
-    };
-
-    const simulation_options = {
-      long_response: {
-        rt: () => {
-          return jsPsych.randomization.sampleWithReplacement(
-            [1000, 1500, 2000, 2500, 3000],
-            1
-          );
-        },
-      },
-      short_response: {
-        rt: () => {
-          return jsPsych.randomization.sampleWithReplacement(
-            [250, 375, 500, 1000, 750],
-            1
-          );
-        },
-      },
-    };
 
     // Trial
     var trial = [
@@ -259,125 +184,62 @@
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
         },
-        post_trial_gap: 250,
-      },
-      {
-        type: jsPsychHtmlButtonResponse,
-        choices: ["Yes", "No"],
-        button_html: (choice) =>
-          `<div class='button' id='yes_no'>${choice}</div>`,
-        stimulus: jsPsych.timelineVariable("question"),
-        data: {
-          task: "question",
-          item_type: jsPsych.timelineVariable("item_type"),
-          correct_answer: jsPsych.timelineVariable("correct_answer"),
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-        on_finish: function (data) {
-          jsPsych.data.addDataToLastTrial({
-            answer: data.response,
-          });
-        },
-        post_trial_gap: 1000,
+        post_trial_gap: 500,
       },
     ];
+    
+    // Trial Question
+    var trial_question = {
+      type: jsPsychHtmlButtonResponse,
+      choices: ["", ""],
+      button_html: (choice) => 
+         `<div class='button' id='answer'>
+            ${choice}
+            <svg id = "answer-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 6 5 5 5-5"/><path d="m7 13 5 5 5-5"/></svg>
+          </div>`,
+      stimulus: jsPsych.timelineVariable("question"),
+      data: {
+        task: "question",
+        item_type: jsPsych.timelineVariable("item_type"),
+        correct_answer: jsPsych.timelineVariable("correct_answer"),
+        clause_type: jsPsych.timelineVariable("clause_type"),
+        number: jsPsych.timelineVariable("number"),
+      },
+      on_finish: function (data) {
+        jsPsych.data.addDataToLastTrial({
+          part_answer: data.response,
+        });
 
-    // Practice Trials
-    var pr_trial = [
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s0"),
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s0",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
+        if (data.part_answer == data.correct_answer) {
+          data.correct = 0;
+
+          return (data.correct = 1);
+        } else {
+          return (data.correct = 0);
+        }
       },
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s1"),
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s1",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-      },
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s2"),
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s2",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-      },
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s3"),
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s3",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-      },
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s4"),
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s4",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-      },
-      {
-        type: jsPsychHtmlKeyboardResponse,
-        choices: [" "],
-        stimulus: jsPsych.timelineVariable("s5"),
-        data: {
-          task: "item",
-          item_type: jsPsych.timelineVariable("item_type"),
-          segment: "s5",
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-        post_trial_gap: 250,
-      },
-      {
-        type: jsPsychHtmlButtonResponse,
-        choices: ["Yes", "No"],
-        button_html: (choice) =>
-          `<div class='button' id='yes_no'>${choice}</div>`,
-        stimulus: jsPsych.timelineVariable("question"),
-        data: {
-          task: "question",
-          item_type: jsPsych.timelineVariable("item_type"),
-          correct_answer: jsPsych.timelineVariable("correct_answer"),
-          clause_type: jsPsych.timelineVariable("clause_type"),
-          number: jsPsych.timelineVariable("number"),
-        },
-        post_trial_gap: 1000,
-      },
-    ];
+      post_trial_gap: 500,
+    };
+
+    // Trial Question Node
+    var condition = function () {
+      if (
+        jsPsych.randomization.sampleWithReplacement([0, 1], 1, [75, 25])[0] == 1
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    var trial_question_node = {
+      timeline: [trial_question],
+      conditional_function: condition,
+    };
 
     // Practice Procedure
     var pr_procedure = {
-      timeline: [pr_trial],
+      timeline: [trial, trial_question],
       timeline_variables: [
         {
           s0: '<p class="stimulus">_______ | ____ | _______ | _______ | ____</p>',
@@ -388,8 +250,8 @@
           s5: '<p class="stimulus">_______ | ____ | _______ | _______ | eats</p>',
           item_type: "pr_item",
           clause_type: "sr",
-          number: "sp",
-          question: "<h2>Do the dogs that watch the cat eat?</h2>",
+          number: "ss",
+          question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
           correct_answer: 0,
         },
         {
@@ -401,17 +263,16 @@
           s5: '<p class="stimulus">_________ | ____ | _________ | _____ | laughs</p>',
           item_type: "pr_item",
           clause_type: "or",
-          number: "pp",
-          question: "<h2>Do the dogs that the cats watch eat?</h2>",
-          correct_answer: 0,
+          number: "ss",
+          question: `<h2 style = "white-space: pre">Who falls?<br><br>The zebra   /   The horse</h2>`,
+          correct_answer: 1,
         },
       ],
       repetitions: 1,
-      record_data: false,
     };
     timeline.push(pr_procedure);
 
-    // Starting the Test
+    // Test Beginning
     var start_prompt = {
       type: jsPsychHtmlButtonResponse,
       stimulus: `<div class='container'>
@@ -434,19 +295,19 @@
         element3.classList.add("animate_banner");
       },
       post_trial_gap: 2000,
+      record_data: false,
     };
     timeline.push(start_prompt);
 
     // Trial Procedure
     var trial_procedure = {
-      timeline: [trial],
+      timeline: [trial, trial_question_node],
       timeline_variables: stimulus,
       randomize_order: true,
       sample: {
         type: "without-replacement",
-        randomize_group_order: true,
-        size: 10, // For testing purposes
-        // size: stimulus.length, // 32 items + 15 fillers
+        // size: 5, // For testing purposes
+        size: stimulus.length, // 32 items + 15 fillers
       },
     };
     timeline.push(trial_procedure);
@@ -471,19 +332,36 @@
           jsPsych.data.get().filter({ segment: "s5" }).select("rt").mean()
         );
 
+        var trials = jsPsych.data.get().filter({ task: "question" });
+        var correct_trials = trials.filter({ correct: 1 });
+
+        var accuracy = Math.round(
+          (correct_trials.count() / trials.count()) * 100
+        );
+
         return `<div class='container'>
           <h1>Well Done!</h1>
           <p>
-            The test has come to an end.<br>
-           Here are the means of your reaction times for each segment:
+           The test has come to an end.<br>
+           Here are the means of your <b>reaction times</b> for each segment and your overall <b>accuracy score</b>:
           </p>
-          <p>
-            <b>Segment 1:</b> ${s1_mean}ms<br>
-            <b>Segment 2:</b> ${s2_mean}ms<br>
-            <b>Segment 3:</b> ${s3_mean}ms<br>
-            <b>Segment 4:</b> ${s4_mean}ms<br>
-            <b>Segment 5:</b> ${s5_mean}ms
-          </p>
+          <div id = "results">
+            <p>
+              <b>Segment 1:</b> ${s1_mean}ms<br>
+              <b>Segment 2:</b> ${s2_mean}ms<br>
+              <b>Segment 3:</b> ${s3_mean}ms<br>
+              <b>Segment 4:</b> ${s4_mean}ms<br>
+              <b>Segment 5:</b> ${s5_mean}ms
+            </p>
+            <div class = "container" id = "accuracy">
+              <p>
+                <b>Score:</b>
+              </p>
+              <p id = "percentage">
+                ${accuracy}%
+              </p>
+            </div>
+          </div>
           <h2>Thank you for your time!</h2>
         </div>`;
       },
@@ -501,7 +379,28 @@
     };
     timeline.push(debrief);
 
+    // Simulation
+    const simulation_options = {
+      long_response: {
+        rt: () => {
+          return jsPsych.randomization.sampleWithReplacement(
+            [1000, 1500, 2000, 2500, 3000],
+            1
+          );
+        },
+      },
+      short_response: {
+        rt: () => {
+          return jsPsych.randomization.sampleWithReplacement(
+            [250, 375, 500, 1000, 750],
+            1
+          );
+        },
+      },
+    };
+
     jsPsych.run(timeline);
     // jsPsych.simulate(timeline);
   </script>
 </html>
+
