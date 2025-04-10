@@ -11,23 +11,10 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Who falls?<br><br>The zebra   /   The horse</h2>`,
+    question: `<h2 style = "white-space: pre">Who falls?<br><br>The horse   /   The zebra</h2>`,
     correct_answer: 1,
+    item_number: 1,
   },
-  // {
-  //   // #3
-  //   s0: '<p class="stimulus">_________ | ____ | _____ | _________ | ______</p>',
-  //   s1: '<p class="stimulus">The horse | ____ | _____ | _________ | ______</p>',
-  //   s2: '<p class="stimulus">_________ | that | _____ | _________ | ______</p>',
-  //   s3: '<p class="stimulus">_________ | ____ | kicks | _________ | ______</p>',
-  //   s4: '<p class="stimulus">_________ | ____ | _____ | the zebra | ______</p>',
-  //   s5: '<p class="stimulus">_________ | ____ | _____ | _________ | laughs</p>',
-  // item_type: "exp_item",
-  // clause_type: "sr",
-  //   number: "ss",
-  //    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
-  // correct_answer: 1,
-  // },
   {
     // #4
     s0: '<p class="stimulus">_________ | ____ | _______ | _________ | ____</p>',
@@ -39,8 +26,9 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Who runs?<br><br>The horse   /   The zebra</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 4,
   },
   {
     // #7
@@ -53,8 +41,9 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Who cries?<br><br>The dog   /   The cat</h2>`,
+    question: false,
     correct_answer: 0,
+    item_number: 7,
   },
   {
     // #8
@@ -67,23 +56,10 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Who smiles?<br><br>The dog   /   The cat</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 8,
   },
-  // {
-  //   // #10
-  //   s0: '<p class="stimulus">_______ | ____ | _______ | _______ | ____</p>',
-  //   s1: '<p class="stimulus">The cat | ____ | _______ | _______ | ____</p>',
-  //   s2: '<p class="stimulus">_______ | that | _______ | _______ | ____</p>',
-  //   s3: '<p class="stimulus">_______ | ____ | watches | _______ | ____</p>',
-  //   s4: '<p class="stimulus">_______ | ____ | _______ | the dog | ____</p>',
-  //   s5: '<p class="stimulus">_______ | ____ | _______ | _______ | eats</p>',
-  // item_type: "exp_item",
-  // clause_type: "sr",
-  //   number: "ss",
-  //    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
-  // correct_answer: 0,
-  // },
   {
     // #1
     s0: '<p class="stimulus">__________ | ____ | _____ | __________ | ____</p>',
@@ -95,25 +71,10 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "pp",
-    question: `<h2 style = "white-space: pre">Who falls?<br><br>The zebras   /   The horses</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 1,
   },
-  // {
-  //   // #3
-  //   s0: '<p class="stimulus">__________ | ____ | ____ | __________ | _____</p>',
-  //   s1: '<p class="stimulus">The horses | ____ | ____ | __________ | _____</p>',
-  //   s2: '<p class="stimulus">__________ | that | ____ | __________ | _____</p>',
-  //   s3: '<p class="stimulus">__________ | ____ | kick | __________ | _____</p>',
-  //   s4: '<p class="stimulus">__________ | ____ | ____ | the zebras | _____</p>',
-  //   s5: '<p class="stimulus">__________ | ____ | ____ | __________ | laugh</p>',
-  // item_type: "exp_item",
-  // clause_type: "sr",
-  //   number: "pp",
-  //   question: "<h2>Do the zebras that kick the horses laugh?</h2>",
-  // answer_zero: "",
-  // answer_one: "",  
-  // correct_answer: 0,
-  // },
   {
     // #4
     s0: '<p class="stimulus">__________ | ____ | ______ | __________ | ___</p>',
@@ -125,8 +86,9 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "pp",
-    question: `<h2 style = "white-space: pre">Who runs?<br><br>The horses   /   The zebras</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 4,
   },
   {
     // #7
@@ -141,6 +103,7 @@ var stimulus = [
     number: "pp",
     question: `<h2 style = "white-space: pre">Who cries?<br><br>The dogs   /   The cats</h2>`,
     correct_answer: 0,
+    item_number: 7,
   },
   {
     // #8
@@ -153,25 +116,10 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "pp",
-    question: `<h2 style = "white-space: pre">Who smiles?<br><br>The dogs   /   The cats</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 8,
   },
-  // {
-  //   // #10
-  //   s0: '<p class="stimulus">________ | ____ | _____ | ________ | ___</p>',
-  //   s1: '<p class="stimulus">The cats | ____ | _____ | ________ | ___</p>',
-  //   s2: '<p class="stimulus">________ | that | _____ | ________ | ___</p>',
-  //   s3: '<p class="stimulus">________ | ____ | watch | ________ | ___</p>',
-  //   s4: '<p class="stimulus">________ | ____ | _____ | the dogs | ___</p>',
-  //   s5: '<p class="stimulus">________ | ____ | _____ | ________ | eat</p>',
-  // item_type: "exp_item",
-  // clause_type: "sr",
-  //   number: "pp",
-  //   question: "<h2>Do the dogs that watch the cats eat?</h2>",
-  // answer_zero: "",
-  // answer_one: "",  
-  // correct_answer: 0,
-  // },
   {
     // #1
     s0: '<p class="stimulus">__________ | ____ | _____ | _________ | ____</p>',
@@ -183,23 +131,10 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "ps",
-    question: `<h2 style = "white-space: pre">Who falls?<br><br>The zebra   /   The horses</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 1,
   },
-  // {
-  //   // #3
-  //   s0: '<p class="stimulus">__________ | ____ | ____ | _________ | _____</p>',
-  //   s1: '<p class="stimulus">The horses | ____ | ____ | _________ | _____</p>',
-  //   s2: '<p class="stimulus">__________ | that | ____ | _________ | _____</p>',
-  //   s3: '<p class="stimulus">__________ | ____ | kick | _________ | _____</p>',
-  //   s4: '<p class="stimulus">__________ | ____ | ____ | the zebra | _____</p>',
-  //   s5: '<p class="stimulus">__________ | ____ | ____ | _________ | laugh</p>',
-  // item_type: "exp_item",
-  // clause_type: "sr",
-  //   number: "ps",
-  //    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
-  // correct_answer: 0,
-  // },
   {
     // #4
     s0: '<p class="stimulus">__________ | ____ | ______ | _________ | ___</p>',
@@ -213,6 +148,7 @@ var stimulus = [
     number: "ps",
     question: `<h2 style = "white-space: pre">Who runs?<br><br>The horse   /   The zebras</h2>`,
     correct_answer: 1,
+    item_number: 4,
   },
   {
     // #7
@@ -225,8 +161,9 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "ps",
-    question: `<h2 style = "white-space: pre">Who cries?<br><br>The dogs   /   The cat</h2>`,
+    question: false,
     correct_answer: 0,
+    item_number: 7,
   },
   {
     // #8
@@ -239,23 +176,10 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "ps",
-    question: `<h2 style = "white-space: pre">Who smiles?<br><br>The dog   /   The cats</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 8,
   },
-  // {
-  //   // #10
-  //   s0: '<p class="stimulus">________ | ____ | _____ | _______ | ___</p>',
-  //   s1: '<p class="stimulus">The cats | ____ | _____ | _______ | ___</p>',
-  //   s2: '<p class="stimulus">________ | that | _____ | _______ | ___</p>',
-  //   s3: '<p class="stimulus">________ | ____ | watch | _______ | ___</p>',
-  //   s4: '<p class="stimulus">________ | ____ | _____ | the dog | ___</p>',
-  //   s5: '<p class="stimulus">________ | ____ | _____ | _______ | eat</p>',
-  // item_type: "exp_item",
-  // clause_type: "sr",
-  //   number: "ps",
-  //    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
-  // correct_answer: 0,
-  // },
   {
     // #1
     s0: '<p class="stimulus">_________ | ____ | ______ | __________ | _____</p>',
@@ -267,25 +191,10 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "sp",
-    question: `<h2 style = "white-space: pre">Who falls?<br><br>The zebras   /   The horse</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 1,
   },
-  // {
-  //   // #3
-  //   s0: '<p class="stimulus">_________ | ____ | _____ | __________ | ______</p>',
-  //   s1: '<p class="stimulus">The horse | ____ | _____ | __________ | ______</p>',
-  //   s2: '<p class="stimulus">_________ | that | _____ | __________ | ______</p>',
-  //   s3: '<p class="stimulus">_________ | ____ | kicks | __________ | ______</p>',
-  //   s4: '<p class="stimulus">_________ | ____ | _____ | the zebras | ______</p>',
-  //   s5: '<p class="stimulus">_________ | ____ | _____ | __________ | laughs</p>',
-  // item_type: "exp_item",
-  // clause_type: "sr",
-  //   number: "sp",
-  //   question: "<h2>Do the zebras that kick the horse laugh?</h2>",
-  // answer_zero: "",
-  // answer_one: "",  
-  // correct_answer: 0,
-  // },
   {
     // #4
     s0: '<p class="stimulus">_________ | ____ | _______ | __________ | ____</p>',
@@ -297,8 +206,9 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "sp",
-    question: `<h2 style = "white-space: pre">Who runs?<br><br>The horses   /   The zebra</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 4,
   },
   {
     // #7
@@ -311,8 +221,9 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "sp",
-    question: `<h2 style = "white-space: pre">Who cries?<br><br>The dog   /   The cats</h2>`,
+    question: false,
     correct_answer: 0,
+    item_number: 7,
   },
   {
     // #8
@@ -325,25 +236,10 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "sp",
-    question: `<h2 style = "white-space: pre">Who smiles?<br><br>The dogs   /   The cat</h2>`,
+    question: `<h2 style = "white-space: pre">Who smiles?<br><br>The cat   /   The dogs</h2>`,
     correct_answer: 1,
+    item_number: 8,
   },
-  // {
-  //   // #10
-  //   s0: '<p class="stimulus">_______ | ____ | _______ | ________ | ____</p>',
-  //   s1: '<p class="stimulus">The cat | ____ | _______ | ________ | ____</p>',
-  //   s2: '<p class="stimulus">_______ | that | _______ | ________ | ____</p>',
-  //   s3: '<p class="stimulus">_______ | ____ | watches | ________ | ____</p>',
-  //   s4: '<p class="stimulus">_______ | ____ | _______ | the dogs | ____</p>',
-  //   s5: '<p class="stimulus">_______ | ____ | _______ | ________ | eats</p>',
-  // item_type: "exp_item",
-  // clause_type: "sr",
-  //   number: "sp",
-  //   question: "<h2>Do the dogs that watch the cat eat?</h2>",
-  // answer_zero: "",
-  // answer_one: "",  
-  // correct_answer: 0,
-  // },
   {
     // Object Relatives
     // #1
@@ -356,23 +252,10 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Who falls?<br><br>The zebra   /   The horse</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 1,
   },
-  // {
-  //   // #3
-  //   s0: '<p class="stimulus">_________ | ____ | _________ | _____ | ______</p>',
-  //   s1: '<p class="stimulus">The horse | ____ | _________ | _____ | ______</p>',
-  //   s2: '<p class="stimulus">_________ | that | _________ | _____ | ______</p>',
-  //   s3: '<p class="stimulus">_________ | ____ | the zebra | _____ | ______</p>',
-  //   s4: '<p class="stimulus">_________ | ____ | _________ | kicks | ______</p>',
-  //   s5: '<p class="stimulus">_________ | ____ | _________ | _____ | laughs</p>',
-  // item_type: "exp_item",
-  // clause_type: "or",
-  //   number: "ss",
-  //    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
-  // correct_answer: 0,
-  // },
   {
     // #4
     s0: '<p class="stimulus">_________ | ____ | _________ | _______ | ____</p>',
@@ -384,8 +267,9 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Who runs?<br><br>The horse   /   The zebra</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 4,
   },
   {
     // #7
@@ -400,6 +284,7 @@ var stimulus = [
     number: "ss",
     question: `<h2 style = "white-space: pre">Who cries?<br><br>The dog   /   The cat</h2>`,
     correct_answer: 0,
+    item_number: 7,
   },
   {
     // #8
@@ -412,23 +297,10 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Who smiles?<br><br>The dog   /   The cat</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 8,
   },
-  // {
-  //   // #10
-  //   s0: '<p class="stimulus">_______ | ____ | _______ | _______ | ____</p>',
-  //   s1: '<p class="stimulus">The cat | ____ | _______ | _______ | ____</p>',
-  //   s2: '<p class="stimulus">_______ | that | _______ | _______ | ____</p>',
-  //   s3: '<p class="stimulus">_______ | ____ | the dog | _______ | ____</p>',
-  //   s4: '<p class="stimulus">_______ | ____ | _______ | watches | ____</p>',
-  //   s5: '<p class="stimulus">_______ | ____ | _______ | _______ | eats</p>',
-  // item_type: "exp_item",
-  // clause_type: "or",
-  //   number: "ss",
-  //    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
-  // correct_answer: 0,
-  // },
   {
     // #1
     s0: '<p class="stimulus">__________ | ____ | __________ | _____ | ____</p>',
@@ -440,25 +312,10 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "pp",
-    question: `<h2 style = "white-space: pre">Who falls?<br><br>The zebras   /   The horses</h2>`,
+    question: `<h2 style = "white-space: pre">Who falls?<br><br>The horses   /   The zebras</h2>`,
     correct_answer: 1,
+    item_number: 1,
   },
-  // {
-  //   // #3
-  //   s0: '<p class="stimulus">__________ | ____ | __________ | ____ | _____</p>',
-  //   s1: '<p class="stimulus">The horses | ____ | __________ | ____ | _____</p>',
-  //   s2: '<p class="stimulus">__________ | that | __________ | ____ | _____</p>',
-  //   s3: '<p class="stimulus">__________ | ____ | the zebras | ____ | _____</p>',
-  //   s4: '<p class="stimulus">__________ | ____ | __________ | kick | _____</p>',
-  //   s5: '<p class="stimulus">__________ | ____ | __________ | ____ | laugh</p>',
-  // item_type: "exp_item",
-  // clause_type: "or",
-  //   number: "pp",
-  //   question: "<h2>Do the zebras that the horses kick laugh?</h2>",
-  // answer_zero: "",
-  // answer_one: "",  
-  // correct_answer: 0,
-  // },
   {
     // #4
     s0: '<p class="stimulus">__________ | ____ | __________ | ______ | ___</p>',
@@ -470,8 +327,9 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "pp",
-    question: `<h2 style = "white-space: pre">Who runs?<br><br>The horses   /   The zebras</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 4,
   },
   {
     // #7
@@ -484,8 +342,9 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "pp",
-    question: `<h2 style = "white-space: pre">Who cries?<br><br>The dogs   /   The cats</h2>`,
+    question: false,
     correct_answer: 0,
+    item_number: 7,
   },
   {
     // #8
@@ -498,25 +357,10 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "pp",
-    question: `<h2 style = "white-space: pre">Who smiles?<br><br>The dogs   /   The cats</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 8,
   },
-  // {
-  //   // #10
-  //   s0: '<p class="stimulus">________ | ____ | ________ | _____ | ___</p>',
-  //   s1: '<p class="stimulus">The cats | ____ | ________ | _____ | ___</p>',
-  //   s2: '<p class="stimulus">________ | that | ________ | _____ | ___</p>',
-  //   s3: '<p class="stimulus">________ | ____ | the dogs | _____ | ___</p>',
-  //   s4: '<p class="stimulus">________ | ____ | ________ | watch | ___</p>',
-  //   s5: '<p class="stimulus">________ | ____ | ________ | _____ | eat</p>',
-  // item_type: "exp_item",
-  // clause_type: "or",
-  //   number: "pp",
-  //   question: "<h2>Do the dogs that the cats watch eat?</h2>",
-  // answer_zero: "",
-  // answer_one: "",  
-  // correct_answer: 0,
-  // },
   {
     // #1
     s0: '<p class="stimulus">__________ | ____ | _________ | ______ | ____</p>',
@@ -528,23 +372,10 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "ps",
-    question: `<h2 style = "white-space: pre">Who falls?<br><br>The zebra   /   The horses</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 1,
   },
-  // {
-  //   // #3
-  //   s0: '<p class="stimulus">__________ | ____ | _________ | _____ | _____</p>',
-  //   s1: '<p class="stimulus">The horses | ____ | _________ | _____ | _____</p>',
-  //   s2: '<p class="stimulus">__________ | that | _________ | _____ | _____</p>',
-  //   s3: '<p class="stimulus">__________ | ____ | the zebra | _____ | _____</p>',
-  //   s4: '<p class="stimulus">__________ | ____ | _________ | kicks | _____</p>',
-  //   s5: '<p class="stimulus">__________ | ____ | _________ | _____ | laugh</p>',
-  // item_type: "exp_item",
-  // clause_type: "or",
-  //   number: "ps",
-  //    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
-  // correct_answer: 0,
-  // },
   {
     // #4
     s0: '<p class="stimulus">__________ | ____ | _________ | _______ | ___</p>',
@@ -556,8 +387,9 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "ps",
-    question: `<h2 style = "white-space: pre">Who runs?<br><br>The horse   /   The zebras</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 4,
   },
   {
     // #7
@@ -570,8 +402,9 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "ps",
-    question: `<h2 style = "white-space: pre">Who cries?<br><br>The dogs   /   The cat</h2>`,
+    question: false,
     correct_answer: 0,
+    item_number: 7,
   },
   {
     // #8
@@ -584,23 +417,10 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "ps",
-    question: `<h2 style = "white-space: pre">Who smiles?<br><br>The dog   /   The cats</h2>`,
+    question: `<h2 style = "white-space: pre">Who smiles?<br><br>The cats   /   The dog</h2>`,
     correct_answer: 1,
+    item_number: 8,
   },
-  // {
-  //   // #10
-  //   s0: '<p class="stimulus">________ | ____ | _______ | _______ | ___</p>',
-  //   s1: '<p class="stimulus">The cats | ____ | _______ | _______ | ___</p>',
-  //   s2: '<p class="stimulus">________ | that | _______ | _______ | ___</p>',
-  //   s3: '<p class="stimulus">________ | ____ | the dog | _______ | ___</p>',
-  //   s4: '<p class="stimulus">________ | ____ | _______ | watches | ___</p>',
-  //   s5: '<p class="stimulus">________ | ____ | _______ | _______ | eat</p>',
-  // item_type: "exp_item",
-  // clause_type: "or",
-  //   number: "ps",
-  //    question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
-  // correct_answer: 0,
-  // },
   {
     // #1
     s0: '<p class="stimulus">_________ | ____ | __________ | _____ | _____</p>',
@@ -612,25 +432,10 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "sp",
-    question: `<h2 style = "white-space: pre">Who falls?<br><br>The zebras   /   The horse</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 1,
   },
-  // {
-  //   // #3
-  //   s0: '<p class="stimulus">_________ | ____ | __________ | ____ | ______</p>',
-  //   s1: '<p class="stimulus">The horse | ____ | __________ | ____ | ______</p>',
-  //   s2: '<p class="stimulus">_________ | that | __________ | ____ | ______</p>',
-  //   s3: '<p class="stimulus">_________ | ____ | the zebras | ____ | ______</p>',
-  //   s4: '<p class="stimulus">_________ | ____ | __________ | kick | ______</p>',
-  //   s5: '<p class="stimulus">_________ | ____ | __________ | ____ | laughs</p>',
-  // item_type: "exp_item",
-  // clause_type: "or",
-  //   number: "sp",
-  //   question: "<h2>Do the zebras that the horse kicks laugh?</h2>",
-  // answer_zero: "",
-  // answer_one: "",  
-  // correct_answer: 0,
-  // },
   {
     // #4
     s0: '<p class="stimulus">_________ | ____ | __________ | ______ | ____</p>',
@@ -644,6 +449,7 @@ var stimulus = [
     number: "sp",
     question: `<h2 style = "white-space: pre">Who runs?<br><br>The horses   /   The zebra</h2>`,
     correct_answer: 1,
+    item_number: 4,
   },
   {
     // #7
@@ -656,8 +462,9 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "sp",
-    question: `<h2 style = "white-space: pre">Who cries?<br><br>The dog   /   The cats</h2>`,
+    question: false,
     correct_answer: 0,
+    item_number: 7,
   },
   {
     // #8
@@ -670,25 +477,11 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "sp",
-    question: `<h2 style = "white-space: pre">Who smiles?<br><br>The dogs   /   The cat</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 8,
   },
-  // {
-  //   // #10
-  //   s0: '<p class="stimulus">_______ | ____ | ________ | _____ | ____</p>',
-  //   s1: '<p class="stimulus">The cat | ____ | ________ | _____ | ____</p>',
-  //   s2: '<p class="stimulus">_______ | that | ________ | _____ | ____</p>',
-  //   s3: '<p class="stimulus">_______ | ____ | the dogs | _____ | ____</p>',
-  //   s4: '<p class="stimulus">_______ | ____ | ________ | watch | ____</p>',
-  //   s5: '<p class="stimulus">_______ | ____ | ________ | _____ | eats</p>',
-  // item_type: "exp_item",
-  // clause_type: "or",
-  //   number: "sp",
-  //   question: "<h2>Do the dogs that the cat watches eat?</h2>",
-  // answer_zero: "",
-  // answer_one: "",  
-  // correct_answer: 0,
-  // },
+
   // Fillers
   // Subject Relatives
   {
@@ -702,8 +495,9 @@ var stimulus = [
     item_type: "fill_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Does the chef fall?<br><br>No         /         Yes</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 1,
   },
   {
     // #2
@@ -718,6 +512,7 @@ var stimulus = [
     number: "ss",
     question: `<h2 style = "white-space: pre">Does the chef scream?<br><br>No         /         Yes</h2>`,
     correct_answer: 0,
+    item_number: 2,
   },
   {
     // #3
@@ -730,8 +525,9 @@ var stimulus = [
     item_type: "fill_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Does the chef smile?<br><br>No         /         Yes</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 3,
   },
   {
     // #4
@@ -744,8 +540,9 @@ var stimulus = [
     item_type: "fill_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Does the chef fall?<br><br>No         /         Yes</h2>`,
+    question: false,
     correct_answer: 0,
+    item_number: 4,
   },
   {
     // #5
@@ -760,6 +557,7 @@ var stimulus = [
     number: "ss",
     question: `<h2 style = "white-space: pre">Does the chef cry?<br><br>No         /         Yes</h2>`,
     correct_answer: 1,
+    item_number: 5,
   },
   {
     // #6
@@ -772,8 +570,9 @@ var stimulus = [
     item_type: "fill_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Does the singer jump?<br><br>No         /         Yes</h2>`,
+    question: false,
     correct_answer: 0,
+    item_number: 6,
   },
   {
     // #7
@@ -786,8 +585,9 @@ var stimulus = [
     item_type: "fill_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Does the singer cry?<br><br>No         /         Yes</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 7,
   },
   {
     // #8
@@ -800,8 +600,9 @@ var stimulus = [
     item_type: "fill_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Does the singer fall?<br><br>No         /         Yes</h2>`,
+    question: false,
     correct_answer: 0,
+    item_number: 8,
   },
   {
     // #9
@@ -816,6 +617,7 @@ var stimulus = [
     number: "ss",
     question: `<h2 style = "white-space: pre">Does the singer scream?<br><br>No         /         Yes</h2>`,
     correct_answer: 1,
+    item_number: 9,
   },
   {
     // #10
@@ -828,8 +630,9 @@ var stimulus = [
     item_type: "fill_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Does the singer scream?<br><br>No         /         Yes</h2>`,
+    question: false,
     correct_answer: 0,
+    item_number: 10,
   },
   {
     // #11
@@ -842,8 +645,9 @@ var stimulus = [
     item_type: "fill_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Does the woman smile?<br><br>No         /         Yes</h2>`,
+    question: false,
     correct_answer: 1,
+    item_number: 11,
   },
   {
     // #12
@@ -856,8 +660,9 @@ var stimulus = [
     item_type: "fill_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Does the woman murmur?<br><br>No         /         Yes</h2>`,
+    question: false,
     correct_answer: 0,
+    item_number: 12,
   },
   {
     // #13
@@ -872,6 +677,7 @@ var stimulus = [
     number: "ss",
     question: `<h2 style = "white-space: pre">Does the woman leave?<br><br>No         /         Yes</h2>`,
     correct_answer: 1,
+    item_number: 13,
   },
   {
     // #14
@@ -884,8 +690,9 @@ var stimulus = [
     item_type: "fill_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Does the woman cry?<br><br>No         /         Yes</h2>`,
+    question: false,
     correct_answer: 0,
+    item_number: 14,
   },
   {
     // #15
@@ -900,5 +707,6 @@ var stimulus = [
     number: "ss",
     question: `<h2 style = "white-space: pre">Does the woman murmur?<br><br>No         /         Yes</h2>`,
     correct_answer: 1,
+    item_number: 15,
   },
 ];

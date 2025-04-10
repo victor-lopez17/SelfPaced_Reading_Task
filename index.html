@@ -114,6 +114,7 @@
         simulation_options: "short_response",
         data: {
           task: "item",
+          item_number: jsPsych.timelineVariable("item_number"), 
           item_type: jsPsych.timelineVariable("item_type"),
           segment: "s0",
           clause_type: jsPsych.timelineVariable("clause_type"),
@@ -127,6 +128,7 @@
         simulation_options: "short_response",
         data: {
           task: "item",
+          item_number: jsPsych.timelineVariable("item_number"), 
           item_type: jsPsych.timelineVariable("item_type"),
           segment: "s1",
           clause_type: jsPsych.timelineVariable("clause_type"),
@@ -140,6 +142,7 @@
         simulation_options: "short_response",
         data: {
           task: "item",
+          item_number: jsPsych.timelineVariable("item_number"), 
           item_type: jsPsych.timelineVariable("item_type"),
           segment: "s2",
           clause_type: jsPsych.timelineVariable("clause_type"),
@@ -153,6 +156,7 @@
         simulation_options: "short_response",
         data: {
           task: "item",
+          item_number: jsPsych.timelineVariable("item_number"), 
           item_type: jsPsych.timelineVariable("item_type"),
           segment: "s3",
           clause_type: jsPsych.timelineVariable("clause_type"),
@@ -166,6 +170,7 @@
         simulation_options: "long_response",
         data: {
           task: "item",
+          item_number: jsPsych.timelineVariable("item_number"), 
           item_type: jsPsych.timelineVariable("item_type"),
           segment: "s4",
           clause_type: jsPsych.timelineVariable("clause_type"),
@@ -179,10 +184,12 @@
         simulation_options: "long_response",
         data: {
           task: "item",
+          item_number: jsPsych.timelineVariable("item_number"), 
           item_type: jsPsych.timelineVariable("item_type"),
           segment: "s5",
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
+          question: jsPsych.timelineVariable("question"),
         },
         post_trial_gap: 500,
       },
@@ -200,6 +207,7 @@
       stimulus: jsPsych.timelineVariable("question"),
       data: {
         task: "question",
+        item_number: jsPsych.timelineVariable("item_number"), 
         item_type: jsPsych.timelineVariable("item_type"),
         correct_answer: jsPsych.timelineVariable("correct_answer"),
         clause_type: jsPsych.timelineVariable("clause_type"),
@@ -210,26 +218,17 @@
           part_answer: data.response,
         });
 
-        if (data.part_answer == data.correct_answer) {
-          data.correct = 0;
-
-          return (data.correct = 1);
-        } else {
-          return (data.correct = 0);
-        }
+        return (data.response === data.correct_answer) ? data.correct = 1 : data.correct = 0;
       },
       post_trial_gap: 500,
     };
 
     // Trial Question Node
     var condition = function () {
-      if (
-        jsPsych.randomization.sampleWithReplacement([0, 1], 1, [75, 25])[0] == 1
-      ) {
-        return true;
-      } else {
-        return false;
-      }
+      // Get the last trial data
+      var lastTrialData = jsPsych.data.get().last(1).values()[0];
+      // Show question for experimental and filler items
+      return lastTrialData.question !== false;
     };
 
     var trial_question_node = {
@@ -239,7 +238,7 @@
 
     // Practice Procedure
     var pr_procedure = {
-      timeline: [trial, trial_question],
+      timeline: [trial, trial_question_node],
       timeline_variables: [
         {
           s0: '<p class="stimulus">_______ | ____ | _______ | _______ | ____</p>',
@@ -251,8 +250,9 @@
           item_type: "pr_item",
           clause_type: "sr",
           number: "ss",
-          question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
+          question: false,
           correct_answer: 0,
+          item_number: null,
         },
         {
           s0: '<p class="stimulus">_________ | ____ | _________ | _____ | ______</p>',
@@ -266,6 +266,7 @@
           number: "ss",
           question: `<h2 style = "white-space: pre">Who laughs?<br><br>The zebra   /   The horse</h2>`,
           correct_answer: 1,
+          item_number: null,
         },
       ],
       repetitions: 1,
