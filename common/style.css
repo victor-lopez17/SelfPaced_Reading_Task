@@ -192,15 +192,24 @@ svg {
 
 .animate_banner1 {
   animation: bannerOut 1s forwards;
+  animation-fill-mode: both;
 }
 
 .animate_banner2 {
   animation: bannerOut 1s forwards;
   animation-delay: 0.2s;
+  animation-fill-mode: both;
 }
 
-.animate_banner_reverse {
+.animate_banner_reverse1 {
   animation: bannerIn 1s forwards;
+  animation-fill-mode: both;
+}
+
+.animate_banner_reverse2 {
+  animation: bannerIn 1s forwards;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
 }
 
 .container {
