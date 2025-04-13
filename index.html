@@ -35,8 +35,8 @@
         <div id="back2"></div>
       </div>
       <div class="container" id="logos">
-        <img src="./common/img/uabLogo.png" alt="uab logo" />
-        <img src="./common/img/grelaLogo.png" alt="grela logo" />
+        <img src="./common/img/uabLogo.png" id="uabLogo" alt="uab logo" />
+        <img src="./common/img/grelaLogo.png" id="grelaLogo" alt="grela logo" />
       </div>
     </div>
   </body>
@@ -289,11 +289,13 @@
       on_finish: function () {
         var element1 = document.getElementById("back1");
         var element2 = document.getElementById("back2");
-        var element3 = document.getElementById("logos");
+        var element3 = document.getElementById("uabLogo");
+        var element4 = document.getElementById("grelaLogo");
 
-        element1.classList.add("animate_back");
-        element2.classList.add("animate_back");
-        element3.classList.add("animate_banner");
+        element1.classList.toggle("animate_back");
+        element2.classList.toggle("animate_back");
+        element3.classList.toggle("animate_banner2");
+        element4.classList.toggle("animate_banner1");
       },
       post_trial_gap: 2000,
       record_data: false,
@@ -307,8 +309,8 @@
       randomize_order: true,
       sample: {
         type: "without-replacement",
-        // size: 5, // For testing purposes
-        size: stimulus.length, // 32 items + 15 fillers
+        size: 5, // For testing purposes
+        // size: stimulus.length, // 32 items + 15 fillers
       },
     };
     timeline.push(trial_procedure);
@@ -370,11 +372,13 @@
       on_start: function () {
         var element1 = document.getElementById("back1");
         var element2 = document.getElementById("back2");
-        var element3 = document.getElementById("logos");
+        var element3 = document.getElementById("uabLogo");
+        var element4 = document.getElementById("grelaLogo");
 
-        element1.classList.add("animate_back_reverse");
-        element2.classList.add("animate_back_reverse");
-        element3.classList.add("animate_banner_reverse");
+        element1.classList.toggle("animate_back_reverse");
+        element2.classList.toggle("animate_back_reverse");
+        element3.classList.toggle("animate_banner_reverse");
+        element4.classList.toggle("animate_banner_reverse");
       },
       record_data: false,
     };

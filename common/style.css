@@ -85,6 +85,9 @@
   from {
     transform: translateY(-70px);
     opacity: 0;
+  } to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
@@ -187,8 +190,13 @@ svg {
   animation: backIn 1s forwards;
 }
 
-.animate_banner {
+.animate_banner1 {
   animation: bannerOut 1s forwards;
+}
+
+.animate_banner2 {
+  animation: bannerOut 1s forwards;
+  animation-delay: 0.2s;
 }
 
 .animate_banner_reverse {
