@@ -4,13 +4,11 @@
 
 This is a **self-paced reading task**, an experimental test commonly used for psycholinguistic research.
 
-These typically work with a moving window paradigm, by which only one segment of the target structure is shown at a time. The participants are asked to press, in this case, space bar to progress through the task.
+These typically work with a moving window paradigm, by which only one segment of the target structure is shown at a time. The participants are asked to press, in this case, space bar to show the next segment and progress through the task.
 
-<video src='./common/img/keyboard_animation.mp4' type='video/mp4' autoplay loop></video>
+This specific test was designed to look at parsing differences between object relative clauses and subject relative clauses by adult bilinguals. Additionally, its experimental items vary in number similarity to examine whether this is a factor that affects sentence processing.
 
-This specific task was designed to look at parsing differences between object relative clauses and subject relative clauses by adult bilinguals. Additionally, its experimental items vary in number similarity to test whether this is a factor that affects sentence processing.
-
-The test was designed using the [jsPsych](https://www.jspsych.org/latest/) package for _JavaScript_, involving the use of _html_ for web structure and _CSS_ for aesthetics.
+This web-based test was designed using the [jsPsych](https://www.jspsych.org/latest/) package for _JavaScript_, involving the use of _HTML_ for web structure and _CSS_ for aesthetics.
 
 ## 2. Objectives
 
@@ -26,7 +24,7 @@ These questions and the results will be interpreted from a featural approach to 
 
 The experiment will gather reaction time data by creating an observation each time space bar is pressed. This will be interpreted as an indication of reading times, hinting at what segments of each item take longer or shorter to read.
 
-The items in this experiment are classified according to two variables, one for each research question:
+The items in this task are classified according to two variables, one for each research question:
 
 1. `clause_type` holds either `sr` for subject relative or `or` for object relative.
 
@@ -43,8 +41,8 @@ Here are the steps for installing and running this self-paced reading task:
 1. Go to [Releases](https://github.com/Vieju17/SelfPaced_Reading_Task/releases) and select the **latest version**.
 2. Download the zip file called _Source code_.
 3. Unzip the file and save the contents to your preferred destination.
-4. Right-click on the file named _index.html_, select _Open with..._ and then select _Chrome_.
+4. Right-click on the file named _index.html_, select _Open with..._ and then select _Google Chrome_.
 
-The task should now open on your navigator.
+The task should now open on your navigator and you should be able to proceed.
 
-⚠️ **_Note that it is strongly recommended to run the experiment on Chrome, as other web browsers might render it differently and cause visual artifacts, or worse._**
+⚠️ **_It is strongly recommended to run the experiment on Chrome, as other web browsers might render it differently and cause visual artifacts, or worse._**
