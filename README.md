@@ -41,8 +41,9 @@ Here are the steps for installing and running this self-paced reading task:
 1. Go to [Releases](https://github.com/Vieju17/SelfPaced_Reading_Task/releases) and select the **latest version**.
 2. Download the zip file called _Source code_.
 3. Unzip the file and save the contents to your preferred destination.
-4. Right-click on the file named _index.html_, select _Open with..._ and then select _Google Chrome_.
+4. Right-click on the file named _index.html_, select _Open with..._ and then select _Google Chrome_. The task should now open on your navigator and you should be able to proceed.
+5. Once the task has finished, press "j" to download the data locally.
 
-The task should now open on your navigator and you should be able to proceed.
+Alternatively, if you do not want access to the source code, just click on [this link](https://vieju17.github.io/SelfPaced_Reading_Task/).
 
 ⚠️ **_It is strongly recommended to run the experiment on Chrome, as other web browsers might render it differently and cause visual artifacts, or worse._**

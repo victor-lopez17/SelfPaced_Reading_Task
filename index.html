@@ -197,13 +197,8 @@
     
     // Trial Question
     var trial_question = {
-      type: jsPsychHtmlButtonResponse,
-      choices: ["", ""],
-      button_html: (choice) => 
-         `<div class='button' id='answer'>
-            ${choice}
-            <svg id = "answer-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 6 5 5 5-5"/><path d="m7 13 5 5 5-5"/></svg>
-          </div>`,
+      type: jsPsychHtmlKeyboardResponse,
+      choices: ["f", "j"],
       stimulus: jsPsych.timelineVariable("question"),
       data: {
         task: "question",
@@ -264,8 +259,8 @@
           item_type: "pr_item",
           clause_type: "or",
           number: "ss",
-          question: `<h2 style = "white-space: pre">Who laughs?<br><br>The zebra   /   The horse</h2>`,
-          correct_answer: 1,
+          question: `<h2 style = "white-space: pre">Who laughs?<br><br>The zebra (f)   /   The horse (j)</h2>`,
+          correct_answer: "j",
           item_number: null,
         },
       ],
