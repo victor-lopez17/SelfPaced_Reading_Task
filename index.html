@@ -35,8 +35,8 @@
         <div id="back2"></div>
       </div>
       <div class="container" id="logos">
-        <img src="./common/img/uabLogo.png" alt="uab logo" />
-        <img src="./common/img/grelaLogo.png" alt="grela logo" />
+        <img src="./common/img/uabLogo.png" id="uabLogo" alt="uab logo" />
+        <img src="./common/img/grelaLogo.png" id="grelaLogo" alt="grela logo" />
       </div>
     </div>
   </body>
@@ -85,10 +85,10 @@
         This will reveal what follows and hide the previous one.</p>
 
         <div id = "video">
-          <video src = "./common/img/keyboard_animation.mp4" type = "video/mp4" autoplay loop  preload = "auto"></video>
+          <video src = "./common/img/keyboard_animation.mp4" type = "video/mp4" autoplay loop muted preload = "auto"></video>
         </div>
 
-        <p>By the end of some of the sentences, you will be asked to <b>answer a question</b> on the sentence you just read. So, make sure to <b>take the time</b> to understand what you read!</p>
+        <p>By the end of some of the sentences, you will be asked to <b>answer a question</b> on the sentence you just read by pressing either <b>F</b> or <b>J</b>. So, make sure to <b>take the time</b> to understand what you read!</p>
 
         <p>Once you have finished reading a sentence and you have answered its question, if any, the next one will appear. This will repeat until the test is done.</p>
 
@@ -114,6 +114,7 @@
         simulation_options: "short_response",
         data: {
           task: "item",
+          item_number: jsPsych.timelineVariable("item_number"), 
           item_type: jsPsych.timelineVariable("item_type"),
           segment: "s0",
           clause_type: jsPsych.timelineVariable("clause_type"),
@@ -127,6 +128,7 @@
         simulation_options: "short_response",
         data: {
           task: "item",
+          item_number: jsPsych.timelineVariable("item_number"), 
           item_type: jsPsych.timelineVariable("item_type"),
           segment: "s1",
           clause_type: jsPsych.timelineVariable("clause_type"),
@@ -140,6 +142,7 @@
         simulation_options: "short_response",
         data: {
           task: "item",
+          item_number: jsPsych.timelineVariable("item_number"), 
           item_type: jsPsych.timelineVariable("item_type"),
           segment: "s2",
           clause_type: jsPsych.timelineVariable("clause_type"),
@@ -153,6 +156,7 @@
         simulation_options: "short_response",
         data: {
           task: "item",
+          item_number: jsPsych.timelineVariable("item_number"), 
           item_type: jsPsych.timelineVariable("item_type"),
           segment: "s3",
           clause_type: jsPsych.timelineVariable("clause_type"),
@@ -166,6 +170,7 @@
         simulation_options: "long_response",
         data: {
           task: "item",
+          item_number: jsPsych.timelineVariable("item_number"), 
           item_type: jsPsych.timelineVariable("item_type"),
           segment: "s4",
           clause_type: jsPsych.timelineVariable("clause_type"),
@@ -179,10 +184,12 @@
         simulation_options: "long_response",
         data: {
           task: "item",
+          item_number: jsPsych.timelineVariable("item_number"), 
           item_type: jsPsych.timelineVariable("item_type"),
           segment: "s5",
           clause_type: jsPsych.timelineVariable("clause_type"),
           number: jsPsych.timelineVariable("number"),
+          question: jsPsych.timelineVariable("question"),
         },
         post_trial_gap: 500,
       },
@@ -190,16 +197,12 @@
     
     // Trial Question
     var trial_question = {
-      type: jsPsychHtmlButtonResponse,
-      choices: ["", ""],
-      button_html: (choice) => 
-         `<div class='button' id='answer'>
-            ${choice}
-            <svg id = "answer-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 6 5 5 5-5"/><path d="m7 13 5 5 5-5"/></svg>
-          </div>`,
+      type: jsPsychHtmlKeyboardResponse,
+      choices: ["f", "j"],
       stimulus: jsPsych.timelineVariable("question"),
       data: {
         task: "question",
+        item_number: jsPsych.timelineVariable("item_number"), 
         item_type: jsPsych.timelineVariable("item_type"),
         correct_answer: jsPsych.timelineVariable("correct_answer"),
         clause_type: jsPsych.timelineVariable("clause_type"),
@@ -210,26 +213,17 @@
           part_answer: data.response,
         });
 
-        if (data.part_answer == data.correct_answer) {
-          data.correct = 0;
-
-          return (data.correct = 1);
-        } else {
-          return (data.correct = 0);
-        }
+        return (data.response === data.correct_answer) ? data.correct = 1 : data.correct = 0;
       },
       post_trial_gap: 500,
     };
 
     // Trial Question Node
     var condition = function () {
-      if (
-        jsPsych.randomization.sampleWithReplacement([0, 1], 1, [75, 25])[0] == 1
-      ) {
-        return true;
-      } else {
-        return false;
-      }
+      // Get the last trial data
+      var lastTrialData = jsPsych.data.get().last(1).values()[0];
+      // Show question for experimental and filler items
+      return lastTrialData.question !== false;
     };
 
     var trial_question_node = {
@@ -239,7 +233,7 @@
 
     // Practice Procedure
     var pr_procedure = {
-      timeline: [trial, trial_question],
+      timeline: [trial, trial_question_node],
       timeline_variables: [
         {
           s0: '<p class="stimulus">_______ | ____ | _______ | _______ | ____</p>',
@@ -251,8 +245,9 @@
           item_type: "pr_item",
           clause_type: "sr",
           number: "ss",
-          question: `<h2 style = "white-space: pre">Does the dog eat?<br><br>No         /         Yes</h2>`,
+          question: false,
           correct_answer: 0,
+          item_number: null,
         },
         {
           s0: '<p class="stimulus">_________ | ____ | _________ | _____ | ______</p>',
@@ -264,8 +259,9 @@
           item_type: "pr_item",
           clause_type: "or",
           number: "ss",
-          question: `<h2 style = "white-space: pre">Who falls?<br><br>The zebra   /   The horse</h2>`,
-          correct_answer: 1,
+          question: `<h2 style = "white-space: pre">Who laughs?<br><br>The zebra (f)   |   The horse (j)</h2>`,
+          correct_answer: "j",
+          item_number: null,
         },
       ],
       repetitions: 1,
@@ -288,11 +284,13 @@
       on_finish: function () {
         var element1 = document.getElementById("back1");
         var element2 = document.getElementById("back2");
-        var element3 = document.getElementById("logos");
+        var element3 = document.getElementById("uabLogo");
+        var element4 = document.getElementById("grelaLogo");
 
-        element1.classList.add("animate_back");
-        element2.classList.add("animate_back");
-        element3.classList.add("animate_banner");
+        element1.classList.toggle("animate_back");
+        element2.classList.toggle("animate_back");
+        element3.classList.toggle("animate_banner2");
+        element4.classList.toggle("animate_banner1");
       },
       post_trial_gap: 2000,
       record_data: false,
@@ -369,11 +367,13 @@
       on_start: function () {
         var element1 = document.getElementById("back1");
         var element2 = document.getElementById("back2");
-        var element3 = document.getElementById("logos");
+        var element3 = document.getElementById("uabLogo");
+        var element4 = document.getElementById("grelaLogo");
 
-        element1.classList.add("animate_back_reverse");
-        element2.classList.add("animate_back_reverse");
-        element3.classList.add("animate_banner_reverse");
+        element1.classList.toggle("animate_back_reverse");
+        element2.classList.toggle("animate_back_reverse");
+        element3.classList.toggle("animate_banner_reverse2");
+        element4.classList.toggle("animate_banner_reverse1");
       },
       record_data: false,
     };
