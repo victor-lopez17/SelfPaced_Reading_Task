@@ -79,10 +79,9 @@
       type: jsPsychHtmlButtonResponse,
       stimulus: `<div class='container'>
         <h1>Instructions</h1>
-        <p>For this task, you will be presented with a sentence divided in segments. However, these segments will be initially hidden.</p>
+        <p>For this task, you will be presented with sentences divided into segments. However, these segments will be initially hidden.</p>
 
-        <p>In order to complete it, you are asked to <b>press the space bar</b> each time you are done reading each segment.<br>
-        This will reveal what follows and hide the previous one.</p>
+        <p>In order to complete the task, you are asked to <b>press the space bar</b> each time you are done reading each segment. This will reveal the following segment and hide the previous one. Watch the video below for clarification.</p>
 
         <div id = "video">
           <video src = "./common/img/keyboard_animation.mp4" type = "video/mp4" autoplay loop muted preload = "auto"></video>
@@ -259,7 +258,19 @@
           item_type: "pr_item",
           clause_type: "or",
           number: "ss",
-          question: `<h2 style = "white-space: pre">Who laughs?<br><br>The zebra (f)   |   The horse (j)</h2>`,
+          question: `<div class='container' id='question'>
+            <h2>Who laughs?</h2>
+            <div>
+              <div class='container'>
+                <h2>The zebra</h2>
+                <h2>(F)</h2>
+              </div>
+              <div class='container'>
+                <h2>The horse</h2>
+                <h2>(J)</h2>
+              </div>
+            </div>
+          </div>`,
           correct_answer: "j",
           item_number: null,
         },
@@ -304,8 +315,8 @@
       randomize_order: true,
       sample: {
         type: "without-replacement",
-        // size: 5, // For testing purposes
-        size: stimulus.length, // 32 items + 15 fillers
+        size: 5, // For testing purposes
+        // size: stimulus.length, // 32 items + 15 fillers
       },
     };
     timeline.push(trial_procedure);
@@ -363,7 +374,7 @@
           <h2>Thank you for your time!</h2>
         </div>`;
       },
-      choices: ["j"],
+      choices: ["o"],
       on_start: function () {
         var element1 = document.getElementById("back1");
         var element2 = document.getElementById("back2");

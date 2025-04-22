@@ -184,7 +184,7 @@ input[type="checkbox"]:checked + label::before {
   border-color: white;
 }
 
-svg {
+.button svg {
   align-self: center;
   transition: 0.3s ease-in-out;
   stroke-width: 3px;
@@ -235,6 +235,7 @@ svg {
     .stimulus,
     .fixation,
     #question,
+    #question div div,
     #banner_back,
     #logos,
     #gif,
@@ -665,9 +666,14 @@ input[type="number"]::-webkit-inner-spin-button {
   background-color: var(--green-fade);
 }
 
-#question {
-  flex-direction: row;
-  margin-bottom: 50px;
+#question div {
+  display: flex;
+  column-gap: 100px;
+  margin-top: 25px;
+}
+
+#question h2 {
+  font-size: 1.8rem;
 }
 
 /* progress bar */
