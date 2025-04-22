@@ -11,7 +11,19 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Who falls?<br><br>The horse (f)   |   The zebra (j)</h2>`,
+    question: `<div class='container' id='question'>
+      <h2>Who falls?</h2>
+      <div>
+        <div class='container'>
+          <h2>The zebra</h2>
+          <h2>(F)</h2>
+        </div>
+        <div class='container'>
+          <h2>The horse</h2>
+          <h2>(J)</h2>
+        </div>
+      </div>
+    </div>`,
     correct_answer: "j",
     item_number: 1,
   },
@@ -101,7 +113,19 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "pp",
-    question: `<h2 style = "white-space: pre">Who cries?<br><br>The dogs (f)   |   The cats (j)</h2>`,
+    question: `<div class='container' id='question'>
+      <h2>Who cries?</h2>
+      <div>
+        <div class='container'>
+          <h2>The dogs</h2>
+          <h2>(F)</h2>
+        </div>
+        <div class='container'>
+          <h2>The cats</h2>
+          <h2>(J)</h2>
+        </div>
+      </div>
+    </div>`,
     correct_answer: "f",
     item_number: 7,
   },
@@ -146,7 +170,19 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "ps",
-    question: `<h2 style = "white-space: pre">Who runs?<br><br>The horse (f)   |   The zebras (j)</h2>`,
+    question: `<div class='container' id='question'>
+      <h2>Who runs?</h2>
+      <div>
+        <div class='container'>
+          <h2>The horse</h2>
+          <h2>(F)</h2>
+        </div>
+        <div class='container'>
+          <h2>The zebras</h2>
+          <h2>(J)</h2>
+        </div>
+      </div>
+    </div>`,
     correct_answer: "j",
     item_number: 4,
   },
@@ -236,8 +272,20 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "sr",
     number: "sp",
-    question: `<h2 style = "white-space: pre">Who smiles?<br><br>The cat (f)   |   The dogs (j)</h2>`,
-    correct_answer: "j",
+    question: `<div class='container' id='question'>
+      <h2>Who smiles?</h2>
+      <div>
+        <div class='container'>
+          <h2>The cat</h2>
+          <h2>(F)</h2>
+        </div>
+        <div class='container'>
+          <h2>The dogs</h2>
+          <h2>(J)</h2>
+        </div>
+      </div>
+    </div>`,
+    correct_answer: "f",
     item_number: 8,
   },
   {
@@ -282,7 +330,19 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Who cries?<br><br>The dog (f)   |   The cat (j)</h2>`,
+    question: `<div class='container' id='question'>
+      <h2>Who cries?</h2>
+      <div>
+        <div class='container'>
+          <h2>The dog</h2>
+          <h2>(F)</h2>
+        </div>
+        <div class='container'>
+          <h2>The cat</h2>
+          <h2>(J)</h2>
+        </div>
+      </div>
+    </div>`,
     correct_answer: "f",
     item_number: 7,
   },
@@ -312,7 +372,19 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "pp",
-    question: `<h2 style = "white-space: pre">Who falls?<br><br>The horses (f)   |   The zebras (j)</h2>`,
+    question: `<div class='container' id='question'>
+      <h2>Who falls?</h2>
+      <div>
+        <div class='container'>
+          <h2>The zebras</h2>
+          <h2>(F)</h2>
+        </div>
+        <div class='container'>
+          <h2>The horses</h2>
+          <h2>(J)</h2>
+        </div>
+      </div>
+    </div>`,
     correct_answer: "j",
     item_number: 1,
   },
@@ -417,7 +489,19 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "ps",
-    question: `<h2 style = "white-space: pre">Who smiles?<br><br>The cats (f)   |   The dog (j)</h2>`,
+    question: `<div class='container' id='question'>
+      <h2>Who smiles?</h2>
+      <div>
+        <div class='container'>
+          <h2>The dog</h2>
+          <h2>(F)</h2>
+        </div>
+        <div class='container'>
+          <h2>The cats</h2>
+          <h2>(J)</h2>
+        </div>
+      </div>
+    </div>`,
     correct_answer: "j",
     item_number: 8,
   },
@@ -447,8 +531,20 @@ var stimulus = [
     item_type: "exp_item",
     clause_type: "or",
     number: "sp",
-    question: `<h2 style = "white-space: pre">Who runs?<br><br>The horses (f)   |   The zebra (j)</h2>`,
-    correct_answer: 1,
+    question: `<div class='container' id='question'>
+      <h2>Who runs?</h2>
+      <div>
+        <div class='container'>
+          <h2>The horses</h2>
+          <h2>(F)</h2>
+        </div>
+        <div class='container'>
+          <h2>The zebra</h2>
+          <h2>(J)</h2>
+        </div>
+      </div>
+    </div>`,
+    correct_answer: "j",
     item_number: 4,
   },
   {
@@ -510,7 +606,19 @@ var stimulus = [
     item_type: "fill_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Does the chef scream?<br><br>No (f)         |         Yes (j)</h2>`,
+    question: `<div class='container' id='question'>
+      <h2>Does the chef scream?</h2>
+      <div>
+        <div class='container'>
+          <h2>No</h2>
+          <h2>(F)</h2>
+        </div>
+        <div class='container'>
+          <h2>Yes</h2>
+          <h2>(J)</h2>
+        </div>
+      </div>
+    </div>`,
     correct_answer: "f",
     item_number: 2,
   },
@@ -555,7 +663,19 @@ var stimulus = [
     item_type: "fill_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Does the chef cry?<br><br>No (f)         |         Yes (j)</h2>`,
+    question: `<div class='container' id='question'>
+      <h2>Does the chef cry?</h2>
+      <div>
+        <div class='container'>
+          <h2>No</h2>
+          <h2>(F)</h2>
+        </div>
+        <div class='container'>
+          <h2>Yes</h2>
+          <h2>(J)</h2>
+        </div>
+      </div>
+    </div>`,
     correct_answer: "j",
     item_number: 5,
   },
@@ -615,7 +735,19 @@ var stimulus = [
     item_type: "fill_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Does the singer scream?<br><br>No (f)         |         Yes (j)</h2>`,
+    question: `<div class='container' id='question'>
+      <h2>Does the singer scream?</h2>
+      <div>
+        <div class='container'>
+          <h2>No</h2>
+          <h2>(F)</h2>
+        </div>
+        <div class='container'>
+          <h2>Yes</h2>
+          <h2>(J)</h2>
+        </div>
+      </div>
+    </div>`,
     correct_answer: "j",
     item_number: 9,
   },
@@ -675,7 +807,19 @@ var stimulus = [
     item_type: "fill_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Does the woman leave?<br><br>No (f)         |         Yes (j)</h2>`,
+    question: `<div class='container' id='question'>
+      <h2>Does the woman leave?</h2>
+      <div>
+        <div class='container'>
+          <h2>No</h2>
+          <h2>(F)</h2>
+        </div>
+        <div class='container'>
+          <h2>Yes</h2>
+          <h2>(J)</h2>
+        </div>
+      </div>
+    </div>`,
     correct_answer: "j",
     item_number: 13,
   },
@@ -705,7 +849,19 @@ var stimulus = [
     item_type: "fill_item",
     clause_type: "sr",
     number: "ss",
-    question: `<h2 style = "white-space: pre">Does the woman murmur?<br><br>No (f)         |         Yes (j)</h2>`,
+    question: `<div class='container' id='question'>
+      <h2>Does the woman murmur?</h2>
+      <div>
+        <div class='container'>
+          <h2>No</h2>
+          <h2>(F)</h2>
+        </div>
+        <div class='container'>
+          <h2>Yes</h2>
+          <h2>(J)</h2>
+        </div>
+      </div>
+    </div>`,
     correct_answer: "j",
     item_number: 15,
   },
