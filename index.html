@@ -29,12 +29,12 @@
 
   <!-- Aesthetics -->
   <body>
-    <div id="banner">
-      <div class="container" id="banner_back">
-        <div id="back1"></div>
-        <div id="back2"></div>
+    <div class="banner">
+      <div class="container" id="banner-container">
+        <div id="banner-stripe1"></div>
+        <div id="banner-stripe2"></div>
       </div>
-      <div class="container" id="logos">
+      <div class="container" id="banner-logo-container">
         <img src="./common/img/uabLogo.png" id="uabLogo" alt="uab logo" />
         <img src="./common/img/grelaLogo.png" id="grelaLogo" alt="grela logo" />
       </div>
@@ -43,7 +43,7 @@
 
   <!-- Experiment Script -->
   <script>
-    // Initializing jsPsych
+    // Initializing jsPsych and Experiment Timeline
     const jsPsych = initJsPsych({
       on_finish: function () {
         var part_id = `${jsPsych.data.get().values()[0].part_id}.csv`;
@@ -52,7 +52,6 @@
       },
     });
 
-    // Timeline
     var timeline = [];
 
     // Introduction
@@ -63,7 +62,7 @@
         <p>You are about to participate in a <br>
         <b>self-paced reading task</b>.</p>
         <p>Please, enter your participant ID below:</p>
-        <input name = "part_id" type = "number" required placeholder = "Part. ID"></input>
+        <input name="part_id" type="number" required placeholder="Part. ID"></input>
       </div>`,
       button_label: "Instructions",
       on_finish: function (data) {
@@ -83,8 +82,8 @@
 
         <p>In order to complete the task, you are asked to <b>press the space bar</b> each time you are done reading each segment. This will reveal the following segment and hide the previous one. Watch the video below for clarification.</p>
 
-        <div id = "video">
-          <video src = "./common/img/keyboard_animation.mp4" type = "video/mp4" autoplay loop muted preload = "auto"></video>
+        <div class="instructions-video-container">
+          <video src="./common/img/keyboard_animation.mp4" type="video/mp4" autoplay loop muted preload="auto"></video>
         </div>
 
         <p>By the end of some of the sentences, you will be asked to <b>answer a question</b> on the sentence you just read by pressing either <b>F</b> or <b>J</b>. So, make sure to <b>take the time</b> to understand what you read!</p>
@@ -92,7 +91,7 @@
         <p>Once you have finished reading a sentence and you have answered its question, if any, the next one will appear. This will repeat until the test is done.</p>
 
 
-        <svg id = "below" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path id = "first" d="m7 6 5 5 5-5"/><path id = "second" d="m7 13 5 5 5-5"/></svg>
+        <svg class="instructions-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path id="instructions-arrow1" d="m7 6 5 5 5-5"/><path id="instructions-arrow2" d="m7 13 5 5 5-5"/></svg>
 
       <div>`,
       choices: ["Practice"],
@@ -235,12 +234,12 @@
       timeline: [trial, trial_question_node],
       timeline_variables: [
         {
-          s0: '<p class="stimulus">_______ | ____ | _______ | _______ | ____</p>',
-          s1: '<p class="stimulus">The cat | ____ | _______ | _______ | ____</p>',
-          s2: '<p class="stimulus">_______ | that | _______ | _______ | ____</p>',
-          s3: '<p class="stimulus">_______ | ____ | watches | _______ | ____</p>',
-          s4: '<p class="stimulus">_______ | ____ | _______ | the dog | ____</p>',
-          s5: '<p class="stimulus">_______ | ____ | _______ | _______ | eats</p>',
+          s0: '<p class="trial_stimulus">_______ | ____ | _______ | _______ | ____</p>',
+          s1: '<p class="trial_stimulus">The cat | ____ | _______ | _______ | ____</p>',
+          s2: '<p class="trial_stimulus">_______ | that | _______ | _______ | ____</p>',
+          s3: '<p class="trial_stimulus">_______ | ____ | watches | _______ | ____</p>',
+          s4: '<p class="trial_stimulus">_______ | ____ | _______ | the dog | ____</p>',
+          s5: '<p class="trial_stimulus">_______ | ____ | _______ | _______ | eats</p>',
           item_type: "pr_item",
           clause_type: "sr",
           number: "ss",
@@ -249,16 +248,16 @@
           item_number: null,
         },
         {
-          s0: '<p class="stimulus">_________ | ____ | _________ | _____ | ______</p>',
-          s1: '<p class="stimulus">The horse | ____ | _________ | _____ | ______</p>',
-          s2: '<p class="stimulus">_________ | that | _________ | _____ | ______</p>',
-          s3: '<p class="stimulus">_________ | ____ | the zebra | _____ | ______</p>',
-          s4: '<p class="stimulus">_________ | ____ | _________ | kicks | ______</p>',
-          s5: '<p class="stimulus">_________ | ____ | _________ | _____ | laughs</p>',
+          s0: '<p class="trial_stimulus">_________ | ____ | _________ | _____ | ______</p>',
+          s1: '<p class="trial_stimulus">The horse | ____ | _________ | _____ | ______</p>',
+          s2: '<p class="trial_stimulus">_________ | that | _________ | _____ | ______</p>',
+          s3: '<p class="trial_stimulus">_________ | ____ | the zebra | _____ | ______</p>',
+          s4: '<p class="trial_stimulus">_________ | ____ | _________ | kicks | ______</p>',
+          s5: '<p class="trial_stimulus">_________ | ____ | _________ | _____ | laughs</p>',
           item_type: "pr_item",
           clause_type: "or",
           number: "ss",
-          question: `<div class='container' id='question'>
+          question: `<div class='container' id='trial_question'>
             <h2>Who laughs?</h2>
             <div>
               <div class='container'>
@@ -293,15 +292,15 @@
         </div>`,
       record_data: false,
       on_finish: function () {
-        var element1 = document.getElementById("back1");
-        var element2 = document.getElementById("back2");
+        var element1 = document.getElementById("banner-stripe1");
+        var element2 = document.getElementById("banner-stripe2");
         var element3 = document.getElementById("uabLogo");
         var element4 = document.getElementById("grelaLogo");
 
-        element1.classList.toggle("animate_back");
-        element2.classList.toggle("animate_back");
-        element3.classList.toggle("animate_banner2");
-        element4.classList.toggle("animate_banner1");
+        element1.classList.toggle("animate-banner-out");
+        element2.classList.toggle("animate-banner-out");
+        element3.classList.toggle("animate-logo2-out");
+        element4.classList.toggle("animate-logo1-out");
       },
       post_trial_gap: 2000,
       record_data: false,
@@ -311,12 +310,12 @@
     // Trial Procedure
     var trial_procedure = {
       timeline: [trial, trial_question_node],
-      timeline_variables: stimulus,
+      timeline_variables: trial_stimulus,
       randomize_order: true,
       sample: {
         type: "without-replacement",
-        size: 5, // For testing purposes
-        // size: stimulus.length, // 32 items + 15 fillers
+        size: 2, // For testing purposes
+        // size: trial_stimulus.length, // 32 items + 15 fillers
       },
     };
     timeline.push(trial_procedure);
@@ -376,15 +375,15 @@
       },
       choices: ["o"],
       on_start: function () {
-        var element1 = document.getElementById("back1");
-        var element2 = document.getElementById("back2");
+        var element1 = document.getElementById("banner-stripe1");
+        var element2 = document.getElementById("banner-stripe2");
         var element3 = document.getElementById("uabLogo");
         var element4 = document.getElementById("grelaLogo");
 
-        element1.classList.toggle("animate_back_reverse");
-        element2.classList.toggle("animate_back_reverse");
-        element3.classList.toggle("animate_banner_reverse2");
-        element4.classList.toggle("animate_banner_reverse1");
+        element1.classList.toggle("animate-banner-in");
+        element2.classList.toggle("animate-banner-in");
+        element3.classList.toggle("animate-logo2-in");
+        element4.classList.toggle("animate-logo1-in");
       },
       record_data: false,
     };
@@ -410,8 +409,8 @@
       },
     };
 
-    jsPsych.run(timeline);
-    // jsPsych.simulate(timeline);
+    //jsPsych.run(timeline);
+    jsPsych.simulate(timeline, "visual");
   </script>
 </html>
 
