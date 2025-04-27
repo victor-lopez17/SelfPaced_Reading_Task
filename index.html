@@ -57,6 +57,9 @@
     // Introduction
     var intro = {
       type: jsPsychSurveyHtmlForm,
+      simulation_options: {
+        simulate: false,
+      },
       html: `<div class='container'>
         <h1>Welcome!</h1>
         <p>You are about to participate in a <br>
@@ -76,6 +79,9 @@
     // Instructions
     var inst = {
       type: jsPsychHtmlButtonResponse,
+      simulation_options: {
+        simulate: false,
+      },
       stimulus: `<div class='container'>
         <h1>Instructions</h1>
         <p>For this task, you will be presented with sentences divided into segments. However, these segments will be initially hidden.</p>
@@ -196,6 +202,7 @@
     // Trial Question
     var trial_question = {
       type: jsPsychHtmlKeyboardResponse,
+      simulation_options: "question_response",
       choices: ["f", "j"],
       stimulus: jsPsych.timelineVariable("question"),
       data: {
@@ -234,12 +241,12 @@
       timeline: [trial, trial_question_node],
       timeline_variables: [
         {
-          s0: '<p class="trial_stimulus">_______ | ____ | _______ | _______ | ____</p>',
-          s1: '<p class="trial_stimulus">The cat | ____ | _______ | _______ | ____</p>',
-          s2: '<p class="trial_stimulus">_______ | that | _______ | _______ | ____</p>',
-          s3: '<p class="trial_stimulus">_______ | ____ | watches | _______ | ____</p>',
-          s4: '<p class="trial_stimulus">_______ | ____ | _______ | the dog | ____</p>',
-          s5: '<p class="trial_stimulus">_______ | ____ | _______ | _______ | eats</p>',
+          s0: '<p class="trial-stimulus">_______ | ____ | _______ | _______ | ____</p>',
+          s1: '<p class="trial-stimulus">The cat | ____ | _______ | _______ | ____</p>',
+          s2: '<p class="trial-stimulus">_______ | that | _______ | _______ | ____</p>',
+          s3: '<p class="trial-stimulus">_______ | ____ | watches | _______ | ____</p>',
+          s4: '<p class="trial-stimulus">_______ | ____ | _______ | the dog | ____</p>',
+          s5: '<p class="trial-stimulus">_______ | ____ | _______ | _______ | eats</p>',
           item_type: "pr_item",
           clause_type: "sr",
           number: "ss",
@@ -248,25 +255,25 @@
           item_number: null,
         },
         {
-          s0: '<p class="trial_stimulus">_________ | ____ | _________ | _____ | ______</p>',
-          s1: '<p class="trial_stimulus">The horse | ____ | _________ | _____ | ______</p>',
-          s2: '<p class="trial_stimulus">_________ | that | _________ | _____ | ______</p>',
-          s3: '<p class="trial_stimulus">_________ | ____ | the zebra | _____ | ______</p>',
-          s4: '<p class="trial_stimulus">_________ | ____ | _________ | kicks | ______</p>',
-          s5: '<p class="trial_stimulus">_________ | ____ | _________ | _____ | laughs</p>',
+          s0: '<p class="trial-stimulus">_________ | ____ | _________ | _____ | ______</p>',
+          s1: '<p class="trial-stimulus">The horse | ____ | _________ | _____ | ______</p>',
+          s2: '<p class="trial-stimulus">_________ | that | _________ | _____ | ______</p>',
+          s3: '<p class="trial-stimulus">_________ | ____ | the zebra | _____ | ______</p>',
+          s4: '<p class="trial-stimulus">_________ | ____ | _________ | kicks | ______</p>',
+          s5: '<p class="trial-stimulus">_________ | ____ | _________ | _____ | laughs</p>',
           item_type: "pr_item",
           clause_type: "or",
           number: "ss",
-          question: `<div class='container' id='trial_question'>
-            <h2>Who laughs?</h2>
+          question: `<div class='container trial-question'>
+            <h2 class='trial-question-header'>Who laughs?</h2>
             <div>
               <div class='container'>
-                <h2>The zebra</h2>
-                <h2>(F)</h2>
+                <h2 class='trial-question-answer'>The zebra</h2>
+                <h2 class='trial-question-key'>F</h2>
               </div>
               <div class='container'>
-                <h2>The horse</h2>
-                <h2>(J)</h2>
+                <h2 class='trial-question-answer'>The horse</h2>
+                <h2 class='trial-question-key'>J</h2>
               </div>
             </div>
           </div>`,
@@ -281,6 +288,9 @@
     // Test Beginning
     var start_prompt = {
       type: jsPsychHtmlButtonResponse,
+      simulation_options: {
+        simulate: false,
+      },
       stimulus: `<div class='container'>
         <h1>Practice is Over!</h1>
         <p>Now, you will start the test. Remember to <b>take your time to read and understand</b> each sentence.</p>
@@ -310,12 +320,12 @@
     // Trial Procedure
     var trial_procedure = {
       timeline: [trial, trial_question_node],
-      timeline_variables: trial_stimulus,
+      timeline_variables: stimulus,
       randomize_order: true,
       sample: {
         type: "without-replacement",
-        size: 2, // For testing purposes
-        // size: trial_stimulus.length, // 32 items + 15 fillers
+        //size: 2, // For testing purposes
+        size: stimulus.length, // 32 items + 15 fillers
       },
     };
     timeline.push(trial_procedure);
@@ -323,6 +333,9 @@
     // Experiment Ending
     var debrief = {
       type: jsPsychHtmlKeyboardResponse,
+      simulation_options: {
+        simulate: false,
+      },
       stimulus: function () {
         var s1_mean = Math.round(
           jsPsych.data.get().filter({ segment: "s1" }).select("rt").mean()
@@ -391,26 +404,35 @@
 
     // Simulation
     const simulation_options = {
+      question_response: {
+        data: {
+          rt: 5000
+        },
+      },
       long_response: {
-        rt: () => {
-          return jsPsych.randomization.sampleWithReplacement(
-            [1000, 1500, 2000, 2500, 3000],
-            1
-          );
+        data: {
+          rt: () => {
+            return jsPsych.randomization.sampleWithReplacement(
+              [750, 1000, 1250, 1500, 2000],
+              1
+            );
+          },
         },
       },
       short_response: {
-        rt: () => {
-          return jsPsych.randomization.sampleWithReplacement(
-            [250, 375, 500, 1000, 750],
-            1
-          );
+        data: {
+          rt: () => {
+            return jsPsych.randomization.sampleWithReplacement(
+              [250, 375, 500, 1000, 750],
+              1
+            );
+          },
         },
       },
     };
 
     //jsPsych.run(timeline);
-    jsPsych.simulate(timeline, "visual");
+    jsPsych.simulate(timeline, "visual", simulation_options);
   </script>
 </html>
 
