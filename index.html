@@ -218,7 +218,7 @@
           part_answer: data.response,
         });
 
-        return (data.response === data.correct_answer) ? data.correct = 1 : data.correct = 0;
+        return (data.response.toLowerCase() === data.correct_answer.toLowerCase()) ? data.correct = 1 : data.correct = 0;
       },
       post_trial_gap: 500,
     };
@@ -432,7 +432,7 @@
     };
 
     jsPsych.run(timeline);
-    //jsPsych.simulate(timeline, "visual", simulation_options);
+    //jsPsych.simulate(timeline, "data-only", simulation_options);
   </script>
 </html>
 
