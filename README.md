@@ -44,6 +44,6 @@ Here are the steps for installing and running this self-paced reading task:
 4. Right-click on the file named _index.html_, select _Open with..._ and then select _Google Chrome_. The task should now open on your navigator and you should be able to proceed.
 5. Once the task has finished, press "j" to download the data locally.
 
-Alternatively, if you do not want access to the source code, just click on [this link](https://vieju17.github.io/SelfPaced_Reading_Task/).
+Alternatively, if you do not want access to the source code, just click on [this link](https://victor-lopez17.github.io/SelfPaced_Reading_Task/).
 
 ⚠️ **_It is strongly recommended to run the experiment on Chrome, as other web browsers might render it differently and cause visual artifacts, or worse._**
